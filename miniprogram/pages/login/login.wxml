@@ -1,0 +1,24 @@
+<view>
+	<!-- 背景图片 -->
+	<view class="bg-color">
+	</view>
+	<!-- 中间内容 -->
+	<view class="main">
+		<!-- 头部 -->
+		<view class="main-header">
+			<!-- 密码登录 -->
+			<view class="pswd">
+				<view class="pswd-title my-font">密码登录</view>
+				<view class="inline"></view>
+			</view>
+
+      <!-- 验证码登录 -->
+			<view class="verification">
+				<view class="pswd-title my-font">验证码登录</view>
+				<view class="inline"></view>
+			</view>
+
+		</view>
+	</view>
+
+</view>

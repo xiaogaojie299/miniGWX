@@ -1,0 +1,52 @@
+.my-font{
+font-size: 16px;
+font-family: PingFangSC-Semibold, PingFang SC;
+font-weight: 600;
+color: #464662;
+}
+.bg-color{
+  width:100%;
+  height: 240rpx;
+  border: 1px solid red;
+  position: absolute;
+  z-index: -1;
+  top:0;
+}
+.main{
+height: 519px;
+background: #FFFFFF;
+border-radius: 14px 14px 0px 0px;
+position: relative;
+margin-top:200rpx;
+}
+.main-header{
+  display: flex;
+}
+.pswd{
+  margin-left: 84px;
+  height: 80rpx;
+  border: 1px solid red;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.verification{
+  margin:0 80px;
+  height: 80rpx;
+  border: 1px solid red;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.inline{
+  position: absolute;
+  bottom: 0;
+    width: 30rpx;
+  height: 6rpx;
+  background: #EB002A;
+  border-radius: 2px;
+}
