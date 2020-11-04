@@ -1,4 +1,4 @@
-// miniprogram/pages/login/login.js
+// miniprogram/pages/forgetUpwd/index.js
 Page({
 
   /**
@@ -6,25 +6,22 @@ Page({
    */
   data: {
     list:[
-      {title:"密码登录"},
-      {title:"验证码登录"}
-    ],
-    currentIndex:0
+      {
+        placeholder:"请输入手机号"
+      },
+      {
+        placeholder:"请输入验证码",
+        title:"获取验证码"
+      },
+      {
+        placeholder:"输入新密码 (6-16位任意字符，区分大小写)",
+      },
+      {
+        placeholder:"再次输入密码",
+      }
+    ]
   },
-  defindType(event){
-    return event.currentTarget.dataset
-  },
-  isactive(event){
-    this.setData({
-      // currentIndex:this.defindType(event).index
-      currentIndex:this.defindType(event).index
-    })
-  },
-  go_forUpwd(){
-    wx.navigateTo({
-      url: '../forgetUpwd/index',
-     })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

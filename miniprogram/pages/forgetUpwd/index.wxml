@@ -1,0 +1,23 @@
+<!--miniprogram/pages/forgetUpwd/index.wxml-->
+<view>
+  <!-- input框 -->
+  <view class="input-box">
+    <view class="input-item" wx:for="{{list}}" wx:key="index">
+      <input 
+      placeholder="{{item.placeholder}}"
+      style="{{item.title?'width:70%':'width:100%'}}" 
+      type="text"
+      placeholder-style='font-size: 30rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #B2B2BF;'
+      />
+      <view class="right-title">{{item.title}}</view>
+    </view>
+  </view>
+  <!-- 您也可以拨打服务电话 -->
+  <view class="title-bar">
+    您也可以拨打服务电话联系平台重置密码：400-000-0000
+  </view>
+  <!-- 下面按钮 -->
+  <view class="btn">
+    <view class="test">登 录</view>
+  </view>
+</view>

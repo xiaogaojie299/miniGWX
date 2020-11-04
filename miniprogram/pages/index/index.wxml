@@ -1,4 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-    首页
+    <view class="nav-style">
+        <view class="top-title">您好，张三</view>
+    </view>
 </view>
