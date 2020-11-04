@@ -2,8 +2,47 @@
   "pages": [
     "pages/login/login",
     "pages/index/index",
-    "pages/forgetUpwd/index"
+    "pages/forgetUpwd/index",
+    "pages/homeWork/index",
+    "pages/news/index",
+    "pages/study/index",
+    "pages/user/index"
   ],
+  "tabBar": {
+    "selectedColor":"#F13833",
+    "list": [
+      {
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "pages/imgs/navBar/icon_tab_home.png",
+      "selectedIconPath": "pages/imgs/navBar/icon_tab_home_selected.png"
+    },
+    {
+      "pagePath": "pages/homeWork/index",
+      "text": "问答",
+      "iconPath": "pages/imgs/navBar/icon_tab_homework.png",
+      "selectedIconPath": "pages/imgs/navBar/icon_tab_homework.png"
+    },
+    {
+      "pagePath": "pages/study/index",
+      "text": "教学",
+      "iconPath": "pages/imgs/navBar/icon_tab_study.png",
+      "selectedIconPath": "pages/imgs/navBar/icon_tab_study_selected.png"
+    },
+    {
+      "pagePath": "pages/news/index",
+      "text": "消息",
+      "iconPath": "pages/imgs/navBar/icon_tab_news.png",
+      "selectedIconPath": "pages/imgs/navBar/icon_tab_news_selected.png"
+    },
+    {
+      "pagePath": "pages/user/index",
+      "text": "我的",
+      "iconPath": "pages/imgs/navBar/icon_tab_user.png",
+      "selectedIconPath": "pages/imgs/navBar/icon_tab_user_selected.png"
+    }
+  ]
+  },
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",

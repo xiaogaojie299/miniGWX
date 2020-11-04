@@ -3,4 +3,13 @@
     <view class="nav-style">
         <view class="top-title">您好，张三</view>
     </view>
+
+    <!-- 下面轮播 -->
+    <view>
+        <swiper style="height: 374rpx;" indicator-dots="true">
+           <swiper-item wx:for="{{3}}">
+                <image src="../../images/login_bg@2x.png" style="width:100%;height:100%"></image>
+            </swiper-item>
+        </swiper>
+    </view>
 </view>
