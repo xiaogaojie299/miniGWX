@@ -10,6 +10,3 @@ font-family: PingFangSC-Medium, PingFang SC;
 font-weight: 500;
 color: #FFFFFF;
 }
-.main{
-  padding:22rpx
-}

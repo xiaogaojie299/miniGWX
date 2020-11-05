@@ -1,17 +1,11 @@
-<view>
-    <view>
-      <top-content></top-content>
-    </view>
-    <!-- 主体内容 -->
-    <view class="main">
+<view class="main">
       <!-- 顶部搜索框 -->
       <view>
         <top-input>
-          <view class="my-problem" bindtap="go_myProblem">我的问答</view> 
         </top-input>
       </view>
       <!-- 下面答案内容 -->
-      <view bindtap="go_detail" wx:for="{{3}}" wx:key="index" class="answer-box mt-20">
+      <view wx:for="{{3}}" bindtap="go_myProDetail" wx:key="index" class="answer-box mt-20">
         <!-- 题目详情 -->
         <view class="problem-title m-10">
           这道数学题怎么解答？
@@ -41,4 +35,3 @@
         </view>
       </view>
     </view>
-</view>

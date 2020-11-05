@@ -1,0 +1,6 @@
+<view class="crumb">
+  <view class="long-string"></view>
+  <view class="crumb-title">
+    <slot></slot>
+  </view>
+</view>

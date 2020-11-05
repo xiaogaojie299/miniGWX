@@ -1,0 +1,20 @@
+.crumb {
+  display: flex;
+  align-items: center;
+  margin: 18rpx 0;
+}
+.long-string {
+
+  width: 8rpx;
+height: 32rpx;
+background: #EB002A;
+border-radius: 4rpx;
+
+}
+.crumb-title {
+  font-size: 40rpx;
+  margin-left: 12rpx;
+font-family: PingFangSC-Semibold, PingFang SC;
+font-weight: 600;
+color: #303A44;
+}

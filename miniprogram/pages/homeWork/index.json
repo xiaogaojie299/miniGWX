@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "top-input":"/components/top-input/index"
+  },
+  "navigationStyle": "custom"
 }

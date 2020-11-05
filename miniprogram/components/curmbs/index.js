@@ -1,4 +1,4 @@
-// miniprogram/pages/homeWork/index.js
+// miniprogram/components/curmbs/index.js
 Page({
 
   /**
@@ -7,17 +7,7 @@ Page({
   data: {
 
   },
-  go_myProblem(){
-    wx.navigateTo({
-      // url: 'pages/homeWork/my-problem/my-problem',
-      url: './my-problem/my-problem',
-     })
-  },
-  go_detail(){
-    wx.navigateTo({
-      url: './problem-detail/problem-detail',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

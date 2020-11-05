@@ -1,0 +1,10 @@
+<view class="top-input">
+  <!-- input -->
+  <view class="left-cont">
+    <input type="text" 
+    placeholder="搜索问答" 
+    placeholder-style="font-weight:400;color:#333333;" />
+    <image src="/images/search_gray.png"></image>
+  </view>
+  <slot></slot>
+</view>

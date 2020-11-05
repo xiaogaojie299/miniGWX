@@ -1,4 +1,4 @@
-// miniprogram/pages/homeWork/index.js
+// miniprogram/pages/homeWork/my-problem/my-problem.js
 Page({
 
   /**
@@ -7,15 +7,9 @@ Page({
   data: {
 
   },
-  go_myProblem(){
+  go_myProDetail(){
     wx.navigateTo({
-      // url: 'pages/homeWork/my-problem/my-problem',
-      url: './my-problem/my-problem',
-     })
-  },
-  go_detail(){
-    wx.navigateTo({
-      url: './problem-detail/problem-detail',
+      url:"../my-problem-detail/my-problem-detail",
     })
   },
   /**

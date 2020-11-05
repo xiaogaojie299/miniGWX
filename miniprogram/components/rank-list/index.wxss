@@ -1,0 +1,60 @@
+.my-font{
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #F13632;
+}
+.rank-box{
+height: 1052rpx;
+background: #FFFFFF;
+box-shadow: 0rpx 4rpx 8rpx 0rpx rgba(213,213,213,0.5);
+border-radius: 4rpx;
+margin:20rpx 0;
+}
+.rank-title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rrpx;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #222222;
+  height: 86rpx;
+}
+.rank-name,.rank-list-row{
+display: flex;
+justify-content: space-between;
+}
+.rank-name{
+  height: 60rpx;
+  background: #FCFCFC;
+}
+.rank-list-row{
+  height: 90rpx;
+  border-bottom: 1px solid #EEEEEE;
+}
+.rank-list-row:last-child{
+  border: none;
+}
+.rank-name-item,.rank-list-item{
+width: 30%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.rank-list-item{
+font-size: 32rpx;
+font-family: PingFangSC-Medium, PingFang SC;
+font-weight: 500;
+color: #2F3446;
+}
+.rank-list-item>.teacher-img{
+  width: 44rpx;
+  height: 44rpx;
+  border: 1px solid black;
+  margin-right: 14rpx;
+}
+.rank-list-item>.rank-icon{
+  width: 48rpx;
+  height: 48rpx;
+}

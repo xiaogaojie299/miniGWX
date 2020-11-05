@@ -6,48 +6,58 @@
     "pages/homeWork/index",
     "pages/news/index",
     "pages/study/index",
-    "pages/user/index"
+    "pages/user/index",
+    "components/curmbs/index",
+    "components/today-course/index",
+    "components/rank-list/index",
+    "pages/homeWork/problem-detail/problem-detail",
+    "pages/homeWork/my-problem-detail/my-problem-detail"
   ],
   "tabBar": {
-    "selectedColor":"#F13833",
+    "selectedColor": "#F13833",
     "list": [
       {
-      "pagePath": "pages/index/index",
-      "text": "首页",
-      "iconPath": "pages/imgs/navBar/icon_tab_home.png",
-      "selectedIconPath": "pages/imgs/navBar/icon_tab_home_selected.png"
-    },
-    {
-      "pagePath": "pages/homeWork/index",
-      "text": "问答",
-      "iconPath": "pages/imgs/navBar/icon_tab_homework.png",
-      "selectedIconPath": "pages/imgs/navBar/icon_tab_homework.png"
-    },
-    {
-      "pagePath": "pages/study/index",
-      "text": "教学",
-      "iconPath": "pages/imgs/navBar/icon_tab_study.png",
-      "selectedIconPath": "pages/imgs/navBar/icon_tab_study_selected.png"
-    },
-    {
-      "pagePath": "pages/news/index",
-      "text": "消息",
-      "iconPath": "pages/imgs/navBar/icon_tab_news.png",
-      "selectedIconPath": "pages/imgs/navBar/icon_tab_news_selected.png"
-    },
-    {
-      "pagePath": "pages/user/index",
-      "text": "我的",
-      "iconPath": "pages/imgs/navBar/icon_tab_user.png",
-      "selectedIconPath": "pages/imgs/navBar/icon_tab_user_selected.png"
-    }
-  ]
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "pages/imgs/navBar/icon_tab_home.png",
+        "selectedIconPath": "pages/imgs/navBar/icon_tab_home_selected.png"
+      },
+      {
+        "pagePath": "pages/homeWork/index",
+        "text": "问答",
+        "iconPath": "pages/imgs/navBar/icon_tab_homework.png",
+        "selectedIconPath": "pages/imgs/navBar/icon_tab_homework.png"
+      },
+      {
+        "pagePath": "pages/study/index",
+        "text": "教学",
+        "iconPath": "pages/imgs/navBar/icon_tab_study.png",
+        "selectedIconPath": "pages/imgs/navBar/icon_tab_study_selected.png"
+      },
+      {
+        "pagePath": "pages/news/index",
+        "text": "消息",
+        "iconPath": "pages/imgs/navBar/icon_tab_news.png",
+        "selectedIconPath": "pages/imgs/navBar/icon_tab_news_selected.png"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "我的",
+        "iconPath": "pages/imgs/navBar/icon_tab_user.png",
+        "selectedIconPath": "pages/imgs/navBar/icon_tab_user_selected.png"
+      }
+    ]
   },
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "top-content": "/components/top-content/index",
+    "van-button": "vant-weapp/button",
+    "van-action-sheet": "vant-weapp/action-sheet"
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2"

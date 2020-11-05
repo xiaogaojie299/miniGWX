@@ -1,0 +1,24 @@
+<view class="rank-box">
+  <view class="rank-title">老师课时数排行</view>
+  <view class="rank-name">
+    <view class="rank-name-item my-font">排名</view>
+    <view class="rank-name-item my-font">老师</view>
+    <view class="rank-name-item my-font">课时数</view>
+  </view>
+  <!-- 下面LIST数据 -->
+  <view class="rank-list-box">
+    <view class="rank-list-row" wx:for="{{10}}" wx:key="item">
+      <view class="rank-list-item">
+        <text wx:if="{{index>2}}">{{index+1}}</text>
+        <image class="rank-icon" wx:elif="{{index==0}}" src="/images/NO1.png"></image>
+        <image class="rank-icon" wx:elif="{{index==1}}" src="/images/NO2.png"></image>
+        <image class="rank-icon" wx:else src="/images/NO3.png"></image>
+      </view>
+      <view class="rank-list-item">
+        <image class="teacher-img"></image>
+        <view>张老师</view>
+      </view>
+      <view class="rank-list-item">1</view>
+    </view>
+  </view>
+</view>

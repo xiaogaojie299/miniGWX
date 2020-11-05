@@ -1,6 +1,10 @@
 {
   "usingComponents": {
-    "van-button": "vant-weapp/button"
+    "van-button": "vant-weapp/button",
+    "curmbs":"/components/curmbs/index",
+    "today-course":"/components/today-course/index",
+    "rank-list":"/components/rank-list/index"
   },
+  "component": true,
   "navigationStyle": "custom"
 }

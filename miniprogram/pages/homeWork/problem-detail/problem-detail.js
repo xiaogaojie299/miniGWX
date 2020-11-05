@@ -1,22 +1,28 @@
-// miniprogram/pages/homeWork/index.js
+// miniprogram/pages/homeWork/problem-detail/problem-detail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    show: false,
+    actions: [
+      {
+        name: '选项',
+      },
+      {
+        name: '选项',
+      }]
   },
-  go_myProblem(){
-    wx.navigateTo({
-      // url: 'pages/homeWork/my-problem/my-problem',
-      url: './my-problem/my-problem',
-     })
+  open1(){
+    console.log('打印成功');
+    this.setData({ show: true });
   },
-  go_detail(){
-    wx.navigateTo({
-      url: './problem-detail/problem-detail',
-    })
+  onClose() {
+    this.setData({ show: false });
+  },
+  onSelect(event) {
+    console.log(event.detail);
   },
   /**
    * 生命周期函数--监听页面加载

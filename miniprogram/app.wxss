@@ -1,3 +1,25 @@
 view,input{
   box-sizing: border-box;
 }
+.mt-10{
+  margin-top: 10rpx;
+}
+.mt-20{
+  margin-top: 20rpx;
+}
+.mt-30{
+  margin-top: 30rpx;
+}
+.mb-10{
+  margin-bottom: 10rpx;
+}
+.mb-20{
+  margin-bottom: 20rpx;
+}
+.mb-30{
+  margin-bottom: 30rpx;
+}
+
+.plr-24{
+  padding:0 24rpx;
+}
