@@ -91,6 +91,62 @@
           "id": -1,
           "name": "pages/homeWork/problem-detail/problem-detail",
           "pathName": "pages/homeWork/problem-detail/problem-detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/homeWork/my-problem-detail/my-problem-detail",
+          "pathName": "pages/homeWork/my-problem-detail/my-problem-detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/homeWork/my-problem/my-problem",
+          "pathName": "pages/homeWork/my-problem/my-problem",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/news/index",
+          "pathName": "pages/news/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/news/msg-notification/msg-index",
+          "pathName": "pages/news/msg-notification/msg-index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/user/index",
+          "pathName": "pages/user/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/user/user-details/user-detail",
+          "pathName": "pages/user/user-details/user-detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/user/recruit/recruit",
+          "pathName": "pages/user/recruit/recruit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/user/become-teacher/become-teacher",
+          "pathName": "pages/user/become-teacher/become-teacher",
           "scene": null
         }
       ]

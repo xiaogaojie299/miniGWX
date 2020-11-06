@@ -1,0 +1,80 @@
+<view>
+  <!-- 头部 -->
+  <view class="header plr-24">
+      <view class="row1">
+        <view class="my-font">头像</view>
+        <view class="flex-center">
+          <image class="user-img mr-30"></image>
+          <image class="right_icon" src="/images/right.png"></image>
+        </view>
+      </view>
+      
+      <view class="row1">
+        <view class="font-s-28 font-w-500 color-black">昵称</view>
+        <view class="font-s-26 font-w-400 color-black">哈哈哈</view>
+      </view>
+      
+      <view class="row1">
+        <view class="font-s-28 font-w-500 color-black">性别</view>
+        <view>
+          <radio-button>
+            <text class="font-w-400 font-s-28 color-black ml-10" slot="radio1">男</text>
+            <text class="font-w-400 font-s-28 color-black ml-10" slot="radio2">女</text>
+          </radio-button>
+        </view>
+      </view>
+      
+      <view class="row1">
+        <view class="my-font">擅长课程</view>
+        <view class="flex-center">
+          <view class="font-s-26 font-w-400 color-black">英语/数学</view>
+          <image class="right_icon" src="/images/right.png"></image>
+        </view>
+      </view>
+
+      <view class="row1">
+        <view class="my-font">出生日期</view>
+        <view class="flex-center">
+          <view class="font-s-26 font-w-400 color-black">2020/1/1</view>
+          <image class="right_icon" src="/images/right.png"></image>
+        </view>
+      </view>
+      
+      <view class="row1">
+        <view class="my-font">个人简历</view>
+        <view class="flex-center">
+          <view class="font-s-26 font-w-400 color-black">编辑个人介绍50字</view>
+          <image class="right_icon" src="/images/right.png"></image>
+        </view>
+      </view>
+
+  </view>
+  <!-- 主体 -->
+  <view class="main plr-24">
+    <!-- 用户信息 -->
+    <view class="card-bg mt-20 mb-20 plr-24">
+      <view wx:for="{{5}}" wx:key="index" class="flex-between font-s-26 h-70 w-100">
+        <view class="font-w-400 color-light">真实姓名</view>
+        <view class="font-w-500 color-black">彭于晏</view>
+      </view>
+    </view>
+    <!-- 证件照 -->
+    <view class="papers plr-24">
+      <view class="title pt-20">教师资格证</view>
+      <view class="papers-img mt-20 mb-20">
+        <image></image>
+      </view>
+    </view>
+    <!-- btn按钮 -->
+    <view class="addbtn mt-20">
+      <button>
+        <image></image>
+       <text>添加资质证书</text> 
+      </button>
+    </view>
+  </view>
+  <!-- 底部导航栏 -->
+  <view class="footer">
+    保存
+  </view>
+</view>

@@ -1,0 +1,21 @@
+<view class="radio-box">
+        <view class="readio" data-index="{{0}}" catchtap="checkoutBtn">
+          <!-- incon -->
+          <image
+            src="{{currentActive==0?selected:unselect}}"
+            class="incon"
+            alt=""
+          />
+          <view><slot name="radio1"></slot></view>
+        </view>
+
+        <view class="readio ml-30" data-index="{{1}}" catchtap="checkoutBtn">
+          <!-- incon -->
+          <image
+            src="{{currentActive==0?unselect:selected}}"
+            class="incon"
+            alt=""
+          />
+          <view><slot name="radio2"> </slot></view>
+        </view>
+      </view>

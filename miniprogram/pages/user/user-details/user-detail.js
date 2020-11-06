@@ -1,29 +1,13 @@
-// miniprogram/pages/homeWork/problem-detail/problem-detail.js
+// miniprogram/pages/user/user-details/user-detail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    show: false,
-    actions: [
-      {
-        name: '采纳该回答',
-      }
-      // { name: '选项', color: '#07c160' },
-      // { name: '取消', disabled: true }
-    ]
+
   },
-  open1(){
-    console.log('打印成功');
-    this.setData({ show: true });
-  },
-  onClose() {
-    this.setData({ show: false });
-  },
-  onSelect(event) {
-    console.log(event.detail);
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

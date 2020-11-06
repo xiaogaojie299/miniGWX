@@ -31,7 +31,8 @@
             <text>1200</text>
           </view>
           <!-- 右边按钮 -->
-          <view class="problem-footer-right">已解决</view>
+          <!-- <view class="problem-footer-right">已解决</view> -->
+          <my-tag isborder="{{true}}">已解决</my-tag>
         </view>
       </view>
     </view>

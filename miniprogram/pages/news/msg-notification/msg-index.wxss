@@ -1,0 +1,29 @@
+.content{
+
+}
+.content>.content-item{
+background: #FFFFFF;
+box-shadow: 0rpx 4rpx 8rpx 0rpx rgba(213,213,213,0.5);
+border-radius: 4rpx;
+}
+.content-item-top>image{
+  width: 32rpx;
+  height: 30rpx;
+  margin-right: 16rpx;
+}
+.content-title{
+font-size: 32rpx;
+font-family: PingFangSC-Semibold, PingFang SC;
+font-weight: 600;
+color: #2B3540;
+}
+.content-item-top{
+  display: flex;
+  align-items: center;
+}
+.content-item-bottom{
+font-size: 28rpx;
+font-family: PingFangSC-Medium, PingFang SC;
+font-weight: 500;
+color: #626971;
+}

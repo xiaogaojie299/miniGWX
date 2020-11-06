@@ -1,12 +1,20 @@
-// components/top-content/index.js
+// components/my-tag/my-tag.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    isTitle:{
-      type:Boolean,
+    isborder:{
+      type:Number,
       value:true
+    },
+    bgcolor:{
+      type:String,
+      value:"#FFFFFF"
+    },
+    color:{
+      type:String,
+      value:"#F13632"
     }
   },
 
@@ -22,8 +30,5 @@ Component({
    */
   methods: {
 
-  },
-  options: {
-    addGlobalClass: true
   }
 })

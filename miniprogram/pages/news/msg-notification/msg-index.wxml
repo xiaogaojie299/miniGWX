@@ -1,0 +1,16 @@
+<view>
+  <!-- 内容 -->
+  <view class="content plr-24">
+    <view wx:for="{{10}}" wx:ker="index" class="content-item pl-20 mtb-24">
+      <!-- 上面ICON -->
+      <view class="content-item-top pt-20 mb-20">
+        <!-- icon -->
+        <image src="/images/notice_small@.png"></image>
+        <view class="content-title">系统通知</view>
+      </view>
+      <view class="content-item-bottom pb-20">
+        您有一节直播课程即将开始
+      </view>
+    </view>
+  </view>
+</view>

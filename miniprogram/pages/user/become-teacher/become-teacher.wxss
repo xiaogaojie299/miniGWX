@@ -1,0 +1,18 @@
+input{
+  border: none;
+  height: 100%;
+  width: 100%;
+}
+.form-card{
+  height: 300rpx;
+}
+.form-list{
+  display: flex;
+  border-bottom: 1px solid #F6F6F6;
+}
+.form-list>.lable{
+  width: 150rpx;
+}
+.ipt{
+  width: calc(100vw - 150rpx);
+}

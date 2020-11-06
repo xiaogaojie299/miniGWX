@@ -1,0 +1,5 @@
+<view>
+  <view class="{{isborder?'my-tag isborder':'my-tag'}}" style="{{'background:'+bgcolor+';'+'color:'+color+';'}}">
+    <slot></slot>
+  </view>
+</view>

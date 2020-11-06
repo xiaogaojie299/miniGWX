@@ -5,9 +5,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    list:[
+      {title:"账号与安全",imgPath:"/images/right.png"},
+      {title:"合作招募",imgPath:"/images/right.png"},
+      {title:"平台客服",imgPath:"/images/right.png"},
+      {title:"问题反馈",imgPath:"/images/right.png"}
+    ]
   },
-
+  go_userDetail(){
+    wx.navigateTo({
+      url: './user-details/user-detail',
+    })
+  },
+  go_recruit(){
+    wx.navigateTo({
+      url: '/pages/user/recruit/recruit',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

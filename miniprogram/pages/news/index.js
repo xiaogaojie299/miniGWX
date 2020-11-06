@@ -5,9 +5,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    listOrder:[
+      {
+        title:"消息通知",
+        imgPath:"/images/activity.png",
+        msgList:5
+      },
+      {
+        title:"活动",
+        imgPath:"/images/notice.png",
+        msgList:0
+      }
+    ]
   },
-
+  go_msgNot(){
+    wx.navigateTo({
+      url: '/pages/news/msg-notification/msg-index',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

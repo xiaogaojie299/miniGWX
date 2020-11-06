@@ -1,2 +1,19 @@
-<!--miniprogram/pages/news/index.wxml-->
-<text>miniprogram/pages/news/index.wxml</text>
+<view>
+  <!-- 顶部背景样式 -->
+  <view class="header">
+    <top-content></top-content>
+  </view>
+  <!-- 内容 -->
+  <view class="main plr-24">
+      <!-- 列表 -->
+      <view class="list-box">
+        <view class="list-item" bindtap="go_msgNot" wx:for="{{listOrder}}" wx:key="index">
+          <!-- 左边ICON -->
+          <image class="left-icon" src="{{item.imgPath}}"></image>          
+          <view class="title">{{item.title}}</view>
+          <!-- 右边消息条数 -->
+          <view class="msg-num" wx:if="{{item.msgList}}">{{item.msgList}}</view>
+        </view>
+      </view>
+  </view>
+</view>

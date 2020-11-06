@@ -1,0 +1,26 @@
+<view class="box">
+  <view class="form-card">
+      <view class="h-100 form-list">
+        <view class="lable flex-ver-center">姓名:</view>
+        <view class="ipt">
+          <input type="text" placeholder="请输入联系方式" />
+        </view>
+      </view>
+
+      <view class="h-100 form-list">
+        <view class="lable flex-ver-center">性别:</view>
+        <view> <radio-button>
+          <view slot="radio1">男</view>
+          <view slot="radio2">女</view>
+        </radio-button> </view>
+      </view>
+
+      <view wx:for="{{3}}" wx:key="index" class="h-100 form-list">
+        <view class="lable flex-ver-center">姓名:</view>
+        <view class="ipt">
+          <input type="text" placeholder="请输入联系方式" />
+        </view>
+      </view>
+
+  </view>
+</view>

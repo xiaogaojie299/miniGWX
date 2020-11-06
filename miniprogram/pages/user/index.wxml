@@ -1,2 +1,24 @@
-<!--miniprogram/pages/user/index.wxml-->
-<text>miniprogram/pages/user/index.wxml</text>
+<view>
+  <view class="header plr-24">
+    <view class="teach-info-box" bindtap="go_userDetail">
+      <view class="teach-info-name">
+        <view class="mr-10">可乐</view>
+        <image></image>
+      </view>
+      <view class="teach-info-detail mt-20 mb-20">A机构/倍晓锐/入驻教师</view>
+    </view>
+    <!-- 老师头像 -->
+    <image class="teach-info-img"></image>
+  </view>
+  <view class="main plr-24">
+    <view bindtap="go_recruit" class="main-item" wx:for="{{list}}" wx:key="index">
+      <view class="my-title">{{item.title}}</view>
+      <image src="/images/right.png"></image>
+    </view>
+    <!-- 退出登录按钮，cope,代码冗余 -->
+    <view class="main-item1">
+      <view class="color1">退出登录</view>
+    </view>
+
+  </view>
+</view>

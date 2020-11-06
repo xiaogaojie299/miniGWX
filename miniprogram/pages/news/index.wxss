@@ -1,1 +1,35 @@
-/* miniprogram/pages/news/index.wxss */
+/* 顶部 */
+.header{}
+/* 内容 */
+.main{
+
+}
+.main>.list-box{
+
+}
+.left-icon{
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 16rpx;
+}
+.list-item{
+  display: flex;
+  align-items: center;
+  height: 110rpx;
+  border-bottom: 1px solid #F6F6F6;
+}
+.msg-num{
+  margin-left:auto;
+  width: 28rpx;
+height: 28rpx;
+background: #FF0000;
+border-radius: 50%;
+font-size: 20rpx;
+font-family: PingFangSC-Medium, PingFang SC;
+font-weight: 500;
+color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}

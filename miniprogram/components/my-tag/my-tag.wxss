@@ -1,0 +1,16 @@
+.my-tag{
+  width: 140rpx;
+  height: 44rpx;
+  background: #FFFFFF;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+font-size: 24rpx;
+font-family: PingFangSC-Medium, PingFang SC;
+font-weight: 500;
+color: #F13632;
+}
+.isborder{
+  border: 1px solid #F13632;
+}

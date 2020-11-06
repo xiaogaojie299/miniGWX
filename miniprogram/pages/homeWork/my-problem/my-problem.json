@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "my-tag":"/components/my-tag/my-tag"
+  },
   "navigationBarTitleText": "我的问答"
 }

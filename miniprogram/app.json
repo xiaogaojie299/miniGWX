@@ -11,7 +11,11 @@
     "components/today-course/index",
     "components/rank-list/index",
     "pages/homeWork/problem-detail/problem-detail",
-    "pages/homeWork/my-problem-detail/my-problem-detail"
+    "pages/homeWork/my-problem-detail/my-problem-detail",
+    "pages/news/msg-notification/msg-index",
+    "pages/user/user-details/user-detail",
+    "pages/user/recruit/recruit",
+    "pages/user/become-teacher/become-teacher"
   ],
   "tabBar": {
     "selectedColor": "#F13833",
@@ -56,6 +60,7 @@
   },
   "usingComponents": {
     "top-content": "/components/top-content/index",
+    "radio-button": "/components/radio-button/radio-button",
     "van-button": "vant-weapp/button",
     "van-action-sheet": "vant-weapp/action-sheet"
   },
