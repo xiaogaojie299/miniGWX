@@ -11,12 +11,12 @@
     <image class="teach-info-img"></image>
   </view>
   <view class="main plr-24">
-    <view bindtap="go_recruit" class="main-item" wx:for="{{list}}" wx:key="index">
+    <view bindtap="go_url" class="main-item" data-path="{{item.urlPath}}" wx:for="{{list}}" wx:key="index">
       <view class="my-title">{{item.title}}</view>
       <image src="/images/right.png"></image>
     </view>
     <!-- 退出登录按钮，cope,代码冗余 -->
-    <view class="main-item1">
+    <view class="main-item1"> 
       <view class="color1">退出登录</view>
     </view>
 

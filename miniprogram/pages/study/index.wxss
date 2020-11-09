@@ -1,1 +1,51 @@
-/* miniprogram/pages/study/index.wxss */
+.color-red{
+ color:#F13833
+}
+.box{
+  width: 100vw;
+  height: auto;
+  border: 1px solid black;
+}
+.page{
+  width: 694rpx;
+  margin: 0 auto;
+  border: 1px solid red;
+}
+.header{
+height: 144rpx;
+background: #FFFFFF;
+box-shadow: 0px 4rpx 8rpx 0px rgba(226,226,226,0.5);
+border-radius: 4rpx;
+display: flex;
+align-items: center;
+/* 字体 */
+font-size: 28rpx;
+font-family: PingFangSC-Regular, PingFang SC;
+font-weight: 400;
+color: #333333;
+}
+.header>.header-left,.header-right{
+  width: 50%;
+  height: 58rpx;
+  border-right: 1px solid #E1E1E1;
+  display: flex;
+  align-items: center;
+}
+.header-left-item1{
+  margin-left: 68rpx;
+  margin-right: 56rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header-right{
+  width: 50%;
+  height: 80rpx;
+}
+
+.calendar-box{
+height: 612rpx;
+background: #FFFFFF;
+box-shadow: 0px 4px 14px 0px rgba(220,220,220,0.5);
+border: 1px solid red;
+}

@@ -1,0 +1,29 @@
+<view class="box">
+  <view class="main">
+    <view class="form-card plr-24">
+      <!-- 生日 -->
+      <view class="h-100 flex-between bor-bottom">
+        <!-- 左边性别 -->
+        <view class="lable">账号</view>
+        <view class="right-font">133****2362</view>
+      </view>
+      <!-- 修改绑定手机号 -->
+      <view class="h-100 flex-between bor-bottom">
+        <!-- 左边性别 -->
+        <view class="lable">修改手机绑定号</view>
+        <view class="flex-center">
+          <view class="right-font">133****2362</view>
+          <image class="ml-10" src="/images/right.png"></image>
+        </view>
+      </view>
+      <!-- 修改登录密码 -->
+      <view class="h-100 flex-between bor-bottom" bindtap="go_setUpwd">
+        <!-- 左边性别 -->
+        <view class="lable">修改登录密码</view>
+        <view class="flex-center">
+          <image class="ml-20" src="/images/right.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

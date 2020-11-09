@@ -1,14 +1,15 @@
 <view class="box">
-  <view class="form-card">
+  <view class="main">
+  <view class="form-card plr-24">
       <view class="h-100 form-list">
-        <view class="lable flex-ver-center">姓名:</view>
+        <view class="lable">姓名:</view>
         <view class="ipt">
           <input type="text" placeholder="请输入联系方式" />
         </view>
       </view>
 
       <view class="h-100 form-list">
-        <view class="lable flex-ver-center">性别:</view>
+        <view class="lable">性别:</view>
         <view> <radio-button>
           <view slot="radio1">男</view>
           <view slot="radio2">女</view>
@@ -16,11 +17,68 @@
       </view>
 
       <view wx:for="{{3}}" wx:key="index" class="h-100 form-list">
-        <view class="lable flex-ver-center">姓名:</view>
+        <view class="lable">姓名:</view>
         <view class="ipt">
           <input type="text" placeholder="请输入联系方式" />
         </view>
       </view>
-
+      <!-- 生日 -->
+      <view class="h-100 flex-between">
+        <!-- 左边性别 -->
+        <view class="lable">生日:</view>
+        <image src="/images/right.png"></image>
+      </view>
   </view>
+  <!-- 灰线 -->
+  <view class="light-inlie"></view>
+  <!-- 下面盒子 -->
+  <view class="form-card mt-20 plr-24">
+    <view class="h-100 form-list">
+        <view class="lable">毕业院校:</view>
+        <view class="ipt">
+          <input type="text" placeholder="请输入毕业院校" />
+        </view>
+    </view>
+    <!-- 最高学历 -->
+    <view class="h-100 form-list bor-bottom">
+        <!-- 左边性别 -->
+        <view class="lable">最高学历:</view>
+        <view class="ipt">
+          <input type="text" disabled="{{true}}" placeholder="请选择最高学历" />
+        </view>
+        <image class="right-icon" src="/images/right.png"></image>
+      </view>
+      <!-- 所学专业 -->
+      <view class="h-100 form-list bor-bottom">
+        <view class="lable">所学专业:</view>
+        <view class="ipt">
+          <input type="text" placeholder="请输入所学专业" />
+        </view>
+      </view>
+
+      <!-- 擅长课程 -->
+      <view class="h-100 form-list">
+        <!-- 左边性别 -->
+        <view class="lable">擅长课程:</view>
+        <view class="ipt">
+          <input type="text" disabled="{{true}}" placeholder="请选择擅长科目" />
+        </view>
+        <image class="right-icon" src="/images/right.png"></image>
+      </view>
+  </view>
+  <!-- 灰线 -->
+  <view class="light-inlie"></view>
+  <!-- 资质证书 -->
+  <view class="certificate plr-24">
+    <view class="lable">资质证书:</view>
+    <view class="introduce mt-20">(毕业证书、教师资格证、相关专业考级证书)</view>
+    <!-- 下面图片上传 -->
+    <view class="upload mt-20">
+      <image class="upload-images mr-20" wx:for="{{tempFilePaths}}" wx:key="index" src="{{item}}">{{item}}</image>
+      <image class="upload-icon mr-20" wx:if="{{tempFilePaths.length<3}}" bindtap="chooseimage" src=""></image>
+    </view>
+  </view>
+</view>
+  <!-- 底部按钮 -->
+  <view class="foot-btn flex-ver-center">申请成为老师</view>
 </view>

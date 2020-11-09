@@ -6,6 +6,6 @@
     <!-- 成为老师 -->
     <view class="btn1" bindtap="go_becomeTeacher">成为老师</view>
     <!-- 机构合作 -->
-    <view class="btn2">机构合作</view>
+    <view class="btn2" bindtap="go_organization">机构合作</view>
   </view>
 </view>

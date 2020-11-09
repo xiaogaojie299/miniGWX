@@ -1,4 +1,4 @@
-// miniprogram/pages/user/recruit/recruit.js
+// miniprogram/pages/user/account-security/account-security.js
 Page({
 
   /**
@@ -7,19 +7,15 @@ Page({
   data: {
 
   },
-  go_becomeTeacher(){
-    wx.navigateTo({
-      url: '../become-teacher/become-teacher',
-    })
-  },
-  go_organization(){
-    wx.navigateTo({
-      url: '../organization/organization',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
+  go_setUpwd(){
+    wx.navigateTo({
+      url: '/pages/forgetUpwd/index',
+    })
+  },
   onLoad: function (options) {
 
   },

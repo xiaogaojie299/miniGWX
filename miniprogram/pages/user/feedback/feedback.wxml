@@ -1,0 +1,23 @@
+<view class="plr-24">
+  <view class="header title">
+    <view class="mt-10">亲爱的用户！</view>
+    <view class="mt-10">欢迎您对我们的服务提出您的意见或者建议</view>
+  </view>
+  <!-- 留言板 -->
+  <view class="liuyan mt-20 pb-30">
+    <!-- <textarea class="pt-30 plr-24 mb-20" placeholder="请输入您的宝贵意见" name="" id="" cols="30" rows="20" maxlength="200"></textarea> -->
+    <textarea class="pt-30 plr-24" placeholder="请输入您的宝贵意见" name="" id="" cols="30" rows="20" maxlength="200"></textarea>
+    <view class="limite">最多200个字符</view>
+  </view>
+  <!-- 图片上传 -->
+  <view class="certificate">
+    <view class="lable">图片上传（选填）</view>
+    <!-- 下面图片上传 -->
+    <view class="upload mt-20">
+      <image class="upload-images mr-20" wx:for="{{tempFilePaths}}" wx:key="index" src="{{item}}">{{item}}</image>
+      <image class="upload-icon mr-20" wx:if="{{tempFilePaths.length<3}}" bindtap="chooseimage" src=""></image>
+    </view>
+  </view>
+  <!-- 提交反馈 -->
+  <view class="submit"><button class="flex-ver-center">提交反馈</button></view>
+</view>

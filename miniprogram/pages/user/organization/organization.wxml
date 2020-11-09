@@ -1,0 +1,39 @@
+<view>
+  <view class="plr-24">
+    <view class="h-100 form-list bor-bottom">
+        <view class="lable">联系人:</view>
+        <view class="ipt">
+          <input type="text" placeholder="请输入您的姓名" />
+        </view>
+    </view>
+    <view class="h-100 form-list bor-bottom">
+        <view class="lable">联系电话:</view>
+        <view class="ipt">
+          <input type="text" placeholder="请输入联系电话" />
+        </view>
+    </view>
+    <!-- 最高学历 -->
+    <view class="h-100 form-list bor-bottom">
+        <!-- 左边性别 -->
+        <view class="lable">所在城市:</view>
+        <view class="ipt">
+          <input type="text" disabled="{{true}}" placeholder="请选择您所在的城市" />
+        </view>
+        <image class="right-icon" src="/images/right.png"></image>
+      </view>
+
+      <!-- 联系地址 -->
+      <view class="h-100 form-list">
+        <view class="lable">联系地址:</view>
+        <view class="ipt">
+          <input type="text" placeholder="请填写联系地址" />
+        </view>
+    </view>
+    <view class="h-100 form-list">
+        <view class="lable">备注说明(选填):</view>
+        <view class="ipt">
+          <input type="text" placeholder="请填写备注说明" />
+        </view>
+    </view>
+  </view>
+</view>

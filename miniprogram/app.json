@@ -15,7 +15,11 @@
     "pages/news/msg-notification/msg-index",
     "pages/user/user-details/user-detail",
     "pages/user/recruit/recruit",
-    "pages/user/become-teacher/become-teacher"
+    "pages/user/become-teacher/become-teacher",
+    "pages/user/organization/organization",
+    "pages/user/feedback/feedback",
+    "pages/user/account-security/account-security",
+    "pages/study/teach-class/teach-class"
   ],
   "tabBar": {
     "selectedColor": "#F13833",
@@ -61,6 +65,8 @@
   "usingComponents": {
     "top-content": "/components/top-content/index",
     "radio-button": "/components/radio-button/radio-button",
+    "top-input": "/components/top-input/index",
+    "curmbs":"/components/curmbs/index",
     "van-button": "vant-weapp/button",
     "van-action-sheet": "vant-weapp/action-sheet"
   },

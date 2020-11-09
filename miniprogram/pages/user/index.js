@@ -6,10 +6,10 @@ Page({
    */
   data: {
     list:[
-      {title:"账号与安全",imgPath:"/images/right.png"},
-      {title:"合作招募",imgPath:"/images/right.png"},
-      {title:"平台客服",imgPath:"/images/right.png"},
-      {title:"问题反馈",imgPath:"/images/right.png"}
+      {title:"账号与安全",urlPath:"account-security/account-security"},
+      {title:"合作招募",urlPath:"recruit/recruit"},
+      {title:"平台客服",urlPath:"/images/right.png"},
+      {title:"问题反馈",urlPath:"feedback/feedback"}
     ]
   },
   go_userDetail(){
@@ -17,9 +17,10 @@ Page({
       url: './user-details/user-detail',
     })
   },
-  go_recruit(){
+  go_url(e){
+    console.log(e);
     wx.navigateTo({
-      url: '/pages/user/recruit/recruit',
+      url: '/pages/user/'+e.currentTarget.dataset.path,
     })
   },
   /**

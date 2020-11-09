@@ -15,6 +15,12 @@ color: #F13833;
   color: #4C4C4C;
 }
 /* 高度 */
+.h-40{
+  height: 40rpx;
+}
+.h-50{
+  height: 40rpx;
+}
 .h-60{
   height: 60rpx;
 }
@@ -34,7 +40,7 @@ color: #F13833;
   height: 140rpx;
 }
 /* 宽度 */
-w-100{
+.w-100{
   width: 100%;
 }
 .mt-10{
@@ -115,7 +121,8 @@ w-100{
   padding-right: 30rpx;
 }
 .plr-24{
-  padding:0 24rpx;
+  padding-left: 24rpx;
+  padding-right: 24rpx;
 }
 .font-s-24{
   font-size: 24rpx;
@@ -138,6 +145,9 @@ font-family: PingFangSC-Medium, PingFang SC;
 font-weight: 500;
 color: #333333;
 }
+.flex{
+  display: flex;
+}
 .flex-center{
   display: flex;
   align-items: center;
@@ -151,4 +161,7 @@ color: #333333;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.bor-bottom{
+  border-bottom: 1px solid #F6F6F6;
 }

@@ -1,0 +1,75 @@
+.title {
+  font-size: 30rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #333333;
+}
+
+.light-inlie {
+  margin-top: 20rpx;
+  height: 20rpx;
+  background-color: #F8F8F8;
+}
+
+.font-cont {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #626971;
+}
+
+.color-ori {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #FE9E57;
+}
+
+.header {}
+
+.right-content {
+  text-align: right;
+  width: 200rpx;
+  font-size: 30rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FE9E57;
+}
+
+.right-content>image {
+  width: 36rpx;
+  height: 28rpx;
+  background: #FE9E57;
+}
+
+.card:last-child>.light-inlie {
+  background: #ffffff;
+}
+
+.card-content {
+  height: 242rpx;
+  background: #FAFAFA;
+  border-radius: 4rpx;
+  position: relative;
+}
+
+.detail {
+  position: absolute;
+  right: 22rpx;
+  width: 152rpx;
+  height: 52rpx;
+  background: #FFFFFF;
+  border-radius: 30rpx;
+  border: 1rpx solid #F13232;
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #F13232;
+
+}
+
+.card-content-item>image {
+  width: 22rpx;
+  height: 22rpx;
+  background: #ADB4BE;
+}

@@ -1,0 +1,57 @@
+<view class="">
+  <view class="header mt-20 mb-20 plr-24">
+    <top-input></top-input>
+  </view>
+  <view class="main">
+    <!-- 卡片模块 -->
+    <view wx:for="{{3}}" wx:key="index" class="card mt-20">
+      <view class="card-header plr-24 h-80 flex-between bor-bottom">
+        <view class="title">初中一年级·一班</view>
+        <view class="right-content">
+          <image class="mr-10"></image>
+          <text>4</text>
+        </view>
+      </view>
+
+      <view class="card-content plr-24 pt-20">
+        <!-- 标签按钮 -->
+        <view class="detail flex-ver-center">查看课表</view>
+        <view class="card-content-item h-40 flex-center">
+          <!-- icon -->
+          <image class="mr-20"></image>
+          <view class="font-cont mr-20">课程名称:</view>
+          <view class="color-ori">英语辅导课</view>
+        </view>
+
+        <view class="card-content-item h-40 flex-center">
+          <!-- icon -->
+          <image class="mr-20"></image>
+          <view class="font-cont mr-20">责任老师:</view>
+          <view class="color-ori">张老师</view>
+        </view>
+
+        <view class="card-content-item h-50 flex-center">
+          <!-- icon -->
+          <image class="mr-20"></image>
+          <view class="font-cont mr-20">助教老师:</view>
+          <view class="color-ori">王老师</view>
+        </view>
+
+        <view class="card-content-item h-50 flex-center">
+          <!-- icon -->
+          <image class="mr-20"></image>
+          <view class="font-cont mr-20">剩余课程:</view>
+          <view class="color-ori">8次</view>
+        </view>
+
+        <view class="card-content-item h-50 flex-center">
+          <!-- icon -->
+          <image class="mr-20"></image>
+          <view class="font-cont mr-20">邮寄资料:</view>
+          <view class="color-ori">2/4</view>
+        </view>
+      </view> 
+      <view class="light-inlie"></view>
+    </view>
+  </view>
+</view>

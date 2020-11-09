@@ -3,16 +3,66 @@ input{
   height: 100%;
   width: 100%;
 }
+.main{
+  padding-bottom: 110rpx;
+}
 .form-card{
-  height: 300rpx;
+  /* height: 300rpx; */
 }
 .form-list{
   display: flex;
+  align-items: center;
   border-bottom: 1px solid #F6F6F6;
 }
-.form-list>.lable{
-  width: 150rpx;
+.lable{
+  width: 180rpx;
+  display: flex;
+  align-items: center;
 }
 .ipt{
-  width: calc(100vw - 150rpx);
+  /* width: calc(100vw - 150rpx); */
+  width: calc(100vw - 280rpx);
+  height: 100%;
+}
+.right-icon{
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+.light-inlie{
+  height: 14rpx;
+  background-color: #FBFBFC;
+  width: 100%;
+}
+/* 添加资质的内容 */
+.certificate{
+  height: 398rpx;
+}
+.certificate>.introduce{
+font-size: 28rpx;
+font-family: PingFangSC-Regular, PingFang SC;
+font-weight: 400;
+color: #C6C6C6;
+}
+.upload>.upload-icon{
+  width: 224rpx;
+  height: 224rpx;
+  background: #FBFBFC;
+  border-radius: 8rpx;
+}
+.upload-images{
+  width: 224rpx;
+  height: 224rpx;
+  border-radius: 8rpx;
+}
+.foot-btn{
+  width: 100%;
+height: 98rpx;
+background: linear-gradient(270deg, #EF753C 0%, #F13232 100%);
+font-size: 30rpx;
+font-family: PingFangSC-Medium, PingFang SC;
+font-weight: 500;
+color: #FFFFFF;
+position: fixed;
+bottom: 0;
 }

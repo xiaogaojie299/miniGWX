@@ -1,2 +1,42 @@
-<!--miniprogram/pages/study/index.wxml-->
-<text>miniprogram/pages/study/index.wxml</text>
+<view class="box">
+  <!--  -->
+  <view>
+    <top-content></top-content>
+  </view>
+  <view class="page">
+    <!-- 头部 -->
+    <view class="header">
+      <view class="header-left">
+        <view class="header-left-item1">
+          <view>教学班级</view>
+          <view class="color-red font-w-500">3</view>
+        </view>
+        <!-- 右转符号 -->
+        <view>
+          <image src="/images/right.png"></image>
+        </view>
+      </view>
+      <view class="header-right">
+        <view class="header-left-item1">
+          <view>教学班级</view>
+          <view class="color-red font-w-500">3</view>
+        </view>
+        <!-- 右转符号 -->
+        <view>
+          <image src="/images/right.png"></image>
+        </view>
+      </view>
+    </view>
+
+    
+
+    <!-- 主体 -->
+    <view class="main">
+      <curmbs> 课程表 </curmbs>
+    </view>
+  </view>
+  <!-- 日历 -->
+  <view class="calendar-box">
+
+  </view>
+</view>

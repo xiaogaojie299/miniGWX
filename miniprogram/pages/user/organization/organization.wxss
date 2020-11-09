@@ -1,0 +1,19 @@
+.form-list{
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #F6F6F6;
+}
+.lable{
+  width: 260rpx;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.ipt{
+  width: calc(100vw - 350rpx);
+}
+.right-icon{
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}

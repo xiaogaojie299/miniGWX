@@ -1,0 +1,66 @@
+.title{
+font-size: 34rpx;
+font-family: PingFangSC-Medium, PingFang SC;
+font-weight: 500;
+color: #333333;
+}
+
+.liuyan{
+  height: 428rpx;
+  width: 100vw;
+  background: #FBFBFC;
+  border-radius: 4rpx;
+  padding:0 30rpx;
+}
+textarea{
+  height: 80%;
+  width: 100%;
+}
+.limite{
+  width: 100%;
+  text-align: right;
+  margin-left:auto;
+color: #5C5C5C;
+font-size: 28rpx;
+font-family: PingFangSC-Regular, PingFang SC;
+font-weight: 400;
+}
+/* 图片上传 */
+.certificate{
+  height: 398rpx;
+  margin-top: 44rpx;
+}
+/* .upload-images>image{
+  border: 1px solid red;
+  width: 224rpx;
+  height: 224rpx;
+  background: #FBFBFC;
+  border-radius: 8rpx;
+} */
+.upload image{
+  width: 224rpx;
+  height: 224rpx;
+  background: #FBFBFC;
+  border-radius: 8rpx;
+}
+/* .upload-images{
+  width: 224rpx;
+  height: 224rpx;
+  border-radius: 8rpx;
+} */
+.submit{
+  width: 100%;
+margin-top:56rpx;
+}
+.submit>button{
+  
+background: linear-gradient(270deg, #EF753C 0%, #F13232 100%);
+  margin:0 auto;
+  width: 456rpx;
+height: 88rpx;
+border-radius: 4rpx;
+font-size: 30rpx;
+font-family: PingFangSC-Medium, PingFang SC;
+font-weight: 500;
+color: #FFFFFF;
+}

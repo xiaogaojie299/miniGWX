@@ -1,4 +1,4 @@
-// miniprogram/pages/user/become-teacher/become-teacher.js
+// miniprogram/pages/user/feedback/feedback.js
 Page({
 
   /**
@@ -7,8 +7,13 @@ Page({
   data: {
     tempFilePaths:[]
   },
-  // 图片上传
-  onLoad: function onLoad() {},
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    
+  },
   chooseimage: function chooseimage() {
     var _this = this;
     wx.chooseImage({
@@ -32,14 +37,6 @@ Page({
       }
     });
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

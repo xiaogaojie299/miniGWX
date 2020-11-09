@@ -1,4 +1,4 @@
-// miniprogram/pages/user/recruit/recruit.js
+// miniprogram/pages/user/organization/organization.js
 Page({
 
   /**
@@ -7,16 +7,7 @@ Page({
   data: {
 
   },
-  go_becomeTeacher(){
-    wx.navigateTo({
-      url: '../become-teacher/become-teacher',
-    })
-  },
-  go_organization(){
-    wx.navigateTo({
-      url: '../organization/organization',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
