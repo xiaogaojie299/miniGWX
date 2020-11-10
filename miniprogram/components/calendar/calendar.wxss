@@ -1,0 +1,62 @@
+.not-month{
+  color:#D0D4D6
+}
+.calender-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #032926;
+}
+
+.calender-header>image {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.right-btn-groups {
+  display: flex;
+  position: absolute;
+  right: 0;
+}
+
+.calender-main>.weeks {
+  /* 字体颜色 */
+
+  font-size: 26rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FFFFFF;
+  height: 64rpx;
+  background: #6A829B;
+  border-radius: 28rpx;
+  display: flex;
+}
+
+.weeks>text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.cell {
+  display: flex;
+}
+
+.day {
+  /* 字体颜色 */
+  font-size: 22rpx;
+  font-family: Avenir-Heavy, Avenir;
+  font-weight: 800;
+  color: #657178;
+  height: 64rpx;
+  flex: 1;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -19,7 +19,10 @@
     "pages/user/organization/organization",
     "pages/user/feedback/feedback",
     "pages/user/account-security/account-security",
-    "pages/study/teach-class/teach-class"
+    "pages/study/teach-class/teach-class",
+    "pages/study/student/student",
+    "pages/study/student-detail/student-detail",
+    "pages/study/class-schedule/class-schedule"
   ],
   "tabBar": {
     "selectedColor": "#F13833",
@@ -66,7 +69,9 @@
     "top-content": "/components/top-content/index",
     "radio-button": "/components/radio-button/radio-button",
     "top-input": "/components/top-input/index",
-    "curmbs":"/components/curmbs/index",
+    "curmbs": "/components/curmbs/index",
+    "calendar": "/components/calendar/calendar",
+    "my-tag": "/components/my-tag/my-tag",
     "van-button": "vant-weapp/button",
     "van-action-sheet": "vant-weapp/action-sheet"
   },

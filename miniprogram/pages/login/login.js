@@ -9,7 +9,17 @@ Page({
       {title:"密码登录"},
       {title:"验证码登录"}
     ],
-    currentIndex:0
+    currentIndex:0,
+    // 开关控制显示隐藏
+    isvisib:false,
+    i:10
+  },
+  // 获取验证码
+  get_code(){
+    let i=10;
+    let that=this;
+    that.setData({isvisib:true});
+    console.log(i);
   },
   defindType(event){
     return event.currentTarget.dataset

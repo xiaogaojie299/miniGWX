@@ -9,7 +9,6 @@
 .page{
   width: 694rpx;
   margin: 0 auto;
-  border: 1px solid red;
 }
 .header{
 height: 144rpx;
@@ -27,9 +26,11 @@ color: #333333;
 .header>.header-left,.header-right{
   width: 50%;
   height: 58rpx;
-  border-right: 1px solid #E1E1E1;
   display: flex;
   align-items: center;
+}
+.header-left{
+  border-right: 1px solid #E1E1E1;
 }
 .header-left-item1{
   margin-left: 68rpx;
@@ -46,6 +47,5 @@ color: #333333;
 .calendar-box{
 height: 612rpx;
 background: #FFFFFF;
-box-shadow: 0px 4px 14px 0px rgba(220,220,220,0.5);
-border: 1px solid red;
+box-shadow: 0px 4rpx 14rpx 0px rgba(220,220,220,0.5);
 }

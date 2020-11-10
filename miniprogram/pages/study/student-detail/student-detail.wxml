@@ -1,0 +1,60 @@
+<view>
+  <view class="header plr-24">
+    <view class="teach-info-box" bindtap="go_userDetail">
+      <view class="teach-info-name mb-10">
+        <view class="mr-10">可乐</view>
+        <image src="/images/female@2x.png"></image>
+      </view>
+     <view class="study-time flex-between">
+          <view class="study-time-left">
+            <view class="color2 mt-10 mb-10"><text class="color1">62</text>分钟</view>
+            <view style="font-size:20rpx;color:#6C6C6C">今日学习</view>
+          </view>
+          <view class="study-time-right">
+            <view class="color2 mt-10 mb-10"><text class="color1">62</text>天</view>
+            <view style="font-size:20rpx;color:#6C6C6C">累计学习</view>
+          </view>
+          <!-- 中间横线 -->
+          <view class="middle-inline"></view>
+
+     </view>
+    </view>
+    <!-- 老师头像 -->
+    <image class="teach-info-img"></image>
+  </view>
+  <view class="header-bg">
+    <view>基础资料</view>
+  </view>
+  <view class="main plr-24">
+    <view wx:for="{{8}}" wx:key="index" class="h-100 bor-bottom flex-between">
+      <view class="left-font">登录名</view>
+      <view class="right-font">2009-01-01</view>
+    </view>
+  </view>
+  <!-- 成长记录 -->
+  <view class="footer plr-24">
+    <view class="footer-title">成长记录</view>
+    <!-- 卡片 -->
+    <view class="footer-card mt-20 plr-24" wx:for="{{8}}" wx:key="index">
+      <view class="footer-card-top">
+        <view class="footer-card-title">第四节课课后习题</view>
+        <!-- 标签 -->
+        <view class="my-tag-box h-80 flex-center">
+          <view wx:for="{{3}}" wx:key="index" class="mr-30">
+            <my-tag width="100rpx" height="44rpx">高三</my-tag>
+          </view>
+        </view>
+        <!-- 完成时间 -->
+        <view class="accomp-time">
+          完成时间：2020-04-23 23:5
+        </view>
+      </view>
+      <view class="footer-card-bottom flex-between">
+        <view class="scope"><text>136分</text>（总150分）</view>
+        <view>
+          <my-tag>查看详情</my-tag>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

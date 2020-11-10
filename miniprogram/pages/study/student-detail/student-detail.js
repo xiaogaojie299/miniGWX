@@ -1,17 +1,13 @@
-// miniprogram/pages/study/teach-class/teach-class.js
+// miniprogram/pages/study/student-detail/student-detail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    lableList:[]
+  },
 
-  },
-  go_clsScd(){
-    wx.navigateTo({
-      url: '../class-schedule/class-schedule',
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */

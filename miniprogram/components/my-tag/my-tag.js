@@ -15,6 +15,14 @@ Component({
     color:{
       type:String,
       value:"#F13632"
+    },
+    width:{
+      type:String,
+      value:'140rpx'
+    },
+    height:{
+      type:String,
+      value:'56rpx'
     }
   },
 

@@ -3,13 +3,47 @@ const app = getApp()
 
 Page({
   data: {
-    avatarUrl: './user-unlogin.png',
-    userInfo: {},
-    logged: false,
-    takeSession: false,
-    requestResult: ''
+    imgUrls: [
+      '/images/login_bg@2x.png',
+      '/images/login_bg@2x.png',
+      '/images/login_bg@2x.png'
+    ],
+    indicatorDots: false,
+    autoplay: true,
+    interval: 4000,
+    duration: 800,
+    swiperCurrent: 0,
+    isTop:false
+  },
+  swiperChange(e) {
+    let current = e.detail.current;
+    let that = this;
+    that.setData({
+      swiperCurrent: current,
+    })
+  },
+  go_top(){
+    console.log("返回顶部");
+    if (wx.pageScrollTo) {
+      wx.pageScrollTo({
+        scrollTop: 0
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+      })
+    }
+
   },
 
+onPageScroll: function(res) {
+  if(res.scrollTop>300){
+    this.setData({isTop:true})
+  }else{
+    this.setData({isTop:false})
+  }
+},
   onLoad: function() {
     if (!wx.cloud) {
       wx.redirectTo({

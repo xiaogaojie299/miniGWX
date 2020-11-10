@@ -15,7 +15,7 @@
 
       <view class="card-content plr-24 pt-20">
         <!-- 标签按钮 -->
-        <view class="detail flex-ver-center">查看课表</view>
+        <view class="detail flex-ver-center" bindtap="go_clsScd">查看课表</view>
         <view class="card-content-item h-40 flex-center">
           <!-- icon -->
           <image class="mr-20"></image>

@@ -169,6 +169,34 @@
           "id": -1,
           "name": "pages/study/index",
           "pathName": "pages/study/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/study/student/student",
+          "pathName": "pages/study/student/student",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/study/student-detail/student-detail",
+          "pathName": "pages/study/student-detail/student-detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/study/teach-class/teach-class",
+          "pathName": "pages/study/teach-class/teach-class",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/study/class-schedule/class-schedule",
+          "pathName": "pages/study/class-schedule/class-schedule",
           "scene": null
         }
       ]

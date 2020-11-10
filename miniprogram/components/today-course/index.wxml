@@ -30,9 +30,8 @@
         <image></image>
         <view class="teacher-name">Hulk</view>
       </view>
-      <view class="right-btn">
-        未开始
-      </view>
+      <!-- opacity: 0.49; -->
+      <view class="right-btn">上课中</view>
     </view>
   </view>
 </view>

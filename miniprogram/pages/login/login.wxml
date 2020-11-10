@@ -39,7 +39,8 @@
 			<!-- 验证码登录 -->
 			<view class="input-title" wx:else>
 				<input placeholder="请输入验证码" type="password" />
-				<view>获取验证码</view>
+				<view bindtap="get_code" wx:if="{{!isvisib}}">获取验证码</view>
+				<view wx:else>{{i}}后重新发送</view>
 			</view>
 		</view>
 	

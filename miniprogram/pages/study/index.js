@@ -7,12 +7,20 @@ Page({
   data: {
 
   },
-
+  go_student(){
+    wx.navigateTo({
+      url: '../study/student/student',
+    })
+  },
+  go_teachClass(){
+    wx.navigateTo({
+      url: './teach-class/teach-class',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
   },
 
   /**
@@ -26,7 +34,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log(this.selectComponent("#calendar"));
+    this.selectComponent("#calendar").visible()
   },
 
   /**

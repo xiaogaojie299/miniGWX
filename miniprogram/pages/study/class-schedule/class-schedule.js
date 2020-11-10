@@ -1,4 +1,4 @@
-// miniprogram/pages/study/teach-class/teach-class.js
+// miniprogram/pages/study/class-schedule/class-schedule.js
 Page({
 
   /**
@@ -7,11 +7,7 @@ Page({
   data: {
 
   },
-  go_clsScd(){
-    wx.navigateTo({
-      url: '../class-schedule/class-schedule',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -30,7 +26,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.selectComponent("#calendar").visible()
   },
 
   /**

@@ -1,0 +1,81 @@
+.header{
+  height: 84rpx;
+  display: flex;
+  align-items: center;
+}
+.main{
+height: 100%;
+background: #FFFFFF;
+box-shadow: 0px 4rpx 14rpx 0px rgba(220,220,220,0.5);
+margin-bottom: 14rpx;
+}
+.card-sty{
+/* height: 260rpx; */
+background: #FFFFFF;
+box-shadow: 0px 4rpx 8rpx 0px rgba(213,213,213,0.5);
+border-radius: 4rpx;
+margin-bottom:12rpx;
+}
+
+.card-cont-top{
+  height: 122rpx;
+}
+.card-cont-top-row{
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+}
+.card-cont-top-row-title{
+  height: 44rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #2B3540;
+  line-height: 44rpx;
+}
+.card-cont-top-row-cont{
+height: 32rpx;
+font-size: 22rpx;
+font-family: PingFangSC-Medium, PingFang SC;
+font-weight: 500;
+color: #333333;
+line-height: 32rpx;
+}
+.card-cont-top-row-cont text{
+  color: #FE9E57;
+}
+.card-cont-bottom{
+  border-top:1px solid #F1F1F1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 104rpx;
+  width: 100%;
+}
+.card-cont-bottom-icon{
+  width: 72rpx;
+height: 72rpx;
+border-radius: 50%;
+border: 1px solid red;
+}
+.card-cont-bottom-right{
+  width: 90%;
+}
+.card-cont-bottom-right :first-child{
+font-size: 28rpx;
+font-family: PingFangSC-Medium, PingFang SC;
+font-weight: 500;
+color: #333333;
+}
+.card-cont-bottom-btn{
+  width: 152rpx;
+height: 52rpx;
+background: #FFFFFF;
+border-radius: 30rpx;
+border: 1px solid #F13232;
+font-size: 26rpx;
+font-family: PingFangSC-Regular, PingFang SC;
+font-weight: 400;
+color: #F13232;
+}

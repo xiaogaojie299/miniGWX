@@ -1,4 +1,4 @@
-// miniprogram/pages/study/teach-class/teach-class.js
+// miniprogram/pages/study/student/student.js
 Page({
 
   /**
@@ -7,9 +7,9 @@ Page({
   data: {
 
   },
-  go_clsScd(){
+  go_stuDetail(){
     wx.navigateTo({
-      url: '../class-schedule/class-schedule',
+      url: '../student-detail/student-detail',
     })
   },
   /**

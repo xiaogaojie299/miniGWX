@@ -1,7 +1,10 @@
 {
   "usingComponents": {
+    "curmbs":"/components/curmbs/index",
+    "today-course":"/components/today-course/index"
   },
   "navigationBarTitleText": "",
   "component": true,
   "navigationStyle": "custom"
+  
 }

@@ -157,6 +157,10 @@ color: #333333;
   justify-content: space-between;
   align-items: center;
 }
+.flex-around{
+  display: flex;
+  justify-content: space-around;
+}
 .flex-ver-center{
   display: flex;
   align-items: center;

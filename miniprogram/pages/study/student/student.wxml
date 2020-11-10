@@ -1,0 +1,30 @@
+<view class="plr-24">
+  <!-- header -->
+  <view class="header pt-20">
+    <view class="left-cont flex-center">
+      <text>初中一年级·一班</text>
+      <image src="/images/icon_arrow@2x.png"></image>
+    </view>
+    <!-- 右边内容 -->
+    <view class="right-cont">
+      <top-input></top-input>
+    </view>
+  </view>
+  <!-- 下面主体 -->
+  <view class="main">
+    <view wx:for="{{6}}" wx:key="index" bindtap="go_stuDetail" class="stu-row h-140 bor-bottom flex-center">
+      <!-- icon -->
+      <image class="stu_icon mr-20"></image>
+      <!-- 右边内容 -->
+      <view class="student-detail">
+        <view class="flex-center">
+          <view class="">小王</view>
+          <image src="/images/female@2x.png"></image>
+        </view>
+        <view class="stu-font mt-10">
+          初中一年级·一班|资料已邮寄
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

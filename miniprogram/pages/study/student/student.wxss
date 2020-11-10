@@ -1,0 +1,49 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+}
+.header>.left-cont,.right-cont{
+  height: 60rpx;
+}
+.left-cont{
+  width: 30%;
+font-size: 26rpx;
+font-family: PingFangSC-Medium, PingFang SC;
+font-weight: 500;
+color: #333333;
+}
+.right-cont{
+  width: 68%;
+}
+.left-cont>text{
+    white-space: nowrap;
+}
+.left-cont>image{
+  margin-left: 12rpx;
+  width: 16rpx;
+  height: 8rpx;
+}
+.right-cont>image{
+  width: 28rpx;
+  height: 26rpx;
+}
+
+/*main */
+.stu-row>.stu_icon{
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  border:1px solid red;
+}
+.student-detail{
+}
+.student-detail>image{
+  width: 28rpx;
+  height: 28rpx;
+}
+.stu-font{
+font-size: 26rpx;
+font-family: PingFangSC-Regular, PingFang SC;
+font-weight: 400;
+color: #666666;
+}

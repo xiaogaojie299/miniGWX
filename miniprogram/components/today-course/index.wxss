@@ -118,15 +118,16 @@
   color: #2B3540;
 }
 .right-btn{
-  width: 140rpx;
-height: 56rpx;
-background: linear-gradient(270deg, #EF753C 0%, #F13232 100%);
-border-radius: 8rpx;
+  width: 152rpx;
+  height: 52rpx;
+  background: #FFFFFF;
+  border-radius: 30px;
+  border: 1px solid #F13232;
+  color: #F13232;
 /* 字体 */
 font-size: 24rpx;
 font-family: PingFangSC-Regular, PingFang SC;
 font-weight: 400;
-color: #FFFFFF;
 /* 垂直居中 */
 display: flex;
 align-items: center;

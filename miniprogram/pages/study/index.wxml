@@ -5,8 +5,8 @@
   </view>
   <view class="page">
     <!-- 头部 -->
-    <view class="header">
-      <view class="header-left">
+    <view class="header mt-30">
+      <view bindtap="go_teachClass" class="header-left">
         <view class="header-left-item1">
           <view>教学班级</view>
           <view class="color-red font-w-500">3</view>
@@ -16,9 +16,9 @@
           <image src="/images/right.png"></image>
         </view>
       </view>
-      <view class="header-right">
+      <view class="header-right" bindtap="go_student">
         <view class="header-left-item1">
-          <view>教学班级</view>
+          <view>授课学生</view>
           <view class="color-red font-w-500">3</view>
         </view>
         <!-- 右转符号 -->
@@ -36,7 +36,19 @@
     </view>
   </view>
   <!-- 日历 -->
-  <view class="calendar-box">
-
+  <view class="calendar-box pt-30">
+    <view class="page">
+      <calendar id="calendar"></calendar>
+    </view>
   </view>
+  <!-- calss -->
+  <view class="mt-10">
+    <view class="page">
+        <!-- 今日课程安排 -->
+        <view class="">
+            <today-course wx:for="{{2}}" wx:key="item"></today-course>
+        </view>
+  </view>
+  </view>
+  
 </view>
