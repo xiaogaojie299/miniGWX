@@ -7,7 +7,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+ 
   },
 
   /**
@@ -27,8 +27,10 @@ Component({
     visible(){
     let that=this;
     let arr=[];
+    let arr1=[];
       // 获取当前年月
-    let {year,month}=utils.getYearMonthDay(new Date());
+    // let {year,month}=utils.getYearMonthDay(new Date());
+    let {year,month}=that.data.time;
     console.log(year,month);
     let currrentfirstDay=utils.getDate(year,month,1);
     // 获取当前月份的第一周是星期几
@@ -40,8 +42,10 @@ Component({
      // 开始循环
     for(let i=0;i<35;i++){
       arr.push(new Date(startDay + i * 60 * 60 * 1000 * 24));
-      this.data.timeArr.push(new Date(startDay + i * 60 * 60 * 1000 * 24));
+      arr1.push(utils.getTimer(new Date(startDay + i * 60 * 60 * 1000 * 24)))
     }
+    // let arr1=[...arr];
+    this.setData({timeArr:arr1})
     console.log('timeArr=',this.data.timeArr);
     arr.forEach((item,index,arr)=>{
       arr[index]=item.getDate()
@@ -61,7 +65,27 @@ Component({
       this.setData({
         isMonth :  year==y&&month==m
       })
-    }
+    },
+    // 上一月
+    previousMonth(){
+      var d= utils.getDate(this.data.time.year,this.data.time.month,1);
+        console.log(d);
+        d.setMonth(d.getMonth()-1);
+        this.setData({
+          time:utils.getYearMonthDay(d)
+        })
+        // this.time=utils.getYearMonthDay(d);
+        this.visible();
+    },
+    nextMonth(){
+      var d= utils.getDate(this.data.time.year,this.data.time.month,1);
+      console.log(d);
+      d.setMonth(d.getMonth()+1);
+      this.setData({
+        time:utils.getYearMonthDay(d)
+      })
+      this.visible();
+  }
   },
   options: {
     addGlobalClass: true

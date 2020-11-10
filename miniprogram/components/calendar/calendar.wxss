@@ -1,6 +1,9 @@
 .not-month{
   color:#D0D4D6
 }
+.is-month{
+  color: #657178;
+}
 .calender-header {
   position: relative;
   display: flex;
@@ -52,7 +55,6 @@
   font-size: 22rpx;
   font-family: Avenir-Heavy, Avenir;
   font-weight: 800;
-  color: #657178;
   height: 64rpx;
   flex: 1;
   text-align: center;

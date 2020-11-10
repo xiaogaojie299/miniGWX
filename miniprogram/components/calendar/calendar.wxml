@@ -1,31 +1,48 @@
 <view>
-  <view>
-    <!-- 顶部 -->
-    <view class="calender-header mb-30 mt-30">
-      <image class="mr-30" src="/images/icon_arrow_left@2x.png"></image>
-      <view>2020年4月</view>
-      <image class="ml-30" src="/images/icon_arrow_right@2x.png"></image>
-      <!-- 周月 -->
-      <view class="right-btn-groups">
-        <view>周/</view>
-        <view class="ml-20">月</view>
-      </view>
-    </view>
-    <!-- 下面日历主体 -->
-    <view class="calender-main">
-      <!-- 周 -->
-      <view class="weeks">
-        <text wx:for="{{week}}" wx:key="index">{{item}}</text>
-      </view>
-      <!-- 日历表 -->
-      <view class="calender-table">
-        <!-- 控制行 -->
-        <!-- index是外层的下标 in是内层的下标-->
-          <view class="cell" wx:for="{{5}}" class="flex" wx:key="index">
-            <text bindtap="isMoney" data-in="{{(index)*7+(in)}}" class="{{isMonth?'day':'day not-month'}}" wx:for= "{{7}}" wx:for-index="in" wx:key="in">{{dayArrs[(index)*7+(in)]}} </text>
-          </view>
-          <!-- <button bindtap="isMoney">按钮{{isMoney}}</button> -->
-      </view>
-    </view>
-  </view>
+<wxs module="filter" src="./isMonth.wxs"> </wxs>
+	<view>
+		<!-- 顶部 -->
+		<view class="calender-header mb-30 mt-30">
+			<image class="mr-30" bindtap="previousMonth" src="/images/icon_arrow_left@2x.png"></image>
+			<view>2020年4月</view>
+			<image class="ml-30" bindtap="nextMonth" src="/images/icon_arrow_right@2x.png"></image>
+			<!-- 周月 -->
+			<view class="right-btn-groups">
+				<view>周/</view>
+				<view class="ml-20">月</view>
+			</view>
+		</view>
+		<!-- 下面日历主体 -->
+		<view class="calender-main">
+			<!-- 周 -->
+			<view class="weeks">
+				<text wx:for="{{week}}" wx:key="index">{{item}}</text>
+			</view>
+			<!-- 日历表 -->
+			<view class="calender-table">
+				<!-- 控制行 -->
+				<!-- index是外层的下标 in是内层的下标-->
+				<view class="cell" wx:for="{{5}}" class="flex" wx:key="index">
+					<!-- <text
+            bindtap="isMoney"
+            data-in="{{(index)*7+(in)}}"
+            class="{{filter.isMonth?'day':'day not-month'}}"
+            wx:for= "{{7}}"
+            wx:for-index="in"
+            wx:key="in">{{dayArrs[(index)*7+in]}}
+            </text> -->
+
+          <text
+            bindtap="isMoney"
+            class="{{filter.isMonth(timeArr[(index)*7+in],time)?'is-month day':'not-month day'}}"
+            wx:for= "{{7}}"
+            wx:for-index="in"
+            wx:key="in">{{dayArrs[(index)*7+in]}}
+            </text>
+
+				</view>
+				<button bindtap="isMoney">按钮{{timeArr[1]}}</button>
+			</view>
+		</view>
+	</view>
 </view>

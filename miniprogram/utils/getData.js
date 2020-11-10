@@ -9,6 +9,7 @@ const getDate = (year, month, day) => {
 };
 // 获取时间戳
 const getTimer=(time)=>{
-  return new Date(time*60*60*24*1000);
+  return time.getFullYear()+'/'+time.getMonth()+'/'+time.getDate()
+  // return new Date(time*60*60*24*1000);
 }
 export { getYearMonthDay, getDate,getTimer };

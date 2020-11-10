@@ -1,205 +1,205 @@
 {
-  "miniprogramRoot": "miniprogram/",
-  "cloudfunctionRoot": "cloudfunctions/",
-  "setting": {
-    "urlCheck": true,
-    "es6": true,
-    "enhance": true,
-    "postcss": true,
-    "preloadBackgroundData": false,
-    "minified": true,
-    "newFeature": true,
-    "coverView": true,
-    "nodeModules": true,
-    "autoAudits": false,
-    "showShadowRootInWxmlPanel": true,
-    "scopeDataCheck": false,
-    "uglifyFileName": false,
-    "checkInvalidKey": true,
-    "checkSiteMap": true,
-    "uploadWithSourceMap": true,
-    "compileHotReLoad": false,
-    "useMultiFrameRuntime": false,
-    "useApiHook": true,
-    "babelSetting": {
-      "ignore": [],
-      "disablePlugins": [],
-      "outputPath": ""
-    },
-    "useIsolateContext": true,
-    "useCompilerModule": true,
-    "userConfirmedUseCompilerModuleSwitch": false,
-    "packNpmManually": false,
-    "packNpmRelationList": []
-  },
-  "appid": "wx2696c638d3db9b2e",
-  "projectname": "miniprogram-2",
-  "libVersion": "2.8.1",
-  "simulatorType": "wechat",
-  "simulatorPluginLibVersion": {},
-  "compileType": "miniprogram",
-  "condition": {
-    "search": {
-      "current": -1,
-      "list": []
-    },
-    "conversation": {
-      "current": -1,
-      "list": []
-    },
-    "plugin": {
-      "current": -1,
-      "list": []
-    },
-    "game": {
-      "list": []
-    },
-    "gamePlugin": {
-      "current": -1,
-      "list": []
-    },
-    "miniprogram": {
-      "current": 0,
-      "list": [
-        {
-          "id": -1,
-          "name": "db guide",
-          "pathName": "pages/databaseGuide/databaseGuide",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "pages/login/login",
-          "pathName": "pages/login/login",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/index/index",
-          "pathName": "pages/index/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/homeWork/index",
-          "pathName": "pages/homeWork/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/homeWork/problem-detail/problem-detail",
-          "pathName": "pages/homeWork/problem-detail/problem-detail",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/homeWork/my-problem-detail/my-problem-detail",
-          "pathName": "pages/homeWork/my-problem-detail/my-problem-detail",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/homeWork/my-problem/my-problem",
-          "pathName": "pages/homeWork/my-problem/my-problem",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/news/index",
-          "pathName": "pages/news/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/news/msg-notification/msg-index",
-          "pathName": "pages/news/msg-notification/msg-index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/user/index",
-          "pathName": "pages/user/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/user/user-details/user-detail",
-          "pathName": "pages/user/user-details/user-detail",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/user/recruit/recruit",
-          "pathName": "pages/user/recruit/recruit",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/user/become-teacher/become-teacher",
-          "pathName": "pages/user/become-teacher/become-teacher",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/user/recruit/recruit",
-          "pathName": "pages/user/recruit/recruit",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/user/feedback/feedback",
-          "pathName": "pages/user/feedback/feedback",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/study/index",
-          "pathName": "pages/study/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/study/student/student",
-          "pathName": "pages/study/student/student",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/study/student-detail/student-detail",
-          "pathName": "pages/study/student-detail/student-detail",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/study/teach-class/teach-class",
-          "pathName": "pages/study/teach-class/teach-class",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/study/class-schedule/class-schedule",
-          "pathName": "pages/study/class-schedule/class-schedule",
-          "scene": null
-        }
-      ]
-    }
-  }
+	"miniprogramRoot": "miniprogram/",
+	"cloudfunctionRoot": "cloudfunctions/",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"enhance": true,
+		"postcss": true,
+		"preloadBackgroundData": false,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"nodeModules": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"uglifyFileName": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"compileHotReLoad": false,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"useIsolateContext": true,
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": false,
+		"useMultiFrameRuntime": false,
+		"useApiHook": true,
+		"packNpmManually": false,
+		"packNpmRelationList": []
+	},
+	"appid": "wx2696c638d3db9b2e",
+	"projectname": "miniprogram-2",
+	"libVersion": "2.8.1",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"compileType": "miniprogram",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "db guide",
+					"pathName": "pages/databaseGuide/databaseGuide",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "pages/login/login",
+					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/homeWork/index",
+					"pathName": "pages/homeWork/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/homeWork/problem-detail/problem-detail",
+					"pathName": "pages/homeWork/problem-detail/problem-detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/homeWork/my-problem-detail/my-problem-detail",
+					"pathName": "pages/homeWork/my-problem-detail/my-problem-detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/homeWork/my-problem/my-problem",
+					"pathName": "pages/homeWork/my-problem/my-problem",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/news/index",
+					"pathName": "pages/news/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/news/msg-notification/msg-index",
+					"pathName": "pages/news/msg-notification/msg-index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user/index",
+					"pathName": "pages/user/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user/user-details/user-detail",
+					"pathName": "pages/user/user-details/user-detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user/recruit/recruit",
+					"pathName": "pages/user/recruit/recruit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user/become-teacher/become-teacher",
+					"pathName": "pages/user/become-teacher/become-teacher",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user/recruit/recruit",
+					"pathName": "pages/user/recruit/recruit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user/feedback/feedback",
+					"pathName": "pages/user/feedback/feedback",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/study/index",
+					"pathName": "pages/study/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/study/student/student",
+					"pathName": "pages/study/student/student",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/study/student-detail/student-detail",
+					"pathName": "pages/study/student-detail/student-detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/study/teach-class/teach-class",
+					"pathName": "pages/study/teach-class/teach-class",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/study/class-schedule/class-schedule",
+					"pathName": "pages/study/class-schedule/class-schedule",
+					"scene": null
+				}
+			]
+		}
+	}
 }

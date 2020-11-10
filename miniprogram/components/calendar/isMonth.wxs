@@ -1,0 +1,17 @@
+// var utils = require('../../utils');
+var filter = {
+	isMonth: function(value,value2){
+    if(value){
+      var year1=value.split("/")[0];
+      var month1=value.split("/")[1]
+      var year=value2.year;
+    var month=value2.month;
+    return year1==year&&month==month1
+    }
+  
+	}
+}
+
+module.exports = {
+	isMonth: filter.isMonth
+}
