@@ -8,10 +8,14 @@ var filter = {
     var month=value2.month;
     return year1==year&&month==month1
     }
-  
-	}
+  },
+  isToday:function(value) {
+    if(value){
+      return value.split("/");
+    }
+  }
 }
-
-module.exports = {
-	isMonth: filter.isMonth
-}
+module.exports=filter
+// module.exports = {
+//   isMonth: filter.isMonth
+// }

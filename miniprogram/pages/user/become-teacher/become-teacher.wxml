@@ -23,7 +23,7 @@
         </view>
       </view>
       <!-- 生日 -->
-      <view class="h-100 flex-between">
+      <view bindtap="birthdar_pop" class="h-100 flex-between">
         <!-- 左边性别 -->
         <view class="lable">生日:</view>
         <image src="/images/right.png"></image>
@@ -40,7 +40,7 @@
         </view>
     </view>
     <!-- 最高学历 -->
-    <view class="h-100 form-list bor-bottom">
+    <view class="h-100 form-list bor-bottom" bindtap="handle_education">
         <!-- 左边性别 -->
         <view class="lable">最高学历:</view>
         <view class="ipt">
@@ -57,7 +57,7 @@
       </view>
 
       <!-- 擅长课程 -->
-      <view class="h-100 form-list">
+      <view class="h-100 form-list" bindtap="handle_subject">
         <!-- 左边性别 -->
         <view class="lable">擅长课程:</view>
         <view class="ipt">
@@ -78,6 +78,34 @@
       <image class="upload-icon mr-20" wx:if="{{tempFilePaths.length<3}}" bindtap="chooseimage" src=""></image>
     </view>
   </view>
+  <!-- 选择时间按钮 -->
+    <van-popup
+    show="{{ isShow }}"
+    round
+    position="bottom"
+    custom-style="height: 40%"
+    bind:close="onClose"
+  >  <my-picker-time></my-picker-time>
+  </van-popup>
+<!-- 选择校区 -->
+  <my-picker columns="{{columns}}" id="myeducation"></my-picker>
+  <!-- 选择擅长科目 -->
+  <van-popup
+    show="{{ isgoodSubject }}"
+    round
+    position="bottom"
+    custom-style="height: 50%"
+    bind:close="onCloseGoodSub"
+  >
+  <view class="popup-header flex">
+    <view class="popup-left">取消</view>
+    <view class="popup-center">选择擅长科目</view>
+    <view class="popup-right" bindtap="onfirm">确定</view>
+  </view>
+    <view class="subject">
+        <view bindtap="select_sub" data-index="{{index}}" class="{{item.checkout?'selectSub':'unselectSub'}} subject-item flex-ver-center" wx:for="{{subjectList}}" wx:key="index">{{item.title}}</view>
+    </view>
+  </van-popup>
 </view>
   <!-- 底部按钮 -->
   <view class="foot-btn flex-ver-center">申请成为老师</view>

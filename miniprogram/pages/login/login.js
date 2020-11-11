@@ -9,10 +9,19 @@ Page({
       {title:"密码登录"},
       {title:"验证码登录"}
     ],
+    isFouce:false,//获取焦点时的样式
     currentIndex:0,
     // 开关控制显示隐藏
     isvisib:false,
     i:10
+  },
+  inputFocus(){
+    console.log('获取焦点成功');
+    this.setData({isFouce:true})
+  },
+  inputBlur(){
+    this.setData({isFouce:false})
+    console.log('获取焦点失败');
   },
   // 获取验证码
   get_code(){

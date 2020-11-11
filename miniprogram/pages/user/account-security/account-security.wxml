@@ -8,7 +8,7 @@
         <view class="right-font">133****2362</view>
       </view>
       <!-- 修改绑定手机号 -->
-      <view class="h-100 flex-between bor-bottom">
+      <view bindtap="go_chagePhone" class="h-100 flex-between bor-bottom">
         <!-- 左边性别 -->
         <view class="lable">修改手机绑定号</view>
         <view class="flex-center">

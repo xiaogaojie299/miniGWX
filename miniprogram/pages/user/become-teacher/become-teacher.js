@@ -5,7 +5,74 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tempFilePaths:[]
+    tempFilePaths: [],
+    isShow: false,
+    isgoodSubject: false,
+    columns: ["博士", "硕士", "本科", "专科"],
+    subjectList: [{
+      title: "语文",
+      checkout: false
+    }, {
+      title: "数学",
+      checkout: false
+    }, {
+      title: "英语",
+      checkout: false
+    }, {
+      title: "生物",
+      checkout: false
+    }, {
+      title: "物理",
+      checkout: false
+    }, {
+      title: "化学",
+      checkout: false
+    }, {
+      title: "地理",
+      checkout: false
+    }, {
+      title: "政治",
+      checkout: false
+    }, {
+      title: "历史",
+      checkout: false
+    }, {
+      title: "其他",
+      checkout: false
+    }]
+  },
+  select_sub(e){
+    let arr=[...this.data.subjectList];
+    let i=e.currentTarget.dataset.index;
+      console.log(e.currentTarget.dataset.index);
+      arr[i].checkout=!arr[i].checkout;
+      this.setData({
+        subjectList:arr
+      })
+  },
+  // 弹出生日时间选择器
+  birthdar_pop() {
+    this.setData({
+      isShow: true
+    });
+  },
+  onClose() {
+    this.setData({
+      isShow: false
+    });
+  },
+  handle_subject() {
+    this.setData({
+      isgoodSubject: true
+    });
+  },
+  onCloseGoodSub() {
+    this.setData({
+      isgoodSubject: false
+    });
+  },
+  handle_education() {
+    this.selectComponent("#myeducation").open_pop()
   },
   // 图片上传
   onLoad: function onLoad() {},
@@ -23,8 +90,8 @@ Page({
           duration: 1000
         });
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片  
-        console.log(_this.data.tempFilePaths,'res=',res.tempFilePaths);
-        var tempFiles=_this.data.tempFilePaths.concat(res.tempFilePaths);
+        console.log(_this.data.tempFilePaths, 'res=', res.tempFilePaths);
+        var tempFiles = _this.data.tempFilePaths.concat(res.tempFilePaths);
         _this.setData({
           tempFilePaths: tempFiles
         });

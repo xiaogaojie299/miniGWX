@@ -1,0 +1,25 @@
+<view>
+  <van-popup
+    show="{{ isShow }}"
+    round
+    position="bottom"
+    custom-style="height: 40%"
+    bind:close="onClose"
+  >  
+  <van-picker
+  show-toolbar
+  title="选择最高学历"
+  columns="{{ columns }}"
+  bind:cancel="onCancel"
+  bind:confirm="onConfirm"
+/>
+
+<!-- <van-picker
+  show-toolbar
+  title="选择最高学历"
+  bind:cancel="onCancel"
+  bind:confirm="onConfirm"
+> </van-picker> -->
+
+  </van-popup>
+</view>

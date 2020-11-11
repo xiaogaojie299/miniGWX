@@ -1,5 +1,5 @@
 input {
-  height: 92rpx;
+  height: 100%;
   background: #FFFFFF;
   border-radius: 8rpx;
   border: 2rpx solid #F3F3F3;
@@ -9,6 +9,11 @@ input {
   color: #B2B2BF;
   line-height: 42rpx;
   padding: 0 30rpx;
+}
+.fouces{
+  outline:2px solid #EF3F5E;
+  border-radius: 8rpx;
+  /* border: 2px solid #EF3F5E; */
 }
 .my-font view{
   font-size: 16px;

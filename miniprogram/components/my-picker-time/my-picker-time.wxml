@@ -1,0 +1,10 @@
+<view>
+  <van-datetime-picker
+  type="date"
+  title="选择年月日"
+  value="{{ currentDate }}"
+  bind:input="onInput"
+  min-date="{{ minDate }}"
+  formatter="{{ formatter }}"
+/>
+</view>

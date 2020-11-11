@@ -18,7 +18,11 @@ Component({
     time:{year,month,day},
     dayArrs:[],
     timeArr:[],  //为转换成的时间格式,类似于new Date()时间格式
-    isMonth:"" //判断是否是当前月
+    isMonth:"", //判断是否是当前月
+    today:new Date().getDate(), //当前时间
+    currentMonth:new Date().getMonth(), //当前月
+    currenYear:new Date().getFullYear(), //当前年份
+    ischeckDay:35 //用户点击日历时 默认不选中
   },
   /**
    * 组件的方法列表
@@ -77,6 +81,7 @@ Component({
         // this.time=utils.getYearMonthDay(d);
         this.visible();
     },
+    // 下一个月
     nextMonth(){
       var d= utils.getDate(this.data.time.year,this.data.time.month,1);
       console.log(d);
@@ -85,6 +90,21 @@ Component({
         time:utils.getYearMonthDay(d)
       })
       this.visible();
+  },
+  // 点击选择当前天数
+  checkDay(e){
+    let index=e.currentTarget.dataset.in;
+    this.setData({ischeckDay:index}) 
+      console.log(this.data.timeArr[index]);
+  },
+  // 点击选择周
+  checkout_week(){
+    console.log('周')
+    
+  },
+  // 点击选择月
+  checkout_month(){
+    console.log('月')
   }
   },
   options: {

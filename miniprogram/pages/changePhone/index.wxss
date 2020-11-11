@@ -1,0 +1,47 @@
+input{
+  border:none;
+}
+.page{
+  
+}
+.box{
+background: #FBFBFC;
+height: 100vh;
+}
+.header{
+  height: 92rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  padding-top:40rpx;
+}
+.main{
+background: #FFFFFF;
+}
+.newPhone{
+  width: 569rpx;
+  height: 100%;
+}
+.lable{
+width: 120rpx;
+font-size: 28rpx;
+font-family: PingFangSC-Medium, PingFang SC;
+font-weight: 500;
+}
+.getcode{
+  width: 160rpx;
+  height: 60rpx;
+  font-size: 22rpx;
+color: #EB002A;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  margin-left:auto;
+  padding-left: 14rpx;
+  border-left: 1px solid #F2F2F2;
+}
+.codeIpt{
+  width: 396rpx;
+  
+}

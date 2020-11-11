@@ -1,4 +1,4 @@
-// miniprogram/pages/user/account-security/account-security.js
+// miniprogram/pages/changePhone/index.js
 Page({
 
   /**
@@ -11,17 +11,6 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  go_setUpwd(){
-    wx.navigateTo({
-      url: '/pages/forgetUpwd/index',
-    })
-  },
-  go_chagePhone(){
-    console.log(11);
-    wx.navigateTo({
-      url: '/pages/changePhone/index',
-    })
-  },
   onLoad: function (options) {
 
   },

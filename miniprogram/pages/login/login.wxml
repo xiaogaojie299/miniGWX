@@ -28,8 +28,8 @@
 		<!-- 主体 -->
 		<view class="main-center">
 			<!-- input输入框 -->
-			<view class="row1-input">
-				<input placeholder="请输入手机号" type="text" />
+			<view class="{{isFouce?'fouces row1-input':'row1-input'}}">
+				<input bindfocus="inputFocus" bindblur="inputBlur" placeholder="请输入手机号" type="text" />
 			</view>
 			<!-- 请输入密码 -->
 			<view class="input-title" wx:if="{{currentIndex==0}}">

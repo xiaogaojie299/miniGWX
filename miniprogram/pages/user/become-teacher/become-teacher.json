@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "my-picker-time":"/components/my-picker-time/my-picker-time",
+    "my-picker":"/components/my-picker/my-picker"
+  }
 }

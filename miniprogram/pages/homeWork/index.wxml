@@ -30,7 +30,7 @@
           <view>2018-12-23 12:23</view>
         </view>
         <!-- 底部 -->
-        <view class="problem-footer">
+        <view class="problem-footer  mt-10">
           <!-- 左边ICON加文字 -->
           <view class="problem-footer-left">
             <image src="/images/icon_coin.png"></image>
