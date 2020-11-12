@@ -1,6 +1,12 @@
 view,input{
   box-sizing: border-box;
 }
+.input-placeholder{
+  color: #AEAEAE;
+font-size: 28rpx;
+font-family: PingFangSC-Medium, PingFang SC;
+font-weight: 500;
+}
 .color1{
 font-size: 30rpx;
 font-family: PingFangSC-Semibold, PingFang SC;

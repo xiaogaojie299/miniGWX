@@ -43,5 +43,23 @@ color: #EB002A;
 }
 .codeIpt{
   width: 396rpx;
-  
+}
+.footer{
+  margin-top: 74rpx;
+}
+.footer-btn{
+  margin: 0 auto;
+}
+.footer-btn button{
+height: 88rpx;
+background: linear-gradient(270deg, #EF753C 0%, #F13232 100%);
+border-radius: 4rpx;
+opacity: 0.4;
+
+/* 字体 */
+
+font-size: 30rpx;
+font-family: PingFangSC-Medium, PingFang SC;
+font-weight: 500;
+color: #FFFFFF;
 }

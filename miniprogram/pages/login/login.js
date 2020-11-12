@@ -13,7 +13,8 @@ Page({
     currentIndex:0,
     // 开关控制显示隐藏
     isvisib:false,
-    i:10
+    i:60,
+    timer:null //定时器
   },
   inputFocus(){
     console.log('获取焦点成功');
@@ -25,10 +26,23 @@ Page({
   },
   // 获取验证码
   get_code(){
-    let i=10;
     let that=this;
     that.setData({isvisib:true});
-    console.log(i);
+    this.startTime();
+  },
+  startTime(){
+    let {i}=this.data;
+    let timer=null;
+    timer=setInterval(()=>{
+        if(i>1){
+          i--;
+          this.setData({i})
+        }else{
+          this.setData({i:60})
+          clearInterval(timer);
+          this.setData({isvisib:false});
+        }
+      },1000)
   },
   defindType(event){
     return event.currentTarget.dataset

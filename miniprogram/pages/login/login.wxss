@@ -3,10 +3,6 @@ input {
   background: #FFFFFF;
   border-radius: 8rpx;
   border: 2rpx solid #F3F3F3;
-  font-size: 30rpx;
-  font-family: PingFangSC-Medium, PingFang SC;
-  font-weight: 500;
-  color: #B2B2BF;
   line-height: 42rpx;
   padding: 0 30rpx;
 }
@@ -104,6 +100,7 @@ opacity: 0.38;
   width: 70%;
   height: 98%;
   border: none;
+  color: #333333;
 }
 
 .input-title>view {

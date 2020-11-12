@@ -1,21 +1,47 @@
 // var utils = require('../../utils');
 var filter = {
-	isMonth: function(value,value2){
-    if(value){
-      var year1=value.split("/")[0];
-      var month1=value.split("/")[1]
-      var year=value2.year;
-    var month=value2.month;
-    return year1==year&&month==month1
+  isMonth: function (value, value2) {
+    if (value) {
+      var year1 = value.split("/")[0];
+      var month1 = value.split("/")[1]
+      var year = value2.year;
+      var month = value2.month;
+      return year1 == year && month == month1
     }
   },
-  isToday:function(value) {
-    if(value){
+  isToday: function (value) {
+    if (value) {
       return value.split("/");
+    }
+  },
+  isWeekToday: function (value,time) {
+    if (value) {
+     value=value.split("/");
+     console.log(value[0],time.day,time.month,time.year)
+    return  value[2]==time.day&&value[1]==time.month&&value[0]==time.year
+    }
+  },
+  weekType: function (value) {
+    value > 6 ? value=value % 7 : value;
+    switch (value) {
+      case 0:
+        return "周日";
+      case 1:
+        return "周一";
+      case 2:
+        return "周二";
+      case 3:
+        return "周三";
+      case 4:
+        return "周四";
+      case 5:
+        return "周五";
+      default:
+        return "周六"
     }
   }
 }
-module.exports=filter
+module.exports = filter
 // module.exports = {
 //   isMonth: filter.isMonth
 // }
