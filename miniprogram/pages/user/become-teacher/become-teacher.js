@@ -8,6 +8,22 @@ Page({
     tempFilePaths: [],
     isShow: false,
     isgoodSubject: false,
+    inputList:[
+      {
+        title:"联系电话",
+        placeholder:"请输入您的联系电话",
+        value:""
+      },
+      {
+        title:"联系地址",
+        placeholder:"请输入您的联系地址",
+        value:""
+      },{
+        title:"个人简历",
+        placeholder:"请输入您的个人简历",
+        value:""
+      }
+    ],
     columns: ["博士", "硕士", "本科", "专科"],
     subjectList: [{
       title: "语文",

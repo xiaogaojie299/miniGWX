@@ -51,7 +51,7 @@
       </view>
       <view class="footer-card-bottom flex-between">
         <view class="scope"><text>136分</text>（总150分）</view>
-        <view>
+        <view bindtap="go_lookAnswer">
           <my-tag>查看详情</my-tag>
         </view>
       </view>

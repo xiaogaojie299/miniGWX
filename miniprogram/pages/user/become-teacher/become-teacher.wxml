@@ -16,10 +16,10 @@
         </radio-button> </view>
       </view>
 
-      <view wx:for="{{3}}" wx:key="index" class="h-100 form-list">
-        <view class="lable">姓名:</view>
+      <view wx:for="{{inputList}}" wx:key="index" class="h-100 form-list">
+        <view class="lable">{{item.title}}:</view>
         <view class="ipt">
-          <input type="text" placeholder="请输入联系方式" />
+          <input type="text" placeholder="{{item.placeholder}}" />
         </view>
       </view>
       <!-- 生日 -->
@@ -109,4 +109,4 @@
 </view>
   <!-- 底部按钮 -->
   <view class="foot-btn flex-ver-center">申请成为老师</view>
-</view>
+</view> 

@@ -9,6 +9,9 @@ background: #FFFFFF;
 box-shadow: 0px 4rpx 14rpx 0px rgba(220,220,220,0.5);
 margin-bottom: 14rpx;
 }
+.calendar-box{
+  padding-bottom: 50rpx;
+}
 .card-sty{
 /* height: 260rpx; */
 background: #FFFFFF;

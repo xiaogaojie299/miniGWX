@@ -1,0 +1,134 @@
+<!--question/pages/question/question.wxml-->
+<!-- 答题页面 -->
+<view class="back-navbar">
+  <navigator class="nav-back-btn" open-type="navigateBack" delta="1">
+    <image src="/img/icon_back@2x.png"></image>
+  </navigator>
+  <view class="nav-name">
+    <image src="/img/icon_time_red@2x.png"></image>
+    <text>00:00:12</text>
+  </view>
+</view>
+
+<!-- 单选 -->
+<view wx:if="{{questionType === 0}}">
+  <view class="content">
+    <view class="q-box radio-box">
+      <view class="q-top">1/80</view>
+      <view class="q-title">以下哪个答案是正确的？<text>(5分)</text></view>
+      <view class="q-main">
+        <view class="q-option" wx:for="{{radioOptionsList}}" wx:key="id">
+          <!-- 1  正确选项 -->
+          <view class="tag {{item.right === 1 ? 'active': ''}}">{{item.name}}</view>
+          <text>{{item.info}}</text>
+        </view>
+      </view>
+      <!-- 二维码 -->
+      <image bindtap="showPopup" class="code" src="/img/icon_all@2x.png"></image>
+    </view>
+
+  </view>
+</view>
+
+<!-- 判断 -->
+<view wx:if="{{questionType === 3}}">
+  <view class="content">
+    <view class="q-box radio-box">
+      <view class="q-top">1/80</view>
+      <view class="q-title">以下哪个答案是正确的？<text>(5分)</text></view>
+      <view class="q-main">
+        <view class="q-option" wx:for="{{judgeOptionsList}}" wx:key="id">
+          <!-- 1  正确选项 -->
+          <view class="tag {{item.right === 1 ? 'active': ''}}">{{item.name}}</view>
+          <text>{{item.info}}</text>
+        </view>
+      </view>
+      <!-- 二维码 -->
+      <image class="code" src="/img/icon_all@2x.png" bindtap="showPopup"></image>
+    </view>
+
+  </view>
+</view>
+
+
+<!-- 填空题 -->
+<view wx:elif="{{questionType === 1}}">
+  <view class="content">
+    <view class="q-box gap-box">
+      <view class="q-top">1/80</view>
+      <view class="q-title">日照香炉生紫烟：<text>(5分)</text></view>
+      <view class="q-main">
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+      </view>
+      <image bindtap="showPopup" class="code" src="/img/icon_all@2x.png"></image>
+    </view>
+  </view>
+</view>
+
+<!-- 简答题 -->
+<view wx:elif="{{questionType === 2}}">
+  <view class="content">
+    <view class="q-box short-box">
+      <view class="q-top">1/80</view>
+      <view class="q-title">请对这张图表表述的内容进行描述 <text>(20分)</text></view>
+      <view class="q-main">
+        <image src="/img/bg.png"></image>
+      </view>
+      <image bindtap="showPopup" class="code" src="/img/icon_all@2x.png"></image>
+    </view>
+    <view class="short-user-answer">
+      <textarea name="" id="" placeholder="请输入您的答案(300字)" maxlength="300"></textarea>
+      <van-uploader file-list="{{ fileList }}" max-count="1" upload-icon="plus" />
+    </view>
+  </view>
+</view>
+
+<!-- 底部公共按钮 -->
+<view class="cut-btns">
+  <view class="top-btn">上一题</view>
+  <view class="next-btn">下一题</view>
+</view>
+
+<!-- 选择题号弹框 -->
+<van-popup show="{{ show }}" bindtap="onClose" position="bottom"
+  custom-style="height: 760rpx; border-radius: 20rpx 20rpx 0rpx 0rpx;">
+  <view class="content">
+    <view class="num-box">
+      <view class="num have">1</view>
+      <view class="num current">1</view>
+      <view class="num">1</view>
+      <view class="num">1</view>
+      <view class="num">1</view>
+      <view class="num">1</view>
+      <view class="num">1</view>
+      <view class="num">1</view>
+      <view class="num">1</view>
+      <view class="num">1</view>
+      <view class="num">1</view>
+      <view class="num">1</view>
+      <view class="num">1</view>
+      <view class="num">1</view>
+      <view class="num">1</view>
+      <view class="num">1</view>
+      <view class="num">1</view>
+      <view class="num">1</view>
+      <view class="num">1</view>
+      <view class="num">1</view>
+    </view>
+    <view class="num-tags">
+      <view class="num-tag-item">
+        <view class="tag tag1"></view>
+        <text>已做</text>
+      </view>
+      <view class="num-tag-item">
+        <view class="tag tag2"></view>
+        <text>当前</text>
+      </view>
+      <view class="num-tag-item">
+        <view class="tag tag3"></view>
+        <text>未做</text>
+      </view>
+    </view>
+  </view>
+  <view class="send-btn">交卷结束考试</view>
+</van-popup>

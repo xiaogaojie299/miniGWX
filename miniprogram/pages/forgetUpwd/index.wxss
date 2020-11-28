@@ -49,7 +49,12 @@ input{
   position: relative;
   margin: 0 auto;
   background: linear-gradient(270deg, #EF753C 0%, #F13232 100%);
-  opacity: 0.38;
+}
+.click{
+  opacity: 1;
+}
+.no-click{
+opacity: 0.4;
 }
 .test{
   position: absolute;

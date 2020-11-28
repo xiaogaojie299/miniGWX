@@ -3,13 +3,15 @@
 	<view>
 		<!-- 顶部 -->
 		<view class="calender-header mb-30 mt-30">
-			<image class="mr-30" wx:if="isShowMonth" bindtap="previousMonth" src="/images/icon_arrow_left@2x.png"></image>
+			<!-- <image class="mr-30" wx:if="isShowMonth" bindtap="previousMonth" src="/images/icon_arrow_left@2x.png"></image> -->
+			<image class="mr-30" bindtap="previousMonth" src="/images/icon_arrow_left@2x.png"></image>
 			<view class="calender-year-month">{{time.year}}年{{time.month+1}}月</view>
-			<image class="ml-30" wx:if="isShowMonth" bindtap="nextMonth" src="/images/icon_arrow_right@2x.png"></image>
+			<!-- <image class="ml-30" wx:if="isShowMonth" bindtap="nextMonth" src="/images/icon_arrow_right@2x.png"></image> -->
+			<image class="ml-30" bindtap="nextMonth" src="/images/icon_arrow_right@2x.png"></image>
 			<!-- 周月 -->
 			<view class="right-btn-groups">
-				<view class="{{!isShowMonth?'color-black':''}}" bindtap="checkout_week">周 /</view>
-				<view class="{{isShowMonth?'color-black':''}} ml-10" bindtap="checkout_month">月</view>
+				<view class="{{!isShowMonth?'color-black':''}}" bindtap="checkout_week">周</view><view class="color-black ml-10 mr-10">/</view>
+				<view class="{{isShowMonth?'color-black':''}}" bindtap="checkout_month">月</view>
 			</view>
 		</view>
 		<!-- 下面日历主体 -->
@@ -30,7 +32,7 @@
             class="{{filter.isMonth(timeArr[(index)*7+in],time)?'is-month day':'not-month day'}}"
             wx:for= "{{7}}"
             wx:for-index="in"
-						wx:key="in"><text class="test" class="{{(dayArrs[(index)*7+in]==today&&filter.isToday(timeArr[(index)*7+in])[1]==currentMonth&&filter.isToday(timeArr[(index)*7+in])[0]==currenYear)?'istoday':ischeckDay==timeArr[(index)*7+in]?'check-day':''}}">{{dayArrs[(index)*7+in]}}</text><text class="bottom-inline"></text>
+						wx:key="in"><text class="test" class="{{(dayArrs[(index)*7+in]==today&&filter.isToday(timeArr[(index)*7+in])[1]==currentMonth&&filter.isToday(timeArr[(index)*7+in])[0]==currenYear)?'istoday':ischeckDay==timeArr[(index)*7+in]?'check-day':''}}">{{dayArrs[(index)*7+in]}}</text><text class="{{in==2||in==18?'bg-org':''}} bottom-inline"></text>
           	</text>
 						</view>
 						
@@ -47,7 +49,7 @@
 				<view>{{item}}</view> 
 				<view>{{filter.weekType(index)}}</view>
 			</view>
-				<view class="week-bottom-inline"></view>
+				<view class="{{index==2||index==18?'bg-org':''}} week-bottom-inline"></view>
 				</view>
 			</scroll-view> 
 		</view>

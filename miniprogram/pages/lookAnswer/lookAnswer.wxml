@@ -1,0 +1,90 @@
+<!--question/pages/lookAnswer/lookAnswer.wxml-->
+<view class="back-navbar">
+  <!-- <navigator class="nav-back-btn" open-type="navigateBack" delta="1">
+    <image src="/images/icon_back@2x.png"></image>
+  </navigator> -->
+  <view class="back-navbar-item plr-24">
+    <image bindtap="go_back" src="/images/icon_back@2x.png"></image>
+    <text class="nav-name">查看解析</text>
+  </view>
+</view>
+
+<view class="content plr-24">
+  <view class="plr-24">
+  <view class="score-box"> 
+    <view class="score">136分</view>
+    <view class="gross-score">总分:150</view>
+    <view class="timer">
+      <image src="/images/icon_time_red@2x.png"></image>
+      <text>00:00:12</text>
+    </view>
+    <view class="ranking">班级排名:<text>12/50</text></view>
+  </view>
+  </view>
+  <view class="q--box">
+    <!-- 全部/正确/扣分 切换 -->
+    <view class="choose-btns">
+      <!-- <view wx:for="{{questionStatus}}" wx:key="index" bindtap="activeBtn">{{item}}</view> -->
+      <view class="choose-btn-item {{btnIndex===index? 'btn-active' : ''}}" wx:for="{{questionStatus}}" wx:key="index" bindtap="activeBtn" data-index="{{index}}">{{item}}</view>
+    </view>
+    <view class="q-num-box">
+      <!-- q-num默认蓝色--正确 , 错误加类名 -->
+      <view class="q-num q-num-error">1</view>
+      <view class="q-num">2</view>
+      <view class="q-num">3</view>
+      <view class="q-num">4</view>
+      <view class="q-num">5</view>
+      <view class="q-num">6</view>
+      <view class="q-num">7</view>
+      <view class="q-num">8</view>
+      <view class="q-num">9</view>
+      <view class="q-num">10</view>
+      <view class="q-num">11</view>
+      <view class="q-num">12</view>
+      <view class="q-num">4</view>
+      <view class="q-num">5</view>
+      <view class="q-num">6</view>
+      <view class="q-num">7</view>
+      <view class="q-num">8</view>
+      <view class="q-num">9</view>
+      <view class="q-num">10</view>
+      <view class="q-num">11</view>
+      <view class="q-num">12</view>
+      <view class="q-num">3</view>
+      <view class="q-num">4</view>
+      <view class="q-num">5</view>
+      <view class="q-num">6</view>
+      <view class="q-num">7</view>
+      <view class="q-num">8</view>
+      <view class="q-num">9</view>
+      <view class="q-num">10</view>
+      <view class="q-num">11</view>
+      <view class="q-num">12</view>
+      <view class="q-num">4</view>
+      <view class="q-num">5</view>
+      <view class="q-num">6</view>
+      <view class="q-num">7</view>
+      <view class="q-num">8</view>
+      <view class="q-num">9</view>
+      <view class="q-num">10</view>
+      <view class="q-num">11</view>
+    </view>
+
+    <view class="tags">
+      <view class="tag">
+        <view class="o1"></view>
+        <text>正确</text>
+      </view>
+      <view class="tag">
+        <view class="o2"></view>
+        <text>扣分</text>
+      </view>
+    </view>
+
+  </view>
+
+
+</view>
+
+<view class="send-btn" bindtap="goAnswerInfo">查看单题解析</view>
+

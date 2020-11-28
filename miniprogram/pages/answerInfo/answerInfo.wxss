@@ -1,0 +1,210 @@
+/* question/pages/answerInfo/answerInfo.wxss */
+page {
+  padding-bottom: 98rpx;
+}
+.q-box {
+  position: relative;
+  /* width: 702rpx; */
+  width: 100%;
+  padding: 22rpx 34rpx 48rpx 30rpx;
+  background: #FFFFFF;
+  box-shadow: 0rpx 4rpx 14rpx 0rpx rgba(165, 165, 165, 0.5);
+  border-radius: 4rpx;
+  margin-top: 22rpx;
+}
+
+.q-top {
+  font-size: 30rpx;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  text-align: center;
+
+}
+
+.q-title {
+  font-size: 32rpx;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #2B3540;
+  margin-top: 28rpx;
+}
+
+.q-title text {
+  font-size: 28rpx;
+  color: #999;
+  font-weight: 500;
+}
+
+.code {
+  position: absolute;
+  top: 24rpx;
+  right: 34rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.active {
+  color: #fff !important;
+  background: linear-gradient(270deg, #EF753C 0%, #F13232 100%);
+}
+
+.answer-top {
+  display: flex;
+  align-items: center;
+  margin-top: 36rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #666666;
+}
+
+.answer-top text {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #EB002A;
+}
+
+.answer-box {
+  position: relative;
+  width: 702rpx;
+  background-color: #FAFAFA;
+  border-radius: 4rpx;
+  padding: 26rpx 16rpx 60rpx 28rpx;
+  margin: 18rpx 0;
+}
+
+.answer-title {
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+}
+
+.right-answer {
+  color: #F13232;
+}
+
+.user-answer {
+  color: #626971;
+}
+
+.answer-t {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.answer-info-title {
+  font-size: 30rpx;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #666666;
+  margin-top: 10rpx;
+}
+
+.voice-btn {
+  width: 180rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
+  border: 1rpx solid #F13232;
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: #F13232;
+  line-height: 58rpx;
+  padding-left: 20rpx;
+}
+
+.answer-info {
+  font-size: 28rpx;
+  color: #626971;
+  line-height: 40rpx;
+  margin-top: 20rpx;
+}
+
+
+
+/* 单选 */
+.radio-box .q-option {
+  display: flex;
+  font-size: 24rpx;
+  margin-top: 40rpx;
+}
+
+.radio-box .q-option .tag {
+  width: 36rpx;
+  height: 36rpx;
+  border: 1rpx solid #F13332;
+  border-radius: 50%;
+  color: #F13332;
+  text-align: center;
+  line-height: 34rpx;
+  margin-right: 20rpx;
+}
+
+.radio-answer-title {
+  display: flex;
+}
+
+.radio-answer-title>.right-answer {
+  margin-right: 18rpx;
+}
+
+/* 填空题 */
+.gap-box>.q-main {
+  width: 608rpx;
+  height: 180rpx;
+  border-radius: 8rpx;
+  border: 2rpx solid #EFEFEF;
+  margin-top: 20rpx;
+}
+
+
+/* 简答题 */
+.short-box .q-main {
+  margin-top: 20rpx;
+}
+
+.short-box .q-main>image {
+  width: 640rpx;
+  height: 320rpx;
+  border-radius: 4rpx;
+}
+
+.short-answer .right-answer .right-answer-text,
+.user-answer .user-answer-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.short-answer .right-answer image,
+.user-answer image {
+  width: 640rpx;
+  height: 320rpx;
+}
+
+/* 底部按钮 */
+.cut-btns {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  height: 98rpx;
+  box-shadow: 0rpx -2rpx 8rpx 0rpx rgba(240, 240, 240, 0.81);
+  
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  text-align: center;
+  line-height: 98rpx;
+}
+
+.top-btn {
+  flex: 1;
+  color: #2A2A2A;
+  background-color: #fff;
+}
+
+.next-btn {
+  flex: 1;
+  color: #fff;
+  background: linear-gradient(270deg, #EF753C 0%, #F13232 100%);
+}

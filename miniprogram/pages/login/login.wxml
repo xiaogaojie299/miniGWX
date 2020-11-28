@@ -8,47 +8,47 @@
 		<!-- 头部 -->
 		<view class="main-header">
 			<!-- 密码登录 -->
-			<view wx:for="{{list}}" 
-			class="pswd" 
-			bindtap="isactive" 
-			data-index="{{index}}" 
-			wx:key="index"
-			>
-				<view class="pswd-title my-font" 	class="{{currentIndex==index?'active':'unactive'}}">{{item.title}}</view>
+			<view wx:for="{{list}}" class="pswd" bindtap="isactive" data-index="{{index}}" wx:key="index">
+				<view class="pswd-title my-font" class="{{currentIndex==index?'active':'unactive'}}">{{item.title}}</view>
 				<view wx:if="{{currentIndex==index}}" class="inline"></view>
 			</view>
-
-      <!-- 验证码登录 -->
-			<!-- <view class="verification">
-				<view class="pswd-title my-font">验证码登录</view>
-				<view class="inline"></view>
-			</view> -->
 		</view>
 
 		<!-- 主体 -->
 		<view class="main-center">
-			<!-- input输入框 -->
-			<view class="{{isFouce?'fouces row1-input':'row1-input'}}">
-				<input bindfocus="inputFocus" bindblur="inputBlur" placeholder="请输入手机号" type="text" />
+
+			<view wx:if="{{currentIndex==0}}">
+				<!-- input输入框 -->
+				<view class="{{isFouce?'fouces row1-input':'row1-input'}}">
+					<input bindinput="inputPwdPhone" value="{{pwdPhone}}" bindfocus="inputFocus" bindblur="inputBlur" placeholder="请输入手机号" type="text" />
+				</view>
+				<!-- 请输入密码 -->
+				<view class="input-title">
+					<input bindinput="inputPwd" value="{{pwd}}"  placeholder-class="input-placeholder" placeholder="请输入密码" type="password" />
+					<view bindtap="go_forUpwd">忘记密码</view>
+				</view>
 			</view>
-			<!-- 请输入密码 -->
-			<view class="input-title" wx:if="{{currentIndex==0}}">
-				<input placeholder-class="input-placeholder" placeholder="请输入密码" type="password" />
-				<view bindtap="go_forUpwd">忘记密码</view>
-			</view>
+
 			<!-- 验证码登录 -->
-			<view class="input-title" wx:else>
-				<input placeholder="请输入验证码" />
-				<view bindtap="get_code" wx:if="{{!isvisib}}">获取验证码</view>
-				<view wx:else>{{i}}后重新发送</view>
+			<view wx:else>
+				<!-- input输入框 -->
+				<view class="{{isFouce?'fouces row1-input':'row1-input'}}">
+					<input bindinput="inputCodePhone" value="{{codePhone}}" bindfocus="inputFocus" bindblur="inputBlur" placeholder="请输入手机号码" type="text" />
+				</view>
+				<view class="input-title">
+					<input bindinput="inputCode" value="{{code}}" placeholder="请输入验证码" />
+					<view bindtap="get_code" wx:if="{{!isvisib}}">获取验证码</view>
+					<view wx:else>{{i}}后重新发送</view>
+				</view>
 			</view>
-		</view> 
-	
+
+		</view>
+
 
 		<!-- 底部登录按钮 -->
 		<view class="main-footer">
 			<view class="btn" bindtap="submit">确 定</view>
 		</view>
 	</view>
-	  
+
 </view>

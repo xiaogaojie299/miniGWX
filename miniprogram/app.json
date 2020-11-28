@@ -23,7 +23,10 @@
     "pages/study/student/student",
     "pages/study/student-detail/student-detail",
     "pages/study/class-schedule/class-schedule",
-    "pages/changePhone/index"
+    "pages/changePhone/index",
+    "pages/lookAnswer/lookAnswer",
+    "pages/question/question",
+    "pages/answerInfo/answerInfo"
   ],
   "tabBar": {
     "selectedColor": "#F13833",
@@ -38,7 +41,7 @@
         "pagePath": "pages/homeWork/index",
         "text": "问答",
         "iconPath": "pages/imgs/navBar/icon_tab_homework.png",
-        "selectedIconPath": "pages/imgs/navBar/icon_tab_homework.png"
+        "selectedIconPath": "pages/imgs/navBar/icon_tab_homework_selected.png"
       },
       {
         "pagePath": "pages/study/index",

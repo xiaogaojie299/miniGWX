@@ -3,7 +3,7 @@
     <curmbs>初中一年级·一班</curmbs>
   </view>
   <view class="main plr-24">
-    <view class="pt-10">
+    <view class="pt-10 calendar-box">
       <calendar id="calendar"></calendar>
     </view>
   </view>

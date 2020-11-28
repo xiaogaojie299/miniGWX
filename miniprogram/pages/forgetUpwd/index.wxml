@@ -6,18 +6,20 @@
       <input 
       placeholder="{{item.placeholder}}"
       style="{{item.title?'width:70%':'width:100%'}}" 
-      type="text"
+      type="{{(index==2||index==3)?'password':'number'}}"
+      bindinput="inputValue"
+      data-i="{{index}}"
       placeholder-style='font-size: 30rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #B2B2BF;'
       />
-      <view class="right-title">{{item.title}}</view>
-    </view>
+      <view bindtap="get_code" class="right-title">{{!isvisib?item.title: item.title?i+"后重新发送":""}}</view>
+    </view> 
   </view>
   <!-- 您也可以拨打服务电话 -->
   <view class="title-bar">
     您也可以拨打服务电话联系平台重置密码：400-000-0000
   </view>
   <!-- 下面按钮 -->
-  <view class="btn">
-    <view class="test">登 录</view>
+  <view class="{{phone&&code&&newPwd&&redoPwd?'click':'no-click'}} btn" bindtap="submit{{phone&&code&&newPwd&&redoPwd?'':'1'}}">
+    <view class="test">登 录</view> 
   </view>
 </view>

@@ -1,6 +1,6 @@
 //index.js
 const app = getApp()
-
+import {queryBannerListByType} from "../../utils/api"
 Page({
   data: {
     imgUrls: [
@@ -36,6 +36,24 @@ Page({
     }
 
   },
+  //初始化页面
+  init(){
+    this.get_banner()
+  },
+  //获取首页轮播图数据
+  async get_banner(){
+    let data={
+      type:1
+    }
+   let res =await queryBannerListByType(data);
+   if(res.code==200){
+     this.setData({
+      imgUrls:res.data
+     })
+   }else{
+     app.Toast(res.msg);
+   }
+  },
 
 onPageScroll: function(res) {
   if(res.scrollTop>300){
@@ -45,12 +63,7 @@ onPageScroll: function(res) {
   }
 },
   onLoad: function() {
-    if (!wx.cloud) {
-      wx.redirectTo({
-        url: '../chooseLib/chooseLib',
-      })
-      return
-    }
+    this.init();
 
     // 获取用户信息
     wx.getSetting({

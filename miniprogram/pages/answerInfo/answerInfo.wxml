@@ -1,0 +1,140 @@
+<!--question/pages/answerInfo/answerInfo.wxml-->
+<view class="back-navbar">
+  <navigator class="nav-back-btn" open-type="navigateBack" delta="1">
+    <image src="/img/icon_back@2x.png"></image>
+  </navigator>
+  <text class="nav-name">单题解析</text>
+</view>
+
+<!-- 单选题 -->
+<view wx:if="{{questionType === 0}}">
+  <view class="content plr-24">
+    <view class="q-box radio-box">
+      <view class="q-top">1/80</view>
+      <view class="q-title">以下哪个答案是正确的？<text>(5分)</text></view>
+      <view class="q-main">
+        <view class="q-option" wx:for="{{optionsList}}" wx:key="id">
+          <!-- 1  正确选项 -->
+          <view class="tag {{item.right === 1 ? 'active': ''}}">{{item.name}}</view>
+          <text>{{item.info}}</text>
+        </view>
+      </view>
+      <!-- 二维码 -->
+      <image class="code" src="/images/icon_all@2x.png"></image>
+    </view>
+
+    <view class="answer-top">
+      答题解析：
+      <text>(5分)</text>
+    </view>
+
+    <view class="answer-box">
+      <view class="answer-title radio-answer-title">
+        <view class="right-answer">正确答案：A</view>
+        <view class="user-answer">您的答案：A</view>
+      </view>
+      <view class="answer-t">
+        <view class="answer-info-title">解析：</view> 
+      <view class="voice-btn">
+        <text>语音解析</text>
+        <image></image>
+      </view>
+      </view>
+      <view class="answer-info"> 这道题来源第一课第一章内容，这道题来源第一
+        课第一章内容，这道题来源第一课第一章内容，这道
+        题来源第一课第一章内容。这道题来源第一课第一章
+        内容，这道题来源第一课第一章内容，这道题来源第
+        一课第一章内容，这道题来源第一课第一章内容。
+      </view>
+
+    </view>
+  </view>
+</view>
+
+<!-- 填空题 -->
+<view wx:elif="{{questionType === 1}}">
+  <view class="content plr-24">
+    <view class="q-box gap-box">
+      <view class="q-top">1/80</view>
+      <view class="q-title">日照香炉生紫烟：<text>(5分)</text></view>
+      <view class="q-main"></view>
+      <image class="code" src="/images/icon_all@2x.png"></image>
+    </view>
+    <view class="answer-top">
+      答题解析：
+      <text>(5分)</text>
+    </view>
+    
+    <view class="answer-box">
+      <view class="answer-title gap-answer-title">
+        <view class="right-answer">正确答案：遥看瀑布挂前川</view>
+        <view class="user-answer">正确答案：遥看瀑布挂前川</view>
+      </view>
+      <view class="answer-t">
+        <view class="answer-info-title">解析：</view>
+      <view class="voice-btn">
+        <text>语音解析</text>
+        <image></image>
+      </view>
+      </view>
+      <view class="answer-info"> 这道题来源第一课第一章内容，这道题来源第一
+        课第一章内容，这道题来源第一课第一章内容，这道
+        题来源第一课第一章内容。这道题来源第一课第一章
+        内容，这道题来源第一课第一章内容，这道题来源第
+        一课第一章内容，这道题来源第一课第一章内容。
+      </view>
+
+    </view>
+  </view>
+</view>
+
+<!-- 简答题 -->
+<view wx:else>
+  <view class="content plr-24">
+    <view class="q-box short-box">
+      <view class="q-top">1/80</view>
+      <view class="q-title">请对这张图表表述的内容进行描述 <text>(20分)</text></view>
+      <view class="q-main">
+        <image src="/img/bg.png"></image>
+      </view>
+      <image class="code" src="/images/icon_all@2x.png"></image>
+    </view>
+    <view class="answer-top">
+      答题解析：
+      <text>(5分)</text>
+    </view>
+    
+    <view class="answer-box short-answer">
+      <view class="answer-title gap-answer-title">
+        <view class="right-answer">
+          <view class="right-answer-text pb-20"><text>正确答案：</text><text>遥看瀑布挂前川</text></view>
+        <view class="right-answer-img"><image src="/images/bgImg.png"></image></view>
+        </view>
+        <view class="user-answer" style="margin: 24rpx 0;">
+          <view class="user-answer-text pb-20"><text>您的答案：</text><text>遥看瀑布挂前川</text></view>
+        <view class="user-answer-img"><image src="/images/bgImg.png"></image></view>
+        </view>
+      </view>
+      <view class="answer-t">
+        <view class="answer-info-title pt-20">解析：</view>
+      <view class="voice-btn">
+        <text>语音解析</text>
+        <image></image>
+      </view>
+      </view>
+      <view class="answer-info"> 这道题来源第一课第一章内容，这道题来源第一
+        课第一章内容，这道题来源第一课第一章内容，这道
+        题来源第一课第一章内容。这道题来源第一课第一章
+        内容，这道题来源第一课第一章内容，这道题来源第
+        一课第一章内容，这道题来源第一课第一章内容。
+      </view>
+
+    </view>
+  </view>
+</view>
+
+<!-- 底部公共按钮 -->
+<view class="cut-btns">
+  <view class="top-btn">上一题</view>
+  <view class="next-btn">下一题</view>
+</view>

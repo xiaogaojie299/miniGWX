@@ -3,7 +3,9 @@
     "van-button": "vant-weapp/button",
     "curmbs":"/components/curmbs/index",
     "today-course":"/components/today-course/index",
-    "rank-list":"/components/rank-list/index"
+    "cmps-today-course":"/components/cmps-today-course/index",
+    "rank-list":"/components/rank-list/index",
+    "cmps-rank-list":"/components/cmps-rank-list/index"
   },
   "component": true,
   "navigationStyle": "custom"
