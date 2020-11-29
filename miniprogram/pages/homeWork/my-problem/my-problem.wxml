@@ -1,38 +1,49 @@
 <view class="main">
       <!-- 顶部搜索框 -->
       <view>
-        <top-input>
-        </top-input>
+        <view class="top-input">
+  <!-- input -->
+  <view class="left-cont">
+            <input type="text"
+            bindinput="inputQuestion"
+            bindconfirm="confirmTap" 
+            placeholder="搜索问答" 
+            placeholder-style="font-weight:400;color:#333333;" />
+            <image src="/images/search_gray.png"></image>
+          </view>
+  <slot></slot>
+</view>
       </view>
       <!-- 下面答案内容 -->
-      <view wx:for="{{3}}" bindtap="go_myProDetail" wx:key="index" class="answer-box mt-20">
+      <view wx:for="{{aswerquesList}}" bindtap="go_myProDetail" wx:key="index" class="answer-box mt-20">
         <!-- 题目详情 -->
         <view class="problem-title m-10">
-          这道数学题怎么解答？
+          {{item.question}}
         </view>
         <!-- 问题描述 -->
         <view class="problem-desc">
-          问题描述，最多展示20个字，就比如说像这样的哈哈哈哈哈哈111111111111哈......
+         {{item.describe}}
         </view>
         <!-- 图片描述 -->
         <view class="pro-img m-10">
-          <image wx:for="{{3}}" wx:key="index" src="/images/testImg.png"></image>
+          <image wx:for="{{item.imgUrl}}" wx:key="index" src="{{item}}"></image>
         </view>
         <!-- 下面回答 -->
         <view class="problem-timer">
-          <view>5个回答</view>
-          <view>2018-12-23 12:23</view>
+          <view>{{item.answerNum}}个回答</view>
+          <view>{{item.insertTime}}</view>
         </view>
         <!-- 底部 -->
         <view class="problem-footer">
           <!-- 左边ICON加文字 -->
           <view class="problem-footer-left">
             <image src="/images/icon_coin.png"></image>
-            <text>1200</text>
+            <text>{{item.golds}}</text>
           </view>
           <!-- 右边按钮 -->
           <!-- <view class="problem-footer-right">已解决</view> -->
-          <my-tag isborder="{{true}}">已解决</my-tag>
+          <!-- <my-tag isborder="{{true}}">{{item.state==1?'未解决'：'已解决'}}</my-tag> -->
+          <my-tag isborder="{{true}}">{{item.state==1?"已解决":"未解决"}}</my-tag>
         </view>
       </view>
     </view>

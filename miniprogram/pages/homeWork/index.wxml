@@ -5,39 +5,53 @@
     <!-- 主体内容 -->
     <view class="main">
       <!-- 顶部搜索框 -->
-      <view>
+      <!-- <view>
         <top-input>
           <view class="my-problem" bindtap="go_myProblem">我的问答</view> 
         </top-input>
-      </view>
+      </view> -->
+
+          <view class="top-input">
+          <!-- input -->
+          <view class="left-cont">
+            <input type="text"
+            bindinput="inputQuestion"
+            bindconfirm="confirmTap" 
+            placeholder="搜索问答" 
+            placeholder-style="font-weight:400;color:#333333;" />
+            <image src="/images/search_gray.png"></image>
+          </view>
+         <view class="my-problem" bindtap="go_myProblem">我的问答</view> 
+        </view>
+
       <!-- 下面答案内容 -->
-      <view bindtap="go_detail" wx:for="{{3}}" wx:key="index" class="answer-box mt-20">
+      <view bindtap="go_detail" data-index="{{index}}" wx:for="{{questionSquareList}}" wx:key="index" class="answer-box mt-20">
         <!-- 题目详情 -->
         <view class="problem-title m-10">
-          这道数学题怎么解答？
+          {{item.question}}
         </view>
         <!-- 问题描述 -->
         <view class="problem-desc">
-          问题描述，最多展示20个字，就比如说像这样的哈哈哈哈哈哈111111111111哈......
+          {{item.describe}}
         </view>
         <!-- 图片描述 -->
         <view class="pro-img m-10">
-          <image wx:for="{{3}}" wx:key="index" src="/images/testImg.png"></image>
+          <image wx:for="{{item.imgUrl}}" wx:for-item="it" wx:key="_+{{index}}" src="{{it}}"></image>
         </view>
         <!-- 下面回答 -->
         <view class="problem-timer">
-          <view>5个回答</view>
-          <view>2018-12-23 12:23</view>
+          <view>{{item.answerNum}}人回答</view>
+          <view>{{item.insertTime}}</view>
         </view>
         <!-- 底部 -->
         <view class="problem-footer  mt-10">
           <!-- 左边ICON加文字 -->
           <view class="problem-footer-left">
             <image src="/images/icon_coin.png"></image>
-            <text>1200</text>
+            <text>{{item.golds}}</text>
           </view>
           <!-- 右边按钮 -->
-          <view class="problem-footer-right">已解决</view>
+          <view class="problem-footer-right">{{item.state==1?"未解决":"已解决"}}</view>
         </view>
       </view>
     </view>

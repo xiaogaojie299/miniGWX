@@ -48,3 +48,36 @@ export function queryClassHourRand(data){
   let url="/api/web/index/queryClassHourRand"
   return request.post(url,data);
 }
+
+//获取问答广场列表
+export function queryQuestionSquareList(data){
+  let url="/api/web/answer/queryQuestionSquareList";
+  return request.post(url,data);
+}
+
+//获取问题回答列表
+export function queryQuestionAnswerList(data){
+  let url="/api/web/answer/queryQuestionAnswerList"
+  return request.post(url,data);
+}
+//回答问题操作
+export function optAddAnswer(data){
+  let url="/api/web/answer/optAddAnswer";
+  return request.post(url,data);
+}
+//删除问题回答操作
+export function optDeleteAnswer(data){
+  let url="/api/web/answer/optDeleteAnswer";
+  return request.post(url,data);
+}
+
+//获取我的问答操作
+export function queryMeAnswerList(data){
+  let url="/api/web/answer/queryMeAnswerList";
+  return request.post(url,data);
+}
+//获取我的提问操作
+export function queryMeQuestionList(data){
+  let url="/api/web/answer/queryMeQuestionList";
+  return request.post(url,data);
+}

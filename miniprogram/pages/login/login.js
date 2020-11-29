@@ -17,8 +17,8 @@ Page({
     isvisib:false,  
     i:60,   //计时器
     timer:null, //定时器
-    codePhone:"", //用户输入的手机号码
-    code:"",   //用户输入的验证码
+    codePhone:15828353333, //用户输入的手机号码
+    code:1234,   //用户输入的验证码
     phoneCaptcha:"",//服务端返回来的手机验证码
     pwd:"",    //用户输入的密码
     pwdPhone:"" //密码登录用户输入的手机

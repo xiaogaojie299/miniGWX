@@ -1,3 +1,4 @@
+import {queryQuestionSquareList} from "../../utils/api"
 // miniprogram/pages/homeWork/index.js
 Page({
 
@@ -5,7 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    current:1,
+    size:10,
+    questionSquareList:[],
+    questionValue:""
   },
   go_myProblem(){
     wx.navigateTo({
@@ -13,16 +17,64 @@ Page({
       url: './my-problem/my-problem',
      })
   },
-  go_detail(){
+  go_detail(e){
+    let index= e.currentTarget.dataset.index;
+    console.log("index==>",index);
+    let queryObj=JSON.stringify(this.data.questionSquareList[index]);
     wx.navigateTo({
-      url: './problem-detail/problem-detail',
+      url: './problem-detail/problem-detail?queryObj='+queryObj,
+    }) 
+  },
+
+  //获取问答广场数据
+  async get_questionSquareList(){
+    let {size,current,questionValue} = this.data;
+    let pamars={
+      size:size,
+      current:current,
+      conditions:questionValue
+    }
+   let res =await queryQuestionSquareList(pamars);
+   if(res.code==200){
+     if(res.data.length>0){
+        let Array=[];
+        Array=res.data;
+        res.data.forEach((item,idnex)=>{
+        item.imgUrl=item.imgUrl.split(",")
+        })
+      this.setData({
+        questionSquareList:this.data.questionSquareList.concat(Array)
+      })
+     }else{
+       wx.showToast({
+         title: '我是有底线的',
+       })
+     }
+     
+   }
+  },
+  //用户输入问题
+  inputQuestion(e){
+    console.log("e",e.detail.value);
+    this.setData({
+      questionValue:e.detail.value
     })
+  },
+  //监听用户点击回车
+  confirmTap: function() {
+    let that = this;
+    that.setData({
+      current:1,
+      questionSquareList:[]
+    })
+    that.get_questionSquareList()
+    console.log('我点击了回车')
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.get_questionSquareList()
   },
 
   /**
@@ -64,7 +116,8 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.setData({current:this.data.current+1});
+    this.get_questionSquareList()
   },
 
   /**

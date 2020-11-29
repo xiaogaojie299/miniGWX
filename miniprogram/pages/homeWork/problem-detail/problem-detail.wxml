@@ -2,67 +2,66 @@
   <!-- 头部 -->
   <view class="header plr-24">
     <!-- 左边头像 -->
-    <image class="head-portrait"></image>
+    <image src="{{queryInfo.questionUserAvatar}}" class="head-portrait"></image>
     <!-- 右边内容 -->
     <view class="right-content">
        <!-- 下面回答 -->
        <view class="problem-timer">
-          <view>5个回答</view>
-          <view>2018-12-23 12:23</view>
+          <view>{{queryInfo.answerNum}}个回答</view>
+          <view>{{queryInfo.insertTime}}</view>
         </view>
         <!-- 底部 -->
         <view class="problem-footer">
           <!-- 左边ICON加文字 -->
           <view class="problem-footer-left">
             <image src="/images/icon_coin.png"></image>
-            <text>1200</text>
+            <text>{{queryInfo.golds}}</text>
           </view>
           <!-- 右边按钮 -->
-          <view class="problem-footer-right">3个回答</view>
+          <view class="problem-footer-right">{{queryInfo.answerNum}}个回答</view>
         </view>
     </view>
   </view>
   <view class="main plr-24">
   <!-- 题目详情 -->
     <view class="pro-detail mt-10 mb-10">
-      <view class="pro-detail-row1 mt-10">这道数学题怎么解答？</view>
-      <view class="pro-detail-row2 mt-10">如图，若∠1=∠2，∠C=∠D，问∠A与∠F有什么关系，并说明
-理由？</view>
+      <view class="pro-detail-row1 mt-10">{{queryInfo.question}}</view>
+      <view class="pro-detail-row2 mt-10">{{queryInfo.describe}}</view>
       <!-- 照片详情 -->
-      <view class="pro-detail-row3 mt-30 mb-30">
-        <image></image>
+      <view wx:for="{{queryInfo.imgUrl}}" wx:key="{{index}}" class="pro-detail-row3 mt-30 mb-30">
+        <image src="{{item}}">{{}}</image>
       </view>
     </view>
     <!-- 回答人卡片 -->
-    <view class="answer-box" wx:for="{{3}}" wx:key="{{index}}">
+    <view class="answer-box" wx:for="{{answerList}}" wx:key="{{index}}">
       <view class="answer-box-item mt-20 mb-20">
         <view class="answer-box-item-top">
           <!-- 用户头像 -->
-          <image class="head-portrait"></image>
+          <image src="{{item.answerUserAvatar}}" class="head-portrait"></image>
           <view class="answer-box-item-top-col2">
-              <view>Hulk</view>
-              <view>2019-12-23 12:23</view>
+              <view>{{item.answerUserName}}</view>
+              <view>{{item.insertTime}}</view>
           </view>
           <!-- 已采纳按钮 -->
-          <view wx:if="{{false}}" class="accept-tag">已采纳</view>
+          <view class="accept-tag">{{item.isAdopt==1?"未采纳":"已采纳"}}</view>
           <!-- 我的回答按钮i -->
-          <view class="my-answer-tag">
+          <view wx:if="{{item.state==2}}" class="my-answer-tag">
             <view class="my-answer-item-right">我的回答</view>
-            <view class="pullDown" bindtap="open1">···</view>
+            <view class="pullDown" data-answerId="{{item.id}}" bindtap="open1">···</view>
           </view>
         </view>
 
         <!-- 答案 -->
-        <view class="peopel-answer mb-20">这个问题应该是这样的，已知∠1=∠2，那么应该是这样，已知∠C=∠D,那么应该给是这样，所以∠A=∠F</view>
+        <view class="peopel-answer mb-20">{{item.answer}}</view>
       </view>
     </view>
   </view>
   <!-- 底部按钮 -->
   <view class="footer plr-24">
     <!-- input框 -->
-    <input placeholder="我来回答" type="text" />
+    <input placeholder="我来回答" bindinput="inputAnswer" type="text" />
     <!-- Icon -->
-    <image class="fabu" src="/images/fabu.png"></image>
+    <image class="fabu" bindtap="submit" src="/images/fabu.png"></image>
   </view>
   <!-- 遮罩层 -->
   <van-action-sheet
