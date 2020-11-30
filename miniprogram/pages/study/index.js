@@ -1,6 +1,7 @@
 // miniprogram/pages/study/index.js
 import {queryMyAllClassList,queryAllMyStudent,queryDaySchedule} from "../../utils/api"
 import {getTimeType} from "../../utils/getData"
+import {timeType} from "../../utils/filter"
 Page({
 
   /**
@@ -11,7 +12,7 @@ Page({
     studentNum:"", //授课学生
     current:1,   //页码
     size:10 ,     //分页数据
-    timer:"",      //默认的时间
+    timer:getTimeType(),      //默认的时间
     curseList:[]  //获取今日课程列表     
   },
   go_student(){
@@ -55,10 +56,15 @@ Page({
     })
   },
 
+  //获取日历组件传过来的时间
+  checkDay(e){
+    this.setData({timer:e.detail});
+    this.get_TimeCurse();
+  },
+
   //按时间查询课程表
   async get_TimeCurse(){
     let {current,size,timer} = this.data;
-    timer=getTimeType();
     console.log("timer==>",timer);
     let pamars={
       current,

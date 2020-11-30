@@ -32,7 +32,7 @@
             class="{{filter.isMonth(timeArr[(index)*7+in],time)?'is-month day':'not-month day'}}"
             wx:for= "{{7}}"
             wx:for-index="in"
-						wx:key="in"><text class="test" class="{{(dayArrs[(index)*7+in]==today&&filter.isToday(timeArr[(index)*7+in])[1]==currentMonth&&filter.isToday(timeArr[(index)*7+in])[0]==currenYear)?'istoday':ischeckDay==timeArr[(index)*7+in]?'check-day':''}}">{{dayArrs[(index)*7+in]}}</text><text class="{{in==2||in==18?'bg-org':''}} bottom-inline"></text>
+						wx:key="in"><text class="test" class="{{(dayArrs[(index)*7+in]==today&&filter.isToday(timeArr[(index)*7+in])[1]==currentMonth&&filter.isToday(timeArr[(index)*7+in])[0]==currenYear)?'istoday':ischeckDay==timeArr[(index)*7+in]?'check-day':''}}">{{dayArrs[(index)*7+in]}}</text><text class="{{filter.isMonthHaveCurse(MonthCourse,timeArr[(index)*7+in])?'bg-org':''}} bottom-inline"></text>
           	</text>
 						</view>
 						
@@ -49,7 +49,7 @@
 				<view>{{item}}</view> 
 				<view>{{filter.weekType(index)}}</view>
 			</view>
-				<view class="{{index==2||index==18?'bg-org':''}} week-bottom-inline"></view>
+				<view class="{{filter.isMonthHaveCurse(MonthCourse,timeArr[(index)])?'bg-org':''}} week-bottom-inline"></view>
 				</view>
 			</scroll-view> 
 		</view>

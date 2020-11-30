@@ -1,8 +1,9 @@
 <view>
+  <wxs module="filter" src="../../../filter/filter.wxs" />
   <view class="header plr-24">
     <view class="teach-info-box" bindtap="go_userDetail">
       <view class="teach-info-name mb-10">
-        <view class="mr-10">可乐</view>
+        <view class="mr-10">{{studentInfo.name}}</view>
         <image src="/images/female@2x.png"></image>
       </view>
      <view class="study-time flex-between">
@@ -20,16 +21,52 @@
      </view>
     </view>
     <!-- 老师头像 -->
-    <image class="teach-info-img"></image>
+    <image src="{{studentInfo.avatar}}" class="teach-info-img"></image>
   </view>
   <view class="header-bg">
     <view>基础资料</view>
   </view>
   <view class="main plr-24">
-    <view wx:for="{{8}}" wx:key="index" class="h-100 bor-bottom flex-between">
+    <view class="h-100 bor-bottom flex-between">
       <view class="left-font">登录名</view>
-      <view class="right-font">2009-01-01</view>
+      <view class="right-font">{{studentInfo.name}}</view>
     </view>
+
+    <view class="h-100 bor-bottom flex-between">
+      <view class="left-font">在读课程</view>
+      <view class="right-font">{{studentInfo.courseName}}</view>
+    </view>
+
+    <view class="h-100 bor-bottom flex-between">
+      <view class="left-font">所在年级</view>
+      <view class="right-font">{{studentInfo.courseName}}</view>
+    </view>
+
+    <view class="h-100 bor-bottom flex-between">
+      <view class="left-font">所在班级</view>
+      <view class="right-font">{{studentInfo.className}}</view>
+    </view>
+
+    <view class="h-100 bor-bottom flex-between">
+      <view class="left-font">授课类别</view>
+      <view class="right-font">{{studentInfo.teachWay}}</view>
+    </view>
+
+    <view class="h-100 bor-bottom flex-between">
+      <view class="left-font">测评成绩</view>
+      <view class="right-font">{{studentInfo.points}}</view>
+    </view>
+
+    <view class="h-100 bor-bottom flex-between">
+      <view class="left-font">上课课时</view>
+      <view class="right-font">{{studentInfo.overClassHour}}/{{studentInfo.noClassHour+studentInfo.overClassHour}}</view>
+    </view>
+
+    <view class="h-100 bor-bottom flex-between">
+      <view class="left-font">学员状态</view>
+      <view class="right-font"> {{filter.sudentState(studentInfo.studentState)}}</view>
+    </view>
+
   </view>
   <!-- 成长记录 -->
   <view class="footer plr-24">

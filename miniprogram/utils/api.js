@@ -102,4 +102,14 @@ export function queryDaySchedule(data){
   let url="/api/officeCenter/queryDaySchedule";
   return request.post(url,data);
 }
-///api/officeCenter/queryDaySchedule
+// 获取班级每月中排课数量
+export function queryTeacherSchedule(data){
+  let url="/api/officeCenter/queryTeacherSchedule";
+  return request.post(url,data);
+}
+
+//获取学生成长记录列表
+export function queryEvaluationList(data){
+  let url = "/api/officeCenter/queryEvaluationList";
+  return request.post(url,data);
+}

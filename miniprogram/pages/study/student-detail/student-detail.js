@@ -1,11 +1,15 @@
 // miniprogram/pages/study/student-detail/student-detail.js
+import {queryEvaluationList} from "../../../utils/api"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    lableList:[]
+    lableList:[],
+    studentInfo:{},
+    current :1,
+    size:10
   },
   go_lookAnswer(){
     console.log("跳转成功");
@@ -13,11 +17,25 @@ Page({
       url: '/pages/lookAnswer/lookAnswer',
     })
   },
+
+  //获取成长记录列表
+  async getEvaluationList(){
+    let pamars= {
+      current:this.data.current,
+      size:this.data.size,
+      studentId:this.data.studentInfo.id
+    }
+    let res =await queryEvaluationList(pamars);
+    console.log("res==>",res.data);
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      studentInfo:JSON.parse(options.stuObj)
+    })
+    this.getEvaluationList()
   },
 
   /**

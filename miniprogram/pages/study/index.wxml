@@ -38,7 +38,7 @@
   <!-- 日历 -->
   <view class="calendar-box pt-30">
     <view class="page">
-      <calendar id="calendar"></calendar>
+      <calendar bindcheckDay="checkDay" id="calendar"></calendar>
     </view>
   </view>
   <!-- calss -->

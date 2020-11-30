@@ -2,27 +2,44 @@
   <!-- header -->
   <view class="header pt-20">
     <view class="left-cont flex-center">
-      <text>初中一年级·一班</text>
+      <text>初中一年级·</text>
+
+        <van-dropdown-menu>
+    <van-dropdown-item bind:change="changeValue" value="{{ value1 }}" options="{{ option1 }}" />
+  </van-dropdown-menu>
+
       <image src="/images/icon_arrow@2x.png"></image>
     </view>
     <!-- 右边内容 -->
     <view class="right-cont">
-      <top-input></top-input>
+     <view class="top-input">
+  <!-- input -->
+  <view class="left-cont">
+    <input type="text"
+    bindconfirm="confim"
+    bindinput="inputStudent"
+    value="{{studentName}}" 
+    placeholder="搜索学生" 
+    placeholder-style="font-weight:400;color:#333333;" />
+    <image src="/images/search_gray.png"></image>
+  </view>
+  <slot></slot>
+</view>
     </view>
   </view>
   <!-- 下面主体 -->
   <view class="main">
-    <view wx:for="{{6}}" wx:key="index" bindtap="go_stuDetail" class="stu-row h-140 bor-bottom flex-center">
+    <view wx:for="{{studentList}}" wx:key="index" data-index="{{index}}" bindtap="go_stuDetail" class="stu-row h-140 bor-bottom flex-center">
       <!-- icon -->
-      <image class="stu_icon mr-20"></image>
+      <image src="{{item.avatar}}" class="stu_icon mr-20"></image>
       <!-- 右边内容 -->
       <view class="student-detail">
         <view class="flex-center">
-          <view class="">小王</view>
+          <view class="">{{item.name}}</view>
           <image src="/images/female@2x.png"></image>
         </view>
         <view class="stu-font mt-10">
-          初中一年级·一班|资料已邮寄
+          {{item.gradeName}}
         </view>
       </view>
     </view>

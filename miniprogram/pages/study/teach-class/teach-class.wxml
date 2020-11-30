@@ -1,54 +1,65 @@
 <view class="">
   <view class="header mt-20 mb-20 plr-24">
-    <top-input></top-input>
+    <view class="top-input">
+  <!-- input -->
+  <view class="left-cont">
+    <input type="text"
+    bindinput="inputClass"
+    value="{{classValue}}"
+    bindconfirm="confirmTap"  
+    placeholder="搜索班级" 
+    placeholder-style="font-weight:400;color:#333333;" />
+    <image src="/images/search_gray.png"></image>
+  </view>
+</view>
   </view>
   <view class="main">
     <!-- 卡片模块 -->
-    <view wx:for="{{3}}" wx:key="index" class="card mt-20">
+    <view wx:for="{{classList}}" wx:key="index" class="card mt-20">
       <view class="card-header plr-24 h-80 flex-between bor-bottom">
-        <view class="title">初中一年级·一班</view>
+        <view class="title">{{item.grade}}·{{item.name}}</view>
         <view class="right-content">
           <image class="mr-10"></image>
-          <text>4</text>
+          <text>{{item.studentNum}}</text>
         </view>
       </view>
 
       <view class="card-content plr-24 pt-20">
         <!-- 标签按钮 -->
-        <view class="detail flex-ver-center" bindtap="go_clsScd">查看课表</view>
+        <view class="detail flex-ver-center" data-index="{{index}}" bindtap="go_clsScd">查看课表</view>
         <view class="card-content-item h-40 flex-center">
           <!-- icon -->
-          <image class="mr-20"></image>
+          <image src="/images/icon_class@2x.png" class="mr-20"></image>
           <view class="font-cont mr-20">课程名称:</view>
-          <view class="color-ori">英语辅导课</view>
+          <view class="color-ori">{{item.courseName}}</view>
         </view>
 
         <view class="card-content-item h-40 flex-center">
           <!-- icon -->
           <image class="mr-20"></image>
-          <view class="font-cont mr-20">责任老师:</view>
-          <view class="color-ori">张老师</view>
+          <view src="/images/icon_teacher@2x.png" class="font-cont mr-20">责任老师:</view>
+          <view class="color-ori">{{item.responsibilityTeacher}}</view>
         </view>
 
         <view class="card-content-item h-50 flex-center">
           <!-- icon -->
-          <image class="mr-20"></image>
+          <image  src="/images/icon_people@2x.png" class="mr-20"></image>
           <view class="font-cont mr-20">助教老师:</view>
-          <view class="color-ori">王老师</view>
+          <view class="color-ori">{{item.assistantTeacher}}</view>
         </view>
 
         <view class="card-content-item h-50 flex-center">
           <!-- icon -->
-          <image class="mr-20"></image>
+          <image src="/images/icon_time@2x.png" class="mr-20"></image>
           <view class="font-cont mr-20">剩余课程:</view>
-          <view class="color-ori">8次</view>
+          <view class="color-ori">{{item.courseNum-item.overCourseNum}}次</view>
         </view>
 
         <view class="card-content-item h-50 flex-center">
           <!-- icon -->
-          <image class="mr-20"></image>
+          <image src="/images/icon_deadline@2x.png" class="mr-20"></image>
           <view class="font-cont mr-20">邮寄资料:</view>
-          <view class="color-ori">2/4</view>
+          <view class="color-ori">{{item.mailingInformationNum}}</view>
         </view>
       </view> 
       <view class="light-inlie"></view>

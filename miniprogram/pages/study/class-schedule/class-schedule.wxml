@@ -1,36 +1,36 @@
 <view>
   <view class="header plr-24">
-    <curmbs>初中一年级·一班</curmbs>
+    <curmbs>{{classDetail.grade}}·{{classDetail.name}}</curmbs>
   </view>
   <view class="main plr-24">
     <view class="pt-10 calendar-box">
-      <calendar id="calendar"></calendar>
+      <calendar bindcheckDay="checkDay" classId="{{classDetail.id}}" id="calendar"></calendar>
     </view>
   </view>
   <view class="footer plr-24">
      <!-- 卡片样式 -->
-     <view wx:for="{{3}}" wx:key="index" class="card-sty plr-24">
+     <view wx:for="{{classCurse}}" wx:key="index" class="card-sty plr-24">
       <!-- 分割线 -->
       <view class="card-cont-top">
       <!-- 第一行 -->
       <view class="card-cont-top-row">
-        <view class="card-cont-top-row-title">一年级英语强化培训</view>
-        <view class="card-cont-top-row-cont"><text>16/32</text>课时</view>
+        <view class="card-cont-top-row-title">{{item.courseName}}</view>
+        <view class="card-cont-top-row-cont"><text>{{item.indexNum}}/{{item.schoolHour}}</text>课时</view>
       </view>
       <!-- 第三行 -->
       <view class="row3">
         <!-- 时间ICON -->
         <image src="/images/icon_time.png" alt="" />
         <!-- 时间 -->
-        <view class="course-times">14:00-16:00</view>
+        <view class="course-times">{{item.time}}</view>
       </view>
     </view>
     <!-- 下面部分 -->
     <view class="card-cont-bottom">
-      <image class="card-cont-bottom-icon"></image>
+      <image src="{{item.teacherAvater}}" class="card-cont-bottom-icon"></image>
       <view class="card-cont-bottom-right flex-between">
-        <view>Hulk</view>
-        <view class="card-cont-bottom-btn flex-ver-center">上课中</view>
+        <view>{{item.courseName}}</view>
+        <view class="card-cont-bottom-btn flex-ver-center">{{item.status==1?"未开始":item.status==2?"进行中":"已结束"}}</view>
       </view>
     </view>
       <!-- 分割结束 -->

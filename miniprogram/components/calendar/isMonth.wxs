@@ -39,7 +39,24 @@ var filter = {
       default:
         return "周六"
     }
+  },
+  // 如果当前有课，则添加下划线
+  isMonthHaveCurse:function(array,day){
+
+    return array.some(function(item){
+      return item.strTime==day
+    })
+
+    // for(var item =0;item<array.length;item++){
+    //   return array[item].strTime==day
+    // //  if(array[item].strTime==day){
+    // //    return true
+    // //  }else{
+    // //    return false
+    // //  } 
+    // }
   }
+  
 }
 module.exports = filter
 // module.exports = {

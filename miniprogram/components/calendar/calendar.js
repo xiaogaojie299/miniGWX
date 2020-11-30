@@ -1,14 +1,21 @@
 // components/calendar/calendar.js
 import * as utils from "../../utils/getData";
+import {timeType} from "../../utils/filter";
+import {queryTeacherSchedule} from "../../utils/api"
 let {year,month,day} = utils.getYearMonthDay(new Date());
 let now=utils.getYearMonthDay(new Date());
-console.log(year,month,day);
+
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
- 
+    classId:{
+      type:String
+    },
+    studentId:{
+      type:String
+    }
   },
 
   /**
@@ -26,7 +33,8 @@ Component({
     now:now,  //现在的年月日    不会改变  
     ischeckDay:'', //用户点击日历时 把点击的年月日传过来 用来判断用户点击的样式
     isShowMonth:true, //用户点击月显示月  点击周显示周 的开关
-    todayIndex:""   //获取当前几号的下标
+    todayIndex:"",   //获取当前几号的下标
+    MonthCourse:[],   //这个月哪几天有课
   },
   // handelClici(){},
   // app.watch(this.han)
@@ -54,7 +62,9 @@ Component({
   methods: {
     // 首页获取5*7日历的日历表
     visible(){
-    let that=this;
+      //调用获取月中那天有课
+      this.get_TeacherSchedule();
+      let that=this;
     let arr=[];//把new Date()格式化成 .getDate() [30,31,1...]
     let arr1=[];//把new Date()格式化成[2020/11/12,...]
       // 获取当前年月
@@ -118,6 +128,8 @@ Component({
   checkDay(e){
     let index=e.currentTarget.dataset.in;
     console.log(index);
+   console.log(timeType(index));
+    this.triggerEvent("checkDay", timeType(index),)
     this.setData({ischeckDay:index}) 
   },
   // 点击选择周
@@ -148,6 +160,44 @@ Component({
     console.log("todayIndex=",todayIndex);
 
   },
+  
+  // 按月查询哪天有课（教师/学生/班级）
+  async get_TeacherSchedule(){
+    let {classId,studentId,time} = this.data;
+    let _time=timeType(time.year+"/"+time.month)   //这是给服务器上传的时间参数（2020-09）
+    console.log("_time==>",_time);
+    let pamars={
+      classId,
+      studentId,
+      time:_time
+    }
+    let res = await queryTeacherSchedule(pamars)
+    res.data.forEach(item=>{
+      item.strTime=timeType(item.strTime);
+    })
+    console.log(res.data);
+    this.setData({
+      MonthCourse:res.data
+    })
+  },
+  async test(){
+    let pamars={
+      classId:this.data.classId,
+      studentId:this.data.studentId,
+      time:'2020-11'
+    }
+    let res = await queryTeacherSchedule(pamars)
+    res.data.forEach(item=>{
+      item.strTime=timeType(item.strTime);
+    })
+    this.setData({
+      MonthCourse:res.data
+    })
+    console.log(res.data);
+  },
+
+
+  //按周显示滑动多少米
   scrollLeft(){
     console.log('左滑动') 
     this.setAction({
