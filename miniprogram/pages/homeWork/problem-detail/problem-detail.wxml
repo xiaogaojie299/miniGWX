@@ -7,7 +7,7 @@
     <view class="right-content">
        <!-- 下面回答 -->
        <view class="problem-timer">
-          <view>{{queryInfo.answerNum}}个回答</view>
+          <view>{{queryInfo.questionUserName}}</view>
           <view>{{queryInfo.insertTime}}</view>
         </view>
         <!-- 底部 -->
@@ -45,9 +45,9 @@
           <!-- 已采纳按钮 -->
           <view class="accept-tag">{{item.isAdopt==1?"未采纳":"已采纳"}}</view>
           <!-- 我的回答按钮i -->
-          <view wx:if="{{item.state==2}}" class="my-answer-tag">
+          <view class="my-answer-tag">
             <view class="my-answer-item-right">我的回答</view>
-            <view class="pullDown" data-answerId="{{item.id}}" bindtap="open1">···</view>
+            <view class="pullDown" data-answerId="{{item.id}}" bindtap="{{item.state==2?'open':'open1'}}">···</view>
           </view>
         </view>
 
@@ -72,4 +72,14 @@
   bind:cancel="onClose"
   cancel-text="取消"
 />
+
+<van-action-sheet
+  show="{{ show1 }}"
+  actions="{{ actions1 }}"
+  bind:close="onClose1"
+  bind:select="onSelect1"
+  bind:cancel="onClose1"
+  cancel-text="取消"
+/>
+
 </view>

@@ -21,7 +21,10 @@
             placeholder-style="font-weight:400;color:#333333;" />
             <image src="/images/search_gray.png"></image>
           </view>
-         <view class="my-problem" bindtap="go_myProblem">我的问答</view> 
+         <!-- <view class="my-problem" bindtap="go_myProblem">我的问答</view>  -->
+         <van-dropdown-menu>
+  <van-dropdown-item bind:change="changeValue" value="{{ value1 }}" options="{{ option1 }}" />
+</van-dropdown-menu>
         </view>
 
       <!-- 下面答案内容 -->

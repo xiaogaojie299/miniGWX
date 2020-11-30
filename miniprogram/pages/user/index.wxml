@@ -17,7 +17,7 @@
     </view>
     <!-- 退出登录按钮，cope,代码冗余 -->
     <view class="main-item1"> 
-      <view class="color1">退出登录</view>
+      <view class="color1" bindtap="quite">退出登录</view>
     </view>
 
   </view>

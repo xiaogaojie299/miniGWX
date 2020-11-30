@@ -1,4 +1,4 @@
-import {queryQuestionSquareList} from "../../utils/api"
+import {queryQuestionSquareList,queryMeQuestionList,queryMeAnswerList} from "../../utils/api"
 // miniprogram/pages/homeWork/index.js
 Page({
 
@@ -9,7 +9,13 @@ Page({
     current:1,
     size:10,
     questionSquareList:[],
-    questionValue:""
+    questionValue:"",
+    option1: [
+      { text: '全部问答', value: 0 },
+      { text: '我的回答', value: 1 },
+      { text: '我的问题', value: 2 },
+    ],
+    value1: 0,    //下拉框选中的值
   },
   go_myProblem(){
     wx.navigateTo({
@@ -20,10 +26,32 @@ Page({
   go_detail(e){
     let index= e.currentTarget.dataset.index;
     console.log("index==>",index);
-    let queryObj=JSON.stringify(this.data.questionSquareList[index]);
+    let queryObj=this.data.questionSquareList[index]; //判断当前选择的是不是我的问题  0:全部回答 1:我的回答 2:我的问题
+    queryObj.value=this.data.value1;
+    queryObj=JSON.stringify(queryObj);
     wx.navigateTo({
       url: './problem-detail/problem-detail?queryObj='+queryObj,
     }) 
+  },
+  //下拉菜单框选中
+  changeValue({detail}){
+    this.setData({
+      value1:detail,
+      current:1,
+      questionSquareList:[]
+    })
+    console.log(detail);
+    switch(detail){
+      case 0:
+      this.get_questionSquareList();
+      break;
+      case 1:
+        this.getMeAnswerList();
+        break;
+        default:
+          this.getMeQuestionList();
+          break;
+    }
   },
 
   //获取问答广场数据
@@ -53,6 +81,44 @@ Page({
      
    }
   },
+  //获取我的问题
+  async getMeQuestionList(){
+    let {current,size}=this.data;
+    let pamars={
+      current,
+      size
+    }
+    let res =await queryMeQuestionList(pamars);
+    if(res.code==200){
+      let Array=[];
+      Array=res.data;
+      res.data.forEach((item,idnex)=>{
+      item.imgUrl=item.imgUrl.split(",")
+      })
+      this.setData({
+        questionSquareList:this.data.questionSquareList.concat(Array)
+      })
+    }
+  },
+  // 获取我的回答
+  async getMeAnswerList(){
+    let {current,size}=this.data;
+    let pamars={
+      current,
+      size
+    }
+    let res = await queryMeAnswerList(pamars);
+    if(res.code==200){
+      let Array=[];
+      Array=res.data;
+      res.data.forEach((item,idnex)=>{
+      item.imgUrl=item.imgUrl.split(",")
+      })
+      this.setData({
+        questionSquareList:this.data.questionSquareList.concat(Array)
+      })
+    }
+  },
   //用户输入问题
   inputQuestion(e){
     console.log("e",e.detail.value);
@@ -73,8 +139,8 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    this.get_questionSquareList()
+  onLoad: function (options) { 
+    this.get_questionSquareList();
   },
 
   /**
@@ -117,7 +183,20 @@ Page({
    */
   onReachBottom: function () {
     this.setData({current:this.data.current+1});
-    this.get_questionSquareList()
+    let {value1}=this.data;
+    console.log('value1==',value1);
+    switch(value1){
+      case 0:
+      this.get_questionSquareList();
+      break;
+      case 1:
+        this.getMeAnswerList();
+        break;
+        default:
+          this.getMeQuestionList();
+          break;
+    }
+    
   },
 
   /**

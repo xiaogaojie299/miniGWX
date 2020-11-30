@@ -70,7 +70,13 @@ export function optDeleteAnswer(data){
   let url="/api/web/answer/optDeleteAnswer";
   return request.post(url,data);
 }
-
+// 采纳问题操作
+export function optAdoptAnswer(data){
+  let url="/api/web/answer/optAdoptAnswer";
+  return request.post(url,data);
+}
+//http://139.9.154.145/teacher/api/app/answer/optAdoptAnswer
+// http://139.9.154.145/teacher-server/api/web/answer/optAdoptAnswer?answerId=29&questionId=26
 //获取我的问答操作
 export function queryMeAnswerList(data){
   let url="/api/web/answer/queryMeAnswerList";
@@ -81,3 +87,19 @@ export function queryMeQuestionList(data){
   let url="/api/web/answer/queryMeQuestionList";
   return request.post(url,data);
 }
+//获取我的班级列表
+export function queryMyAllClassList(data){
+  let url="/api/officeCenter/queryMyAllClassList";
+  return request.post(url,data);
+}
+// 获取我的学生列表
+export function queryAllMyStudent(data){
+  let url="/api/officeCenter/queryAllMyStudent";
+  return request.post(url,data)
+}
+// 按时间查询课程表
+export function queryDaySchedule(data){
+  let url="/api/officeCenter/queryDaySchedule";
+  return request.post(url,data);
+}
+///api/officeCenter/queryDaySchedule

@@ -17,6 +17,11 @@ Page({
       url: './user-details/user-detail',
     })
   },
+  quite(){
+    wx.navigateTo({
+      url: '../login/login',
+    })
+  },
   go_url(e){
     console.log(e);
     wx.navigateTo({

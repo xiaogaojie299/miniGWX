@@ -9,7 +9,7 @@
       <view bindtap="go_teachClass" class="header-left">
         <view class="header-left-item1">
           <view>教学班级</view>
-          <view class="color-red font-w-500">3</view>
+          <view class="color-red font-w-500">{{classNum ||'暂无班级'}}</view>
         </view>
         <!-- 右转符号 -->
         <view>
@@ -19,7 +19,7 @@
       <view class="header-right" bindtap="go_student">
         <view class="header-left-item1">
           <view>授课学生</view>
-          <view class="color-red font-w-500">3</view>
+          <view class="color-red font-w-500">{{studentNum}}</view>
         </view>
         <!-- 右转符号 -->
         <view>
@@ -46,7 +46,7 @@
     <view class="page">
         <!-- 今日课程安排 -->
         <view class="">
-            <today-course wx:for="{{2}}" wx:key="item"></today-course>
+            <today-course curseItem="{{item}}" wx:for="{{curseList}}" wx:key="item"></today-course>
         </view>
   </view>
   </view>

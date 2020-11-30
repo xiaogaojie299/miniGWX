@@ -1,11 +1,18 @@
 // miniprogram/pages/study/index.js
+import {queryMyAllClassList,queryAllMyStudent,queryDaySchedule} from "../../utils/api"
+import {getTimeType} from "../../utils/getData"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    classNum:"",  //班级总数
+    studentNum:"", //授课学生
+    current:1,   //页码
+    size:10 ,     //分页数据
+    timer:"",      //默认的时间
+    curseList:[]  //获取今日课程列表     
   },
   go_student(){
     wx.navigateTo({
@@ -17,10 +24,62 @@ Page({
       url: './teach-class/teach-class',
     })
   },
+
+  //获取我的班级
+  get_myClass(){
+    let pamars={
+      current:1,
+      size:10
+    }
+    queryMyAllClassList(pamars).then(res=>{
+      if(res.code==200){
+        this.setData({
+          classNum:res.data.total
+        })
+      }
+    })
+  },
+
+  //获取我的学生
+  get_myStudent(){
+    let pamars={
+      current:1,
+      size:10
+    }
+    queryAllMyStudent(pamars).then(res=>{
+      if(res.code==200){
+        this.setData({
+          studentNum:res.data.total
+        })
+      }
+    })
+  },
+
+  //按时间查询课程表
+  async get_TimeCurse(){
+    let {current,size,timer} = this.data;
+    timer=getTimeType();
+    console.log("timer==>",timer);
+    let pamars={
+      current,
+      size,
+      day:timer 
+    }
+   let res =await queryDaySchedule(pamars);
+    console.log(res.data);
+    if(res.code==200){
+      this.setData({
+        curseList:res.data
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.get_myClass();
+    this.get_myStudent();
+    this.get_TimeCurse();
   },
 
   /**

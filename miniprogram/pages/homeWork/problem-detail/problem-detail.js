@@ -1,5 +1,5 @@
 // miniprogram/pages/homeWork/problem-detail/problem-detail.js
-import {queryQuestionAnswerList,optAddAnswer,optDeleteAnswer} from "../../../utils/api"
+import {queryQuestionAnswerList,optAddAnswer,optDeleteAnswer,optAdoptAnswer} from "../../../utils/api"
 Page({
 
   /**
@@ -7,10 +7,15 @@ Page({
    */
   data: {
     show: false,
+    show1: false,
     actions: [
       {
         name: '删除',
       }],
+      actions1: [
+        {
+          name: '采纳该回答',
+        }],
       queryInfo:{},  //问题答案详情页面
       current:1, //分页
       size:10,   //分页条数
@@ -18,12 +23,17 @@ Page({
       answerValue:"",  //input输入框的值;
       answerId:""     //回答人的id
   },
+  open(event){
+    console.log(event);
+    let answerId=event.currentTarget.dataset.answerid;
+    console.log("answerId=",answerId)
+    this.setData({ show: true,answerId });
+  },
   open1(event){
     console.log(event);
     let answerId=event.currentTarget.dataset.answerid;
     console.log("answerId=",answerId)
-
-    this.setData({ show: true,answerId });
+    this.setData({ show1: true,answerId });
   },
   onClose() {
     this.setData({ show: false });
@@ -33,6 +43,14 @@ Page({
     //删除问题回答
     this.delAnswer()
 
+  },
+
+  onClose1() {
+    this.setData({ show1: false });
+  },
+  onSelect1(event) {
+    console.log(event.detail);
+    this.adopAnswer() //置为采纳
   },
   //获取问答回答列表
   async getQuestionAnswerList(){
@@ -99,6 +117,26 @@ Page({
       this.getQuestionAnswerList()
     }
   },
+
+  //采纳问题操作
+  async adopAnswer(){
+    //optAdoptAnswer
+    let {queryInfo,answerId}=this.data;
+    console.log("answerId",answerId);
+    let pamars={
+      questionId :queryInfo.id,
+      answerId :answerId 
+    }
+    let res =await optAdoptAnswer(pamars);
+    this.setData({ show1: false });
+    if(res.code==200){
+      wx.showToast({
+        title: '置为采纳成功',
+        icon:"none"
+      })
+      this.getQuestionAnswerList()
+    }
+  },
   //监听输入框
   inputAnswer(e){
     this.setData({
@@ -112,6 +150,7 @@ Page({
     this.setData({
       queryInfo:JSON.parse(options.queryObj)
     }),
+    console.log("queryInfo===>",JSON.parse(options.queryObj));
     this.getQuestionAnswerList()
   },
 

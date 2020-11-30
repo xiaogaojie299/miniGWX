@@ -1,7 +1,7 @@
 {
   "usingComponents": {
     "curmbs":"/components/curmbs/index",
-    "today-course":"/components/today-course/index"
+    "today-course":"/components/cmps-today-course/index"
   },
   "navigationBarTitleText": "",
   "component": true,
