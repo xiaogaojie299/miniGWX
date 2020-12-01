@@ -8,7 +8,10 @@ Component({
     addGlobalClass: true
   },
   properties: {
-
+    currentActive:{
+      type:Number,
+      value:1
+    }
   },
 
   /**
@@ -16,7 +19,6 @@ Component({
    */
   data: {
     // 默认选中的单选框
-    currentActive:0,
     // 选中icon
     selected:"/images/icon_radiobutton_selected.png",
     // 未选中icon
@@ -34,7 +36,7 @@ Component({
         currentActive:e.currentTarget.dataset.index,
 
       })
-      console.log("this.currentActive",this.currentActive)
+      console.log("this.currentActive",this.data.currentActive)
   }
   }
 })

@@ -12,22 +12,22 @@
 
 <!-- <van-field
   label="联系人："
-    model:value="{{ dataInfo.username }}"
+    model:value="{{ dataInfo.contactPerson }}"
     placeholder="请输入姓名"
   />
   <van-field
   label="联系电话："
-    model:value="{{ dataInfo.phone }}"
+    model:value="{{ dataInfo.contactNumber  }}"
     placeholder="请输入联系电话"
   /> -->
 <form action="" bindsubmit="send">
   <view class="p">
     <view class="p-left">联系人：</view>
-    <input model:value="{{username}}" name="username" type="text" class="ipt" placeholder-class="ipt-placeholder" placeholder="请输入姓名" />
+    <input model:value="{{contactPerson}}" name="contactPerson" type="text" class="ipt" placeholder-class="ipt-placeholder" placeholder="请输入姓名" />
   </view>
   <view class="p">
     <view class="p-left">联系电话：</view>
-    <input model:value="{{phone}}" name="phone" maxlength="11" type="text" class="ipt" placeholder-class="ipt-placeholder" placeholder="请输入联系电话" />
+    <input model:value="{{contactNumber}}" name="contactNumber" maxlength="11" type="text" class="ipt" placeholder-class="ipt-placeholder" placeholder="请输入联系电话" />
   </view>
   <view class="city" bindtap="showPop">
     <view class="left">
@@ -45,11 +45,10 @@
   <view class="ps">
     <view>备注说明（选填）：</view>
     <view>
-      <textarea model:value="{{psVal}}" name="ps" cols="30" rows="10" placeholder="请填写备注说明" placeholder-class="ipt-placeholder"
+      <textarea model:value="{{remarkVal}}" name="remark" cols="30" rows="10" placeholder="请填写备注说明" placeholder-class="ipt-placeholder"
         maxlength="400"></textarea>
     </view>
   </view>
-
   <button class="send-btn" formType="submit">提交资料</button>
 </form>
 

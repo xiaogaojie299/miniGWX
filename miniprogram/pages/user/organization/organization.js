@@ -2,20 +2,21 @@
 // import WxValidate from '../../../../../utils/WxValidate'
 // import area from '../../../../../utils/area'
 // import ajax from '../../../../../utils/request'
-// import {optMechanismApply,getCityJson} from '../../../../../utils/api'
+// import {optMechanismApply,getCityJson} from '../../../../../utils/api
+const app = getApp()
 import area from '../../../utils/area'
-
+import {optMechanismApply} from "../../../utils/api"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-      username: '',
-      phone: '',
+      contactPerson: '',
+      contactNumber : '',
       city:'',
       addVal: '',
-      psVal: '',
+      remarkVal: '',
       areaList: [],
       show: false,
       provinceName: '', //省名
@@ -30,42 +31,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.initValidate()
     this.setData({
       areaList: area
     })
-  },
-   //验证函数
-   initValidate() {
-    const rules = {
-      username: {
-        required: true,
-        maxlength: 40
-      },
-      phone: {
-        required: true,
-        minlength: 11
-      },
-      address: {
-        required: true,
-        maxlength: 200
-      }
-    }
-    const messages = {
-      username: {
-        required: '请填写联系人',
-        maxlength: '联系人限制20字内'
-      },
-      phone: {
-        required: '请填写手机号',
-        tel: '请输入正确的手机号'
-      },
-      address: {
-        required: '请填写地址',
-        maxlength: '地址限制200字内'
-      }
-    }
-    this.WxValidate = new WxValidate(rules, messages)
+    console.log('this.setData',this.data.areaList);
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -121,13 +90,13 @@ Page({
         address: this.data.addVal,
         city: this.data.cityName,
         cityCode: this.data.cityCode, //市code
-        contactNumber: this.data.phone,
-        contactPerson: this.data.username,
+        contactNumber: this.data.contactNumber ,
+        contactPerson: this.data.contactPerson,
         district: this.data.districtName,
         districtCode: this.data.districtCode, //区县code
         province: this.data.provinceName,
         provinceCode: this.data.provinceCode, //省code
-        remark: this.data.psVal
+        remark: this.data.remarkVal
       })
       if(data.code === 200) {
         return wx.showToast({
@@ -184,14 +153,47 @@ Page({
       city: e.detail.values[0].name + '-' + e.detail.values[1].name + '-' + e.detail.values[2].name,
       show: false
     })
+    console.log(this.data);
   },
   cancelCity(){//选择城市--取消
     return this.setData({
       show: false
     })
   },
-  send(e){
+  async send(e){
     console.log('form发生了submit事件，携带的数据为：', e.detail.value)
     const params = e.detail.value
+    let {provinceName,provinceCode,cityName,cityCode,districtName,districtCode} = this.data;
+    const data = {
+      province :provinceName,
+      provinceCode:provinceCode,
+      city:cityName,
+      cityCode:cityCode,
+      district:districtName,
+      districtCode:districtCode
+    }
+    if(!params.contactPerson){
+      app.Toast("请输入联系人");
+      return 
+    }
+    if(!params.contactNumber  ){
+      app.Toast("请输入联系电话");
+      return 
+    }
+    if(!params.address){
+      app.Toast("请输入联系地址");
+      return 
+    }
+    if(!this.data.provinceCode){
+      app.Toast("请选择省市区")
+      return 
+    }
+     //params data
+     console.log(Object.assign(params,data));
+    let result =await optMechanismApply(Object.assign(params,data));
+    console.log(result.data);
+    if(result.code==200){
+        
+    }
   }
 })

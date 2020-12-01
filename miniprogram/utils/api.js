@@ -143,3 +143,9 @@ export function getCityJson(){
   return request.post(url);
 }
 
+//获取个人信息
+export function queryPersonalData(){
+    let url = "/api/web/teacher/queryPersonalData";
+    return request.post(url);
+}
+

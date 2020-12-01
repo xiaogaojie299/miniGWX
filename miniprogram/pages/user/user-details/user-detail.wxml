@@ -1,30 +1,31 @@
 <view>
   <!-- 头部 -->
   <view class="header plr-24">
-      <view class="row1">
+      <view class="row1" bindtap="chooseimage">
         <view class="my-font">头像</view>
         <view class="flex-center">
-          <image class="user-img mr-30"></image>
+          <image class="user-img mr-30" src="{{imgShow?userdata.avatar:picPaths[0]}}"></image>
           <image class="right_icon" src="/images/right.png"></image>
         </view>
       </view>
       
       <view class="row1">
         <view class="font-s-28 font-w-500 color-black">昵称</view>
-        <view class="font-s-26 font-w-400 color-black">哈哈哈</view>
+        <!-- <view class="font-s-26 font-w-400 color-black">哈哈哈</view> -->
+        <input value="{{userdata.nickname}}" class="font-s-26 font-w-400 color-black" type="text" />
       </view>
       
       <view class="row1">
         <view class="font-s-28 font-w-500 color-black">性别</view>
         <view>
-          <radio-button>
+          <radio-button currentActive="{{userdata.sex}}">
             <text class="font-w-400 font-s-28 color-black ml-10" slot="radio1">男</text>
             <text class="font-w-400 font-s-28 color-black ml-10" slot="radio2">女</text>
           </radio-button>
         </view>
       </view>
       
-      <view class="row1">
+      <view class="row1" bindtap="handle_subject">
         <view class="my-font">擅长课程</view>
         <view class="flex-center">
           <view class="font-s-26 font-w-400 color-black">英语/数学</view>
@@ -32,10 +33,10 @@
         </view>
       </view>
 
-      <view class="row1">
+      <view class="row1" bindtap="birthday_pop">
         <view class="my-font">出生日期</view>
         <view class="flex-center">
-          <view class="font-s-26 font-w-400 color-black">2020/1/1</view>
+          <view class="font-s-26 font-w-400 color-black"></view>
           <image class="right_icon" src="/images/right.png"></image>
         </view>
       </view>
@@ -47,16 +48,47 @@
           <image class="right_icon" src="/images/right.png"></image>
         </view>
       </view>
-
+ 
   </view>
   <!-- 主体 -->
   <view class="main plr-24">
     <!-- 用户信息 -->
     <view class="card-bg mt-20 mb-20 plr-24">
-      <view wx:for="{{5}}" wx:key="index" class="flex-between font-s-26 h-70 w-100">
+      <view class="flex-between font-s-26 h-70 w-100">
         <view class="font-w-400 color-light">真实姓名</view>
-        <view class="font-w-500 color-black">彭于晏</view>
+        <view class="font-w-500 color-black">{{userdata.name}}</view>
       </view>
+
+      <view class="flex-between font-s-26 h-70 w-100">
+        <view class="font-w-400 color-light">电话号码</view>
+        <view class="font-w-500 color-black">{{userdata.phone}}</view>
+      </view>
+
+      <view class="flex-between font-s-26 h-70 w-100">
+        <view class="font-w-400 color-light">联系地址</view>
+        <view class="font-w-500 color-black">{{userdata.address}}</view>
+      </view>
+
+      <view class="flex-between font-s-26 h-70 w-100">
+        <view class="font-w-400 color-light">角色信息</view>
+        <view class="font-w-500 color-black">{{userdata.mechanismName}}</view>
+      </view>
+
+      <view class="flex-between font-s-26 h-70 w-100">
+        <view class="font-w-400 color-light">最高学历</view>
+        <view class="font-w-500 color-black">{{userdata.highestEducation	}}</view>
+      </view>
+
+      <view class="flex-between font-s-26 h-70 w-100">
+        <view class="font-w-400 color-light">毕业院校</view>
+        <view class="font-w-500 color-black">{{userdata.graduatedSchool	}}</view>
+      </view>
+
+      <view class="flex-between font-s-26 h-70 w-100">
+        <view class="font-w-400 color-light">入职时间</view>
+        <view class="font-w-500 color-black">{{userdata.onboardingTime}}</view>
+      </view>
+
     </view>
     <!-- 证件照 -->
     <view class="papers plr-24">
@@ -66,15 +98,44 @@
       </view>
     </view>
     <!-- btn按钮 -->
-    <view class="addbtn mt-20">
+    <!-- <view class="addbtn mt-20">
       <button>
         <image></image>
        <text>添加资质证书</text> 
       </button>
-    </view>
+    </view> -->
   </view>
   <!-- 底部导航栏 -->
   <view class="footer">
     保存
   </view>
+
+    <!-- 选择擅长科目 -->
+    <van-popup
+    show="{{ isgoodSubject }}"
+    round
+    position="bottom"
+    custom-style="height: 50%"
+    bind:close="onCloseGoodSub"
+  >
+  <view class="popup-header flex">
+    <view class="popup-left" bindtap="cancel">取消</view>
+    <view class="popup-center">选择擅长科目</view>
+    <view class="popup-right" bindtap="confirm">确定</view>
+  </view>
+    <view class="subject">
+        <view bindtap="select_sub" data-index="{{index+1}}" class="{{item.checkout?'selectSub':'unselectSub'}} subject-item flex-ver-center" wx:for="{{subjectList}}" wx:key="index">{{item.name}}</view>
+    </view>
+  </van-popup>
+
+    <!-- 选择时间按钮 -->
+    <van-popup
+    show="{{ isShow }}"
+    round
+    position="bottom"
+    custom-style="height: 40%"
+    bind:close="onClose"
+  >  <my-picker-time bindselectTime="selectTime" bindtimeCancel="timeCancel"></my-picker-time>
+  </van-popup>
+
 </view>

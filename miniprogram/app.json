@@ -82,7 +82,9 @@
     "van-datetime-picker": "vant-weapp/datetime-picker",
     "van-picker": "vant-weapp/picker",
     "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
-    "van-dropdown-item": "@vant/weapp/dropdown-item/index"
+    "van-dropdown-item": "@vant/weapp/dropdown-item/index",
+    "van-area":"@vant/weapp/area/index",
+    "van-icon": "@vant/weapp/icon/index"
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2"
