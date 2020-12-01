@@ -20,11 +20,22 @@ var unit = {
                   default :
                   return "已转科"
     }
-  }
+  },
+    // 将学科装换成 英语/语文
+    subjectName : function subject(params) {
+      var arr= [] 
+      params.forEach(function(item){
+          arr.push(item.name)
+      })
+      //var reg = new RegExp(",","g"); 
+      console.log(arr.toString().replace(",","/"));
+      return  arr.toString().replace(",","/");
+    }
 }
+module.exports = unit
 
 // 导出过滤器 这段代码必写
-module.exports = {
-  // 格式为 导出的名字: json名字.函数名字 
-  sudentState: unit.sudentState
-}
+// module.exports = {
+//   // 格式为 导出的名字: json名字.函数名字 
+//   sudentState: unit.sudentState
+// }

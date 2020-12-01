@@ -1,4 +1,3 @@
-// miniprogram/pages/user/index.js
 Page({
 
   /**

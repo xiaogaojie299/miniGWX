@@ -1,5 +1,9 @@
+@import "../../../wxParse/wxParse.wxss";
 .content{
 
+}
+.time{
+  margin-left: auto;
 }
 .content>.content-item{
 background: #FFFFFF;

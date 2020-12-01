@@ -47,8 +47,8 @@ color: #C6C6C6;
 .upload>.upload-icon{
   width: 224rpx;
   height: 224rpx;
-  background: #FBFBFC;
   border-radius: 8rpx;
+  border: 1px solid #dddddd;
 }
 .upload-images{
   width: 224rpx;

@@ -1,0 +1,16 @@
+var filter={
+    // 将学科装换成 英语/语文
+    subjectName : function subject(params) {
+      let arr= [] 
+      params.forEach(function(item){
+          arr.push(item.name)
+      })
+      console.log(arr.toString().replace(",","/"));
+      return  arr.toString().replace(",","/");
+    }
+}
+
+module.exports = {
+  // 格式为 导出的名字: json名字.函数名字 
+  filter: filter.subjectName
+}

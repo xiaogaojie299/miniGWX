@@ -1,4 +1,5 @@
 // components/my-picker-time/my-picker-time.js
+import {dateType} from "../../utils/filter"
 Component({
   /**
    * 组件的属性列表
@@ -33,10 +34,25 @@ Component({
    */
   methods: {
     onInput(event) {
-      console.log(event.detail);
       this.setData({
         currentDate: event.detail,
       });
+      // this.triggerEvent('selectTime',)
     },
+
+    //用户点击完成
+
+    confirm(event){
+      let time =event.detail;
+      time=dateType(new Date(time));
+      console.log( time );
+      this.triggerEvent('selectTime',time)
+    },
+
+    //用户点击取消
+    cancel(event){
+      
+      this.triggerEvent('timeCancel',1)
+    }
   }
 })

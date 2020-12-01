@@ -1,39 +1,62 @@
-<view>
-  <view class="plr-24">
-    <view class="h-100 form-list bor-bottom">
-        <view class="lable">联系人:</view>
-        <view class="ipt">
-          <input type="text" placeholder="请输入您的姓名" />
-        </view>
-    </view>
-    <view class="h-100 form-list bor-bottom">
-        <view class="lable">联系电话:</view>
-        <view class="ipt">
-          <input type="text" placeholder="请输入联系电话" />
-        </view>
-    </view>
-    <!-- 最高学历 -->
-    <view class="h-100 form-list bor-bottom">
-        <!-- 左边性别 -->
-        <view class="lable">所在城市:</view>
-        <view class="ipt">
-          <input type="text" disabled="{{true}}" placeholder="请选择您所在的城市" />
-        </view>
-        <image class="right-icon" src="/images/right.png"></image>
-      </view>
+<!--myB/pages/cooperation/pages/organization/organization.wxml-->
 
-      <!-- 联系地址 -->
-      <view class="h-100 form-list">
-        <view class="lable">联系地址:</view>
-        <view class="ipt">
-          <input type="text" placeholder="请填写联系地址" />
-        </view>
+<!-- 机构合作 -->
+
+<!-- <view class="back-navbar">
+  <navigator class="nav-back-btn" open-type="navigateBack" delta="1">
+    <image src="/img/icon_back@2x.png"></image>
+  </navigator>
+  <text class="nav-name">机构合作</text>
+</view> -->
+
+
+<!-- <van-field
+  label="联系人："
+    model:value="{{ dataInfo.username }}"
+    placeholder="请输入姓名"
+  />
+  <van-field
+  label="联系电话："
+    model:value="{{ dataInfo.phone }}"
+    placeholder="请输入联系电话"
+  /> -->
+<form action="" bindsubmit="send">
+  <view class="p">
+    <view class="p-left">联系人：</view>
+    <input model:value="{{username}}" name="username" type="text" class="ipt" placeholder-class="ipt-placeholder" placeholder="请输入姓名" />
+  </view>
+  <view class="p">
+    <view class="p-left">联系电话：</view>
+    <input model:value="{{phone}}" name="phone" maxlength="11" type="text" class="ipt" placeholder-class="ipt-placeholder" placeholder="请输入联系电话" />
+  </view>
+  <view class="city" bindtap="showPop">
+    <view class="left">
+      所在城市：<text>{{city?city:'请选择您所在的城市'}}</text>
     </view>
-    <view class="h-100 form-list">
-        <view class="lable">备注说明(选填):</view>
-        <view class="ipt">
-          <input type="text" placeholder="请填写备注说明" />
-        </view>
+    <van-icon name="arrow" />
+  </view>
+  <view class="address">
+    <view class="address-left">联系地址：</view>
+    <view class="area-box">
+      <textarea model:value="{{addVal}}" name="address" cols="30" rows="10" class="ipt" placeholder="请输入联系地址"
+        placeholder-class="ipt-placeholder" maxlength="100"></textarea>
     </view>
   </view>
-</view>
+  <view class="ps">
+    <view>备注说明（选填）：</view>
+    <view>
+      <textarea model:value="{{psVal}}" name="ps" cols="30" rows="10" placeholder="请填写备注说明" placeholder-class="ipt-placeholder"
+        maxlength="400"></textarea>
+    </view>
+  </view>
+
+  <button class="send-btn" formType="submit">提交资料</button>
+</form>
+
+<van-popup
+  show="{{ show }}"
+  position="bottom"
+  bind:close="onClose"
+>
+<van-area area-list="{{ areaList }}" bind:confirm="confirmCity" bind:cancel="cancelCity"/>
+</van-popup>

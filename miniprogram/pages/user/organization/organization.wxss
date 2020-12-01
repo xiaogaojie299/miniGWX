@@ -1,19 +1,95 @@
-.form-list{
+/* myB/pages/cooperation/pages/organization/organization.wxss */
+page {
+  background-color: #FBFBFC;
+}
+
+.p {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #F6F6F6;
+  height: 100rpx;
+  padding: 0 24rpx 0 26rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  border-bottom: 1px solid #f8f8f8;
+  background-color: #fff;
 }
-.lable{
-  width: 260rpx;
+
+.p-left {
+  width: 140rpx;
+}
+
+.ipt {
+  font-size: 28rpx;
+}
+
+.ipt-placeholder {
+  font-size: 28rpx;
+  color: #969696;
+  font-weight: 400;
+}
+
+.city {
   display: flex;
   align-items: center;
-  white-space: nowrap;
+  justify-content: space-between;
+  height: 100rpx;
+  padding: 0 24rpx 0 26rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  border-bottom: 1px solid #f8f8f8;
+  background-color: #fff;
+
 }
-.ipt{
-  width: calc(100vw - 350rpx);
+
+.city>.left>text {
+  color: #969696;
 }
-.right-icon{
-  margin-left: auto;
+
+.address {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  padding: 20rpx 24rpx;
+  height: 188rpx;
+  background-color: #fff;
+
+}
+
+.address-left {
+  width: 140rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+}
+
+.area-box {
+  width: 390rpx;
+  padding-top: 5rpx;
+}
+
+.ps {
+  width: 100%;
+  height: 336rpx;
+  background: #FFFFFF;
+  margin-top: 14rpx;
+  padding: 20rpx 24rpx 0 26rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+}
+
+.send-btn {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 98rpx;
+  background: linear-gradient(270deg, #EF753C 0%, #F13232 100%);
+  font-size: 30rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 98rpx;
 }

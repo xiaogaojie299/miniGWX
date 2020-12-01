@@ -113,3 +113,33 @@ export function queryEvaluationList(data){
   let url = "/api/officeCenter/queryEvaluationList";
   return request.post(url,data);
 }
+// 获取消息列表
+export function queryMessageList(data){
+  let url = "/api/web/message/queryMessageList";
+  return request.post(url,data);
+}
+
+//获取课程科目
+export function queryAllSubjects(){
+  let url = "/api/officeCenter/queryAllSubjects";
+  return request.post(url);
+}
+
+// 申请成为老师
+export function optTeacherApply(data) {
+    let url = "/api/web/user/optTeacherApply";
+    return request.post(url,data);
+}
+
+//机构合作
+export function optMechanismApply(data){
+  let url = "/api/web/user/optMechanismApply";
+  return request.post(url,data);
+}
+
+//获取省市JSON
+export function getCityJson(){
+  let url = "/base/web/agreement/getCityJson";
+  return request.post(url);
+}
+

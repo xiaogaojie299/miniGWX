@@ -36,10 +36,17 @@ Component({
     },
     onConfirm(event) {
       const { picker, value, index } = event.detail;
-      Toast(`当前值：${value}, 当前索引：${index}`);
+      console.log(picker,value,index)
+      this.triggerEvent('selectEducation',value)
+      this.setData({
+        isShow:false
+      })
     },
     onCancel() {
       console.log('取消');
+      this.setData({
+        isShow:false
+      })
     },
   }
 })

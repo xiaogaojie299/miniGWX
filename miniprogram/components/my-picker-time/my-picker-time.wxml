@@ -4,6 +4,8 @@
   title="选择年月日"
   value="{{ currentDate }}"
   bind:input="onInput"
+  bind:confirm="confirm"
+  bind:cancel="cancel"
   min-date="{{ minDate }}"
   formatter="{{ formatter }}"
 />

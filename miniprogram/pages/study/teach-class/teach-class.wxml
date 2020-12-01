@@ -36,8 +36,8 @@
 
         <view class="card-content-item h-40 flex-center">
           <!-- icon -->
-          <image class="mr-20"></image>
-          <view src="/images/icon_teacher@2x.png" class="font-cont mr-20">责任老师:</view>
+          <image src="/images/icon_teacher@2x.png" class="mr-20"></image>
+          <view class="font-cont mr-20">责任老师:</view>
           <view class="color-ori">{{item.responsibilityTeacher}}</view>
         </view>
 

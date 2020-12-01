@@ -71,7 +71,6 @@
 .card-content-item>image {
   width: 22rpx;
   height: 22rpx;
-  background: #ADB4BE;
 }
 
 .top-input {

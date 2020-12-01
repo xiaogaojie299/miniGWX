@@ -15,5 +15,15 @@ export function timeType(timer){
     }
     return arr.join("/");
   }
+}
 
+export function dateType(timer,MonthType=false){
+  // new Date() =========> 2020-02-01
+  let month=timer.getMonth()+1<10?"0"+(timer.getMonth()+1):timer.getMonth()+1;
+  let day=timer.getDate()<10?"0"+timer.getDate():timer.getDate();
+  if(MonthType){
+    return timer.getFullYear()+"-"+month
+  }else{
+    return timer.getFullYear()+"-"+month+"-"+day
+  }
 }
