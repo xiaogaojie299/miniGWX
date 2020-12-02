@@ -9,19 +9,20 @@
   </view>
 </view>
 
-<view class="content plr-24">
+<view style="padding-bottom:40rpx;" class="content plr-24">
   <view class="plr-24">
   <view class="score-box"> 
-    <view class="score">136分</view>
-    <view class="gross-score">总分:150</view>
+    <view class="title">{{stuInfo.name}}</view>
+    <view class="score">{{stuInfo.points||0}}分</view>
+    <view class="gross-score">总分:{{testInfo.totalScore||150}}</view>
     <view class="timer">
       <image src="/images/icon_time_red@2x.png"></image>
-      <text>00:00:12</text>
+      <text>{{stuInfo.completionTime}}</text>
     </view>
     <view class="ranking">班级排名:<text>12/50</text></view>
   </view>
   </view>
-  <view class="q--box">
+  <view class="q-box">
     <!-- 全部/正确/扣分 切换 -->
     <view class="choose-btns">
       <!-- <view wx:for="{{questionStatus}}" wx:key="index" bindtap="activeBtn">{{item}}</view> -->
@@ -29,45 +30,8 @@
     </view>
     <view class="q-num-box">
       <!-- q-num默认蓝色--正确 , 错误加类名 -->
-      <view class="q-num q-num-error">1</view>
-      <view class="q-num">2</view>
-      <view class="q-num">3</view>
-      <view class="q-num">4</view>
-      <view class="q-num">5</view>
-      <view class="q-num">6</view>
-      <view class="q-num">7</view>
-      <view class="q-num">8</view>
-      <view class="q-num">9</view>
-      <view class="q-num">10</view>
-      <view class="q-num">11</view>
-      <view class="q-num">12</view>
-      <view class="q-num">4</view>
-      <view class="q-num">5</view>
-      <view class="q-num">6</view>
-      <view class="q-num">7</view>
-      <view class="q-num">8</view>
-      <view class="q-num">9</view>
-      <view class="q-num">10</view>
-      <view class="q-num">11</view>
-      <view class="q-num">12</view>
-      <view class="q-num">3</view>
-      <view class="q-num">4</view>
-      <view class="q-num">5</view>
-      <view class="q-num">6</view>
-      <view class="q-num">7</view>
-      <view class="q-num">8</view>
-      <view class="q-num">9</view>
-      <view class="q-num">10</view>
-      <view class="q-num">11</view>
-      <view class="q-num">12</view>
-      <view class="q-num">4</view>
-      <view class="q-num">5</view>
-      <view class="q-num">6</view>
-      <view class="q-num">7</view>
-      <view class="q-num">8</view>
-      <view class="q-num">9</view>
-      <view class="q-num">10</view>
-      <view class="q-num">11</view>
+      <view wx:for="{{10}}" wx:if="{{btnIndex==0||(btnIndex==1?item.da==item.xsda:item.da!=item.xsda)}}" class="{{ item.da==item.xsda||'q-num-error' }} q-num ">{{btnIndex}}</view>
+      <!-- <view class="q-num">2</view> -->
     </view>
 
     <view class="tags">

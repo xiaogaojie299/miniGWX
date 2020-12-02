@@ -13,7 +13,8 @@ Page({
     interval: 4000,
     duration: 800,
     swiperCurrent: 0,
-    isTop:false
+    isTop:false,
+    nickname:wx.getStorageSync('nickName')
   },
   swiperChange(e) {
     let current = e.detail.current;
@@ -80,6 +81,11 @@ onPageScroll: function(res) {
           })
         }
       }
+    })
+  },
+  onShow: function(){
+    this.setData({
+      nickname:wx.getStorageSync('nickName')
     })
   },
 

@@ -30,6 +30,13 @@ Page({
    //监听用户点击回车
    confirmTap: function() {
     let that = this;
+     if (!that.data.classValue){
+       wx.showToast({
+         title: "搜索班级不能为空",
+         icon:"none"
+       })
+       return 
+     }
     that.setData({
       current:1,
       questionSquareList:[]
@@ -100,7 +107,10 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.setData({
+      current:this.data.current + 1
+    })
+    this.get_classList()
   },
 
   /**

@@ -1,3 +1,4 @@
+import {queryPersonalData} from "../../utils/api"
 Page({
 
   /**
@@ -9,7 +10,8 @@ Page({
       {title:"合作招募",urlPath:"recruit/recruit"},
       {title:"平台客服",urlPath:"/images/right.png"},
       {title:"问题反馈",urlPath:"feedback/feedback"}
-    ]
+    ],
+    userdata:[]
   },
   go_userDetail(){
     wx.navigateTo({
@@ -27,6 +29,20 @@ Page({
       url: '/pages/user/'+e.currentTarget.dataset.path,
     })
   },
+    // 获取个人资料
+    async getPersonalData(){
+      let res =await queryPersonalData();
+      if(res.code==200){
+        // 将用户名字存储
+        wx.setStorageSync('nickName', res.data.nickname);
+        wx.setStorageSync('userdata',res.data);
+        this.setData({
+          userdata:res.data,
+        })
+      }else{
+        app.Toast("网络错误")
+      }
+    },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -45,7 +61,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getPersonalData()
   },
 
   /**

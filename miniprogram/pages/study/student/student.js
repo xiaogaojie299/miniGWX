@@ -13,10 +13,11 @@ Page({
     ],
     current:1,
     size:10,
-    value1: 0,    //下拉框选中的值
+    value1: "",    //下拉框选中的值
     className:"",    //班级名称
+    classList:[],
     studentName:"",    //学生名称
-    studentList:[]    //学生列表
+    studentList:[],    //学生列表
   },
   go_stuDetail(event){
     let index= event.currentTarget.dataset.index;
@@ -29,14 +30,24 @@ Page({
     async get_classList(){
       let {current,size} = this.data
       let pamars={
-        current,
-        size,
       }
       let res =await queryMyAllClassList(pamars)
       console.log(res);
       if(res.code==200){
+        let arr = []
+        res.data.list.forEach((item,index,)=>{
+            let obj = {};
+            obj.text = item.name;
+            obj.value =item.name;
+              arr = arr.concat(obj);
+        })
+        arr.unshift({
+          text:"全部",
+          value:""
+        })
+        console.log("arr==>",arr);
         this.setData({
-          option1:res.data.list
+          option1:arr
         })
       }
     },
@@ -50,17 +61,29 @@ Page({
         studentName,
         className
       }
+
       let res =await queryAllMyStudent(pamars);
       console.log('学生列表',res.data);
       if(res.code==200){
         this.setData({
-          studentList:res.data.list
+          studentList:this.data.studentList.concat(res.data.list)
         })
       }
     },
     
     //点击确定搜索
     confim(){
+      if(!this.data.studentName){
+        wx.showToast({
+          title: '请输入学生姓名',
+        })
+        return
+      }
+      this.setData({
+        current:1,
+        studentList:[]
+      })
+      this.get_ClassStudent()
     },
 
     //监听输入框
@@ -72,7 +95,12 @@ Page({
 
     //下拉菜单框选中
     changeValue({detail}){
-      console.log(detail);
+      this.setData({
+        className:detail,
+        current:1,
+        studentList:[]
+      })
+      this.get_ClassStudent()
     },
   /**
    * 生命周期函数--监听页面加载
@@ -121,7 +149,10 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.setData({
+      current:this.data.current+1
+    })
+    this.get_ClassStudent()
   },
 
   /**

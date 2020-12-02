@@ -113,6 +113,14 @@ export function queryEvaluationList(data){
   let url = "/api/officeCenter/queryEvaluationList";
   return request.post(url,data);
 }
+
+ //根据学生考试关系id获取考试详情
+ export function queryExaminationInfo(data){
+   let url = "/api/officeCenter/queryExaminationInfo";
+   return request.post(url,data);
+ }
+
+
 // 获取消息列表
 export function queryMessageList(data){
   let url = "/api/web/message/queryMessageList";
@@ -149,3 +157,8 @@ export function queryPersonalData(){
     return request.post(url);
 }
 
+//修改我的个人信息
+export function optPersonalData(data){
+  let url = "/api/web/teacher/optPersonalData"
+  return request.post(url,data);
+}

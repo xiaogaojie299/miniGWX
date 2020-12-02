@@ -6,7 +6,14 @@ Component({
   properties: {
     isTitle:{
       type:Boolean,
-      value:true
+      value:true,
+      observer(newVal,oldVa){
+            console.log(newVal,oldVa)
+      },
+    },
+    nickname:{
+      type:String,
+      value:""
     }
   },
 
@@ -14,7 +21,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    nickname:"1"
+    // nickname:wx.getStorageSync('nickName')
   },
 
   /**
@@ -26,11 +33,15 @@ Component({
       this.setData({
         nickname:name
       })
-      console.log("nickname=",name);
     }
   },
   onLoad(){
     this.test()
+  },
+  onshow(){
+    this.setData({
+      nickname:wx.getStorageSync('nickName')
+    })
   },
   lifetimes:{
     created(){

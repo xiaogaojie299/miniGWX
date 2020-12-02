@@ -1,7 +1,7 @@
 <view>
   <!-- 顶部背景样式 -->
   <view class="header">
-    <top-content></top-content>
+    <top-content nickname="{{nickname}}"></top-content>
   </view>
   <!-- 内容 -->
   <view class="main plr-24">

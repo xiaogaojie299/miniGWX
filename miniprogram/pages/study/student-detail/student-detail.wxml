@@ -4,7 +4,8 @@
     <view class="teach-info-box" bindtap="go_userDetail">
       <view class="teach-info-name mb-10">
         <view class="mr-10">{{studentInfo.name}}</view>
-        <image src="/images/female@2x.png"></image>
+        <!-- <image src="/images/female@2x.png"></image> -->
+        <image src="{{studentInfo.sex==1?'/images/man.png':'/images/woman.png'}}"></image>
       </view>
      <view class="study-time flex-between">
           <view class="study-time-left">
@@ -72,23 +73,23 @@
   <view class="footer plr-24">
     <view class="footer-title">成长记录</view>
     <!-- 卡片 -->
-    <view class="footer-card mt-20 plr-24" wx:for="{{8}}" wx:key="index">
+    <view class="footer-card mt-20 plr-24" wx:for="{{growUp}}" wx:key="index">
       <view class="footer-card-top">
-        <view class="footer-card-title">第四节课课后习题</view>
+        <view class="footer-card-title">{{item.name}}</view>
         <!-- 标签 -->
         <view class="my-tag-box h-80 flex-center">
-          <view wx:for="{{3}}" wx:key="index" class="mr-30">
-            <my-tag width="100rpx" height="44rpx">高三</my-tag>
+          <view class="mr-30">
+            <my-tag width="100rpx" height="44rpx">{{item.paperType==1?"测评":item.paperType==2?"课后练习":item.paperType==3?"考试":"免费题库"}}</my-tag>
           </view>
         </view>
         <!-- 完成时间 -->
         <view class="accomp-time">
-          完成时间：2020-04-23 23:5
+          完成时间：{{item.completionTime}}
         </view>
       </view>
       <view class="footer-card-bottom flex-between">
-        <view class="scope"><text>136分</text>（总150分）</view>
-        <view bindtap="go_lookAnswer">
+        <view class="scope"><text>{{item.points}}</text>（总150分）</view>
+        <view data-index="{{index}}" bindtap="go_lookAnswer">
           <my-tag>查看详情</my-tag>
         </view>
       </view>

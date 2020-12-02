@@ -2,8 +2,7 @@
   <!-- header -->
   <view class="header pt-20">
     <view class="left-cont flex-center">
-      <text>初中一年级·</text>
-
+      <text wx:if="{{className}}">{{studentList[0].gradeName}}·</text>
         <van-dropdown-menu>
     <van-dropdown-item bind:change="changeValue" value="{{ value1 }}" options="{{ option1 }}" />
   </van-dropdown-menu>

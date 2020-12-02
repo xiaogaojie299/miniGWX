@@ -19,7 +19,7 @@
       <view class="card-header plr-24 h-80 flex-between bor-bottom">
         <view class="title">{{item.grade}}·{{item.name}}</view>
         <view class="right-content">
-          <image class="mr-10"></image>
+          <image src="/images/people@2x.png" class="mr-10"></image>
           <text>{{item.studentNum}}</text>
         </view>
       </view>

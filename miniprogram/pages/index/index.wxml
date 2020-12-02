@@ -4,7 +4,7 @@
         <view class="top-title">您好，张三</view>
     </view> -->
     <view>
-        <top-content></top-content>
+        <top-content nickname="{{nickname}} "></top-content>
     </view>
     <view class='swiper-box'>
         <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">

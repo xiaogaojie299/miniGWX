@@ -1,6 +1,7 @@
 import {
-  queryAllSubjects,optTeacherApply,queryPersonalData
+  queryAllSubjects,optPersonalData,queryPersonalData
 } from "../../../utils/api"
+const app = getApp()
 Page({
 
   /**
@@ -8,19 +9,26 @@ Page({
    */
   data: {
     userdata:{},
-    picPaths:[],
+    picPaths:"",
+
+    birthday:"",  
+    subjects:"",      //选中的课程
+    subjectIds:"",    //  选中的课程id
     imgShow:true,    //用户上传成功切换图片显示
     isgoodSubject:false,  //选择科目弹框开关  
     subjectList:[],          //课程列表
     isShow:false,           //控制出生日期
+    qualificationImg:[]     //教师资格证书
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getPersonalData();
     this.getAllSubjects();
+    setTimeout(()=>{
+    this.getPersonalData();
+    },500)
   },
 
 
@@ -72,6 +80,43 @@ Page({
   onShareAppMessage: function () {
 
   },
+  // 用户输入昵称
+  inputNickname(e){
+    let {userdata}=this.data;
+    userdata.nickname=e.detail.value
+    this.setData({
+      userdata
+    })
+  },
+
+  // 用户选择性别
+  checkoutSex(event){
+    let {userdata}=this.data;
+    console.log(event)
+    userdata.sex=event.currentTarget.dataset.sex;
+    this.setData({
+      userdata
+    })
+  },
+
+  selectSex(e){
+    console.log(e.detail)
+    let {userdata}=this.data;
+    userdata.sex=e.detail;
+    this.setData({
+      userdata
+    })
+  },
+
+  //用户输入个人签名
+  inputIntroduction(e){
+    let {userdata}=this.data;
+    userdata.introduction=e.detail.value
+    this.setData({
+      userdata
+    })
+  },
+
   //控制时间选择器
   onClose() {
     this.setData({
@@ -81,9 +126,11 @@ Page({
 
    //时间组件传过来的值
    selectTime(time) {
+     let {userdata} = this.data;
+     userdata.birthday=time.detail
     this.setData({
       isShow: false,
-      birthday: time.detail
+      userdata: userdata
     })
   },
 
@@ -176,11 +223,31 @@ Page({
       })
     },
 
+    //点击空白关闭选择科目遮罩层
+    onCloseGoodSub() {
+      this.setData({
+        isgoodSubject: false
+      });
+    },
+
+    //删除资质图片
+    delImage(event){
+        let index = event.currentTarget.dataset.index;
+        let arr= this.data.qualificationImg;
+        arr.splice(index,1);
+        console.log("arr=",arr);
+        this.setData({
+          qualificationImg:arr
+        })
+    },
+
     // 图片上传
-    chooseimage: function chooseimage() {
+    chooseimage: function chooseimage(event) {
+      console.log(event.currentTarget);
+      let type = event.currentTarget.dataset.type||1;
       var _this = this;
       wx.chooseImage({
-        count: 1, // 默认9  
+        count:type==1?1:3, // 默认9  
         sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有  
         sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有  
         success: function success(res) {
@@ -190,64 +257,133 @@ Page({
             mask: true,
             duration: 1000
           });
-          _this.upImgs(res.tempFilePaths[0], 0);
-          // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片  
-          // console.log(_this.data.tempFilePaths, 'res=', res.tempFilePaths);
-          // var tempFiles = _this.data.tempFilePaths.concat(res.tempFilePaths);
-          // _this.setData({
-          //   tempFilePaths: tempFiles
-          // });
-          // console.log(_this.data.tempFilePaths);
+          console.log("type",type);
+          console.log(res.tempFilePaths);
+          type==1?_this.upImgs(res.tempFilePaths[0]):_this.uploadimg(res.tempFilePaths);
         }
       });
       
     },
-    // 图片本地路径
-    chooseWxImage: function (type) {
-      var that = this;
-      var imgsPaths = that.data.imgs;
-      wx.chooseImage({
-        sizeType: ['original', 'compressed'],
-        sourceType: [type],
-        success: function (res) {
-          console.log(res);
-          console.log(res.tempFilePaths[0]);
-          that.upImgs(res.tempFilePaths[0], 0) //调用上传方法
-        }
-      }) 
-    },
     upImgs: function (imgurl, index) {
       var that = this;
-      wx.uploadFile({
-        url: 'http://139.9.154.145/student/base/uploadImg',//
-        filePath: imgurl,
-        name: 'file',
-        header: {
-          'content-type': 'multipart/form-data'
-        },
-        formData: null,
-        success: function (res) {
-          console.log(res) //接口返回网络路径
-          var data = JSON.parse(res.data)
-            that.data.picPaths.push(data['data'])
-            that.setData({
-              picPaths: that.data.picPaths,
-              imgShow:false
-            })
-            console.log(that.data.picPaths)
-        }
-      })
+        wx.uploadFile({
+          url: 'http://139.9.154.145/student/base/uploadImg',//
+          filePath: imgurl,
+          name: 'file',
+          header: {
+            'content-type': 'multipart/form-data'
+          },
+          formData: null,
+          success: function (res) {
+            console.log(JSON.parse(res.data)['data']) //接口返回网络路径
+              const picPaths=JSON.parse(res.data)['data'];
+              let {userdata} = that.data;
+              userdata.avatar=picPaths;
+              that.setData({
+                userdata: userdata,
+                imgShow:false
+              })
+              console.log(that.data.userdata.avatar)
+          }
+        })
+
     },
 
+    //多张上传
+
+    uploadimg:function(data){
+      var that = this;
+      console.log(data);
+      let promiseArr = [];
+      for (var i = 0;i<data.length;i++){
+        console.log("i=",i);
+        promiseArr.push(new Promise((reslove,reject)=>{
+
+          wx.uploadFile({
+            url: 'http://139.9.154.145/student/base/uploadImg',//
+            filePath: data[i],
+            name: 'file',
+            header: {
+              'content-type': 'multipart/form-data'
+            },
+            formData: null,
+            success: function (res) {
+              var data = JSON.parse(res.data);
+              reslove(data.data);
+            }
+          })
+        }))
+        }
+        console.log(promiseArr[0].then(res=>{res}));
+        Promise.all(promiseArr).then(res => {
+          that.setData({
+            qualificationImg:that.data.qualificationImg.concat(res)
+          })
+          console.log("qualificationImg==>",that.data.qualificationImg)
+        })//等数组都做完后做then方法
+
+    },
+
+    //上传FORM表单
+    async submit(){
+      let pamars=this.data.userdata;
+      let subjectIds=this.data.subjectIds;
+      pamars.qualificationImg=this.data.qualificationImg.toString();
+      pamars.coursesubjectsIds=subjectIds;
+      if(!pamars.nickname){
+          app.Toast("昵称不能为空")
+         return
+        }
+        if(!pamars.coursesubjectsIds){
+          app.Toast("请选择擅长课程")
+          return
+      }
+      if(!pamars.qualificationImg){
+        app.Toast("请上传资格证书")
+        return
+      }
+
+      let res = await optPersonalData(pamars);
+      if(res.code==200){
+        wx.showToast({
+          title: '修改信息成功',
+        })
+        setTimeout(()=>{
+          this.getPersonalData()
+        },1000)
+      }
+    },
 
   // 获取个人资料
     async getPersonalData(){
       let res =await queryPersonalData();
       if(res.code==200){
-        res.data.birthday=res.data.birthday.split(" ")[0]
-        this.setData({
-          userdata:res.data
+        // 将用户名字存储
+        wx.setStorageSync('nickName', res.data.nickname);
+        wx.setStorageSync('userdata',res.data);
+        res.data.birthday=res.data.birthday.split(" ")[0];
+        let subjectName=res.data.coursesubjectsIds.split(",");
+        let transition="";
+        let subjectId = [];
+        let qualificationImg=res.data.qualificationImg.split(",");
+        this.data.subjectList.forEach(item=>{
+          for (var i = 0;i<subjectName.length;i++){
+            if(subjectName[i]==item.id){
+              transition+=item.name+"/"; 
+              subjectId.push(item.id);
+            }
+          }
         })
+        console.log("transition=",transition);
+        transition=transition.slice(0,-1);
+        this.setData({
+          userdata:res.data,
+          subjects:transition,
+          subjectIds:subjectId.toString(),
+          qualificationImg:qualificationImg
+        })
+      }else{
+        app.Toast("网络错误")
       }
     }
 })

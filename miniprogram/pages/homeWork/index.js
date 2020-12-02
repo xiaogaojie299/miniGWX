@@ -16,6 +16,7 @@ Page({
       { text: '我的问题', value: 2 },
     ],
     value1: 0,    //下拉框选中的值
+    nickname:wx.getStorageSync('nickName')
   },
   go_myProblem(){
     wx.navigateTo({
@@ -154,7 +155,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      nickname:wx.getStorageSync('nickName')
+    })
   },
 
   /**

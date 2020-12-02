@@ -117,6 +117,7 @@ Page({
    console.log(res);
    if(res.code==200){
    wx.setStorageSync('userInfo',res.data);
+   wx.setStorageSync('nickName', res.data.nickname)
    wx.switchTab({
     url: '/pages/index/index',
   })
@@ -135,6 +136,7 @@ Page({
    console.log(res);
    if(res.code==200){
     wx.setStorageSync('userInfo',res.data);
+    wx.setStorageSync('nickName', res.data.nickname)
     wx.switchTab({
       url: '/pages/index/index',
     })

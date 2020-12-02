@@ -29,7 +29,10 @@
 
 .right-content {
   text-align: right;
-  width: 200rpx;
+  flex-direction: end;
+  display: flex;
+  align-items: center;
+  /* width: 200rpx; */
   font-size: 30rpx;
   font-family: PingFangSC-Medium, PingFang SC;
   font-weight: 500;
@@ -39,7 +42,6 @@
 .right-content>image {
   width: 36rpx;
   height: 28rpx;
-  background: #FE9E57;
 }
 
 .card:last-child>.light-inlie {

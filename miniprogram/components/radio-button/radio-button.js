@@ -31,6 +31,7 @@ Component({
     checkoutBtn(e){
       console.log(e);
       // this.currentActive=i;
+      this.triggerEvent("selectSex",e.currentTarget.dataset.index)
       this.setData({
          
         currentActive:e.currentTarget.dataset.index,

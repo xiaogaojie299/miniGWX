@@ -16,7 +16,8 @@ Page({
         imgPath:"/images/notice.png",
         msgList:0
       }
-    ]
+    ],
+    nickname:wx.getStorageSync('nickName')
   },
   go_msgNot(event){
     let index =Number(event.currentTarget.dataset.index)+1;
@@ -27,22 +28,20 @@ Page({
   },
 
   // 获取我的消息
-  async get_msg(type=1){
+  async get_msg(type=1,read=1){
     // type 1=系统通知  2=活动通知 3=所有
     let pamars={
       current:1,
       size:10,    
-      read:3,       //1=未阅读 // 2 已阅读  //3 所有
+      read,       //1=未阅读 // 2 已阅读  //3 所有
       type
     };
     let res = await queryMessageList(pamars);
-    console.log("res===>",res)
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.get_msg()
   },
 
   /**
@@ -56,7 +55,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.get_msg(1,1);
+    this.get_msg(2,2)
+    this.setData({
+      nickname:wx.getStorageSync('nickName')
+    })
   },
 
   /**

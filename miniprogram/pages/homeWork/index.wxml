@@ -1,6 +1,6 @@
 <view>
     <view>
-      <top-content></top-content>
+      <top-content nickname="{{nickname}}"></top-content>
     </view>
     <!-- 主体内容 -->
     <view class="main">

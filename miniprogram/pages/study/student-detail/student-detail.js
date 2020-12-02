@@ -9,12 +9,15 @@ Page({
     lableList:[],
     studentInfo:{},
     current :1,
-    size:10
+    size:10,
+    growUp:[]     //成长记录
   },
-  go_lookAnswer(){
-    console.log("跳转成功");
+  go_lookAnswer(event){
+    let index = event.currentTarget.dataset.index;
+    let {growUp} = this.data;
+    let queryObj =JSON.stringify(growUp[index]);
     wx.navigateTo({
-      url: '/pages/lookAnswer/lookAnswer',
+      url: '/pages/lookAnswer/lookAnswer'+'?queryObj='+queryObj,
     })
   },
 
@@ -27,6 +30,16 @@ Page({
     }
     let res =await queryEvaluationList(pamars);
     console.log("res==>",res.data);
+    if(res.code==200){
+      this.setData({
+        growUp:res.data.list
+      })
+    }else{
+      wx.showToast({
+        title: '网络错误',
+        icon:"none"
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载

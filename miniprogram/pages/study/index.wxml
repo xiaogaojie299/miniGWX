@@ -1,7 +1,7 @@
 <view class="box">
   <!--  -->
   <view>
-    <top-content></top-content>
+    <top-content nickname="{{nickname}}"></top-content>
   </view>
   <view class="page">
     <!-- 头部 -->

@@ -1,10 +1,10 @@
 <view>
   <!-- 头部 -->
   <view class="header plr-24">
-      <view class="row1" bindtap="chooseimage">
+      <view class="row1" data-type="{{1}}" bindtap="chooseimage">
         <view class="my-font">头像</view>
         <view class="flex-center">
-          <image class="user-img mr-30" src="{{imgShow?userdata.avatar:picPaths[0]}}"></image>
+          <image class="user-img mr-30" src="{{userdata.avatar}}"></image>
           <image class="right_icon" src="/images/right.png"></image>
         </view>
       </view>
@@ -12,15 +12,15 @@
       <view class="row1">
         <view class="font-s-28 font-w-500 color-black">昵称</view>
         <!-- <view class="font-s-26 font-w-400 color-black">哈哈哈</view> -->
-        <input value="{{userdata.nickname}}" class="font-s-26 font-w-400 color-black" type="text" />
+        <input bindinput="inputNickname" value="{{userdata.nickname}}" class="font-s-26 font-w-400 color-black" type="text" />
       </view>
       
       <view class="row1">
         <view class="font-s-28 font-w-500 color-black">性别</view>
         <view>
-          <radio-button currentActive="{{userdata.sex}}">
-            <text class="font-w-400 font-s-28 color-black ml-10" slot="radio1">男</text>
-            <text class="font-w-400 font-s-28 color-black ml-10" slot="radio2">女</text>
+          <radio-button bindselectSex="selectSex" currentActive="{{userdata.sex}}">
+            <text data-sex="{{1}}" class="font-w-400 font-s-28 color-black ml-10" slot="radio1">男</text>
+            <text bindtap="checkoutSex" data-sex="{{2}}" class="font-w-400 font-s-28 color-black ml-10" slot="radio2">女</text>
           </radio-button>
         </view>
       </view>
@@ -28,7 +28,7 @@
       <view class="row1" bindtap="handle_subject">
         <view class="my-font">擅长课程</view>
         <view class="flex-center">
-          <view class="font-s-26 font-w-400 color-black">英语/数学</view>
+          <view class="font-s-26 font-w-400 color-black">{{subjects}}</view>
           <image class="right_icon" src="/images/right.png"></image>
         </view>
       </view>
@@ -36,7 +36,7 @@
       <view class="row1" bindtap="birthday_pop">
         <view class="my-font">出生日期</view>
         <view class="flex-center">
-          <view class="font-s-26 font-w-400 color-black"></view>
+          <view class="font-s-26 font-w-400 color-black">{{userdata.birthday}}</view>
           <image class="right_icon" src="/images/right.png"></image>
         </view>
       </view>
@@ -44,7 +44,7 @@
       <view class="row1">
         <view class="my-font">个人简历</view>
         <view class="flex-center">
-          <view class="font-s-26 font-w-400 color-black">编辑个人介绍50字</view>
+          <input bindinput="inputIntroduction" value="{{userdata.introduction}}" class="font-s-26 font-w-400 color-black">编辑个人介绍50字</input>
           <image class="right_icon" src="/images/right.png"></image>
         </view>
       </view>
@@ -93,20 +93,24 @@
     <!-- 证件照 -->
     <view class="papers plr-24">
       <view class="title pt-20">教师资格证</view>
-      <view class="papers-img mt-20 mb-20">
-        <image></image>
+      <view wx:for="{{qualificationImg}}" wx:key="{{index}}" class="papers-img mt-30 mb-30">
+        <image data-index="{{index}}" bindtap="delImage" class="icon_close" src="/images/close_.png"></image>
+        <image src="{{item}}"></image>
       </view>
+      <!-- <view wx:for="{{2}}" wx:key="{{index}}" class="papers-img mt-20 mb-20">
+        <image src=""></image>
+      </view> -->
     </view>
     <!-- btn按钮 -->
-    <!-- <view class="addbtn mt-20">
-      <button>
+    <view class="addbtn mt-20">
+      <button data-type="{{2}}" bindtap="chooseimage"> 
         <image></image>
-       <text>添加资质证书</text> 
+       <text>添加证书图片</text> 
       </button>
-    </view> -->
+    </view>
   </view>
   <!-- 底部导航栏 -->
-  <view class="footer">
+  <view class="footer" bindtap="submit">
     保存
   </view>
 

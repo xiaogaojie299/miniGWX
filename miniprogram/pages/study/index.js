@@ -13,7 +13,8 @@ Page({
     current:1,   //页码
     size:10 ,     //分页数据
     timer:getTimeType(),      //默认的时间
-    curseList:[]  //获取今日课程列表     
+    curseList:[],  //获取今日课程列表     
+    nickname:wx.getStorageSync('nickName')
   },
   go_student(){
     wx.navigateTo({
@@ -83,9 +84,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.get_myClass();
-    this.get_myStudent();
-    this.get_TimeCurse();
+   
   },
 
   /**
@@ -99,8 +98,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log(this.selectComponent("#calendar"));
+    this.get_myClass();
+    this.get_myStudent();
+    this.get_TimeCurse();
     this.selectComponent("#calendar").visible()
+    this.setData({
+      nickname:wx.getStorageSync('nickName')
+    })
   },
 
   /**
