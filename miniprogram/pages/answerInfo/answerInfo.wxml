@@ -1,22 +1,24 @@
 <!--question/pages/answerInfo/answerInfo.wxml-->
-<view class="back-navbar">
+<!-- <view class="back-navbar">
   <navigator class="nav-back-btn" open-type="navigateBack" delta="1">
     <image src="/img/icon_back@2x.png"></image>
   </navigator>
   <text class="nav-name">单题解析</text>
-</view>
+</view> -->
 
 <!-- 单选题 -->
-<view wx:if="{{questionType === 0}}">
+<view wx:if="{{testList[i].type == 2}}">
   <view class="content plr-24">
     <view class="q-box radio-box">
-      <view class="q-top">1/80</view>
-      <view class="q-title">以下哪个答案是正确的？<text>(5分)</text></view>
+      <view class="q-top">{{i + 1}}/{{testList.length}}</view>
+      <view class="q-title">{{testList[i].title}}<text>(5分)</text></view>
       <view class="q-main">
-        <view class="q-option" wx:for="{{optionsList}}" wx:key="id">
+        <view class="q-option" wx:for="{{testList[i].options}}" wx:key="id">
           <!-- 1  正确选项 -->
-          <view class="tag {{item.right === 1 ? 'active': ''}}">{{item.name}}</view>
+          <view class="tag {{item.name === testList[i].answer ? 'active': ''}}">{{item.name}}</view>
           <text>{{item.info}}</text>
+          <!-- <view class="tag {{item.right === 1 ? 'active': ''}}">{{item}}</view> -->
+          <!-- <text>{{item}}</text> -->
         </view>
       </view>
       <!-- 二维码 -->
@@ -30,35 +32,72 @@
 
     <view class="answer-box">
       <view class="answer-title radio-answer-title">
-        <view class="right-answer">正确答案：A</view>
-        <view class="user-answer">您的答案：A</view>
+        <view class="right-answer">正确答案：{{testList[i].answer}}</view>
+        <view class="user-answer">学生答案：{{testList[i].studentAnswer || '未作答'}}</view>
       </view>
       <view class="answer-t">
         <view class="answer-info-title">解析：</view> 
-      <view class="voice-btn">
+      <view bindtap="audioPlay" class="voice-btn">
         <text>语音解析</text>
-        <image></image>
+        <image src="{{player?'/images/icon_pause.png':'/images/icon_play@2x.png'}}"></image>
+        <audio bindended="end" id="myAudio" poster="{{poster}}" name="{{name}}" author="{{author}}" src="{{testList[i].audio}}"></audio>
       </view>
       </view>
-      <view class="answer-info"> 这道题来源第一课第一章内容，这道题来源第一
-        课第一章内容，这道题来源第一课第一章内容，这道
-        题来源第一课第一章内容。这道题来源第一课第一章
-        内容，这道题来源第一课第一章内容，这道题来源第
-        一课第一章内容，这道题来源第一课第一章内容。
+      <view class="answer-info"> {{userList[i].teacherRemark}}</view>
+
+    </view>
+  </view>
+</view>
+
+<!-- 判断题 -->
+<view wx:elif="{{testList[i].type == 4}}">
+  <view class="content plr-24">
+    <view class="q-box radio-box">
+      <view class="q-top">{{i + 1}}/{{testList.length}}</view>
+      <view class="q-title">{{testList[i].title}}<text>(5分)</text></view>
+      <view class="q-main">
+        <view class="q-option" wx:for="{{testList[i].options}}" wx:key="id">
+          <!-- 1  正确选项 -->
+          <view class="tag {{item.info === testList[i].answer ? 'active': ''}}">{{item.name}}</view>
+          <text>{{item.info}}</text>
+        </view>
       </view>
+      <!-- 二维码 -->
+      <!-- <image class="code" src="/images/icon_all@2x.png"></image> -->
+    </view>
+
+    <view class="answer-top">
+      答题解析：
+      <text>(5分)</text>
+    </view>
+
+    <view class="answer-box">
+      <view class="answer-title radio-answer-title">
+        <view class="right-answer">正确答案：{{testList[i].answer}}</view>
+        <view class="user-answer">学生答案：{{testList[i].studentAnswer || '未作答'}}</view>
+      </view>
+      <view class="answer-t">
+        <view class="answer-info-title">解析：</view> 
+      <view bindtap="audioPlay" class="voice-btn">
+        <text>语音解析</text>
+        <image src="{{player?'/images/icon_pause.png':'/images/icon_play@2x.png'}}"></image>
+        <audio bindended="end" id="myAudio" poster="{{poster}}" name="{{name}}" author="{{author}}" src="{{testList[i].audio}}"></audio>
+      </view>
+      </view>
+      <view class="answer-info"> {{userList[i].teacherRemark}}</view>
 
     </view>
   </view>
 </view>
 
 <!-- 填空题 -->
-<view wx:elif="{{questionType === 1}}">
+<view wx:elif="{{testList[i].type == 1}}">
   <view class="content plr-24">
     <view class="q-box gap-box">
-      <view class="q-top">1/80</view>
-      <view class="q-title">日照香炉生紫烟：<text>(5分)</text></view>
+      <view class="q-top">{{i + 1}}/{{testList.length}}</view>
+      <view class="q-title">{{testList[i].title}}：<text>(5分)</text></view>
       <view class="q-main"></view>
-      <image class="code" src="/images/icon_all@2x.png"></image>
+      <!-- <image class="code" src="/images/icon_all@2x.png"></image> -->
     </view>
     <view class="answer-top">
       答题解析：
@@ -67,21 +106,19 @@
     
     <view class="answer-box">
       <view class="answer-title gap-answer-title">
-        <view class="right-answer">正确答案：遥看瀑布挂前川</view>
-        <view class="user-answer">正确答案：遥看瀑布挂前川</view>
+        <view class="right-answer">正确答案：{{testList[i].answer}}</view>
+        <view class="user-answer">学生答案：{{testList[i].studentAnswer||'未作答'}}</view>
       </view>
       <view class="answer-t">
-        <view class="answer-info-title">解析：</view>
-      <view class="voice-btn">
+        <view class="answer-info-title">解析</view>
+      <view bindtap="audioPlay" class="voice-btn">
         <text>语音解析</text>
-        <image></image>
+        <image src="{{player?'/images/icon_pause.png':'/images/icon_play@2x.png'}}"></image>
+        <audio bindended="end" id="myAudio" poster="{{poster}}" name="{{name}}" author="{{author}}" src="{{testList[i].audio}}"></audio>
       </view>
+     
       </view>
-      <view class="answer-info"> 这道题来源第一课第一章内容，这道题来源第一
-        课第一章内容，这道题来源第一课第一章内容，这道
-        题来源第一课第一章内容。这道题来源第一课第一章
-        内容，这道题来源第一课第一章内容，这道题来源第
-        一课第一章内容，这道题来源第一课第一章内容。
+      <view class="answer-info">{{userList[i].teacherRemark}}
       </view>
 
     </view>
@@ -92,12 +129,13 @@
 <view wx:else>
   <view class="content plr-24">
     <view class="q-box short-box">
-      <view class="q-top">1/80</view>
-      <view class="q-title">请对这张图表表述的内容进行描述 <text>(20分)</text></view>
+      <view class="q-top">{{i+1}}/{{testList.length}}</view>
+      <view class="q-title">{{testList[i].title}} <text>(20分)</text></view>
       <view class="q-main">
-        <image src="/img/bg.png"></image>
+        <!-- <image src="/img/bg.png"></image> -->
+        <image src="{{testList[i].img}}"></image>
       </view>
-      <image class="code" src="/images/icon_all@2x.png"></image>
+      <!-- <image class="code" src="/images/icon_all@2x.png"></image> -->
     </view>
     <view class="answer-top">
       答题解析：
@@ -107,26 +145,23 @@
     <view class="answer-box short-answer">
       <view class="answer-title gap-answer-title">
         <view class="right-answer">
-          <view class="right-answer-text pb-20"><text>正确答案：</text><text>遥看瀑布挂前川</text></view>
+          <view class="right-answer-text pb-20"><text>正确答案：</text><text>{{testList[i].answer}}</text></view>
         <view class="right-answer-img"><image src="/images/bgImg.png"></image></view>
         </view>
         <view class="user-answer" style="margin: 24rpx 0;">
-          <view class="user-answer-text pb-20"><text>您的答案：</text><text>遥看瀑布挂前川</text></view>
-        <view class="user-answer-img"><image src="/images/bgImg.png"></image></view>
+          <view class="user-answer-text pb-20"><text>学生答案：</text><text>{{testList[i].studentAnswer || '学生未作答'}}</text></view>
+        <view class="user-answer-img"><image src="{{testList[i].studentAnswerUrl}}"></image></view>
         </view>
       </view>
       <view class="answer-t">
         <view class="answer-info-title pt-20">解析：</view>
-      <view class="voice-btn">
+      <view bindtap="audioPlay" class="voice-btn">
         <text>语音解析</text>
-        <image></image>
+        <image src="{{player?'/images/icon_pause.png':'/images/icon_play@2x.png'}}"></image>
+        <audio bindended="end" id="myAudio" poster="{{poster}}" name="{{name}}" author="{{author}}" src="{{testList[i].audio}}"></audio>
       </view>
       </view>
-      <view class="answer-info"> 这道题来源第一课第一章内容，这道题来源第一
-        课第一章内容，这道题来源第一课第一章内容，这道
-        题来源第一课第一章内容。这道题来源第一课第一章
-        内容，这道题来源第一课第一章内容，这道题来源第
-        一课第一章内容，这道题来源第一课第一章内容。
+      <view class="answer-info"> {{testList[i].teacherRemark}}
       </view>
 
     </view>
@@ -135,6 +170,6 @@
 
 <!-- 底部公共按钮 -->
 <view class="cut-btns">
-  <view class="top-btn">上一题</view>
-  <view class="next-btn">下一题</view>
+  <view class="top-btn" bindtap="previde">上一题</view>
+  <view class="next-btn" bindtap="next">下一题</view>
 </view>

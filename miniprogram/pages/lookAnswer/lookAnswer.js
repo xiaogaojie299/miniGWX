@@ -111,8 +111,10 @@ Page({
     })
   },
   goAnswerInfo() { // 查看单题解析跳转
+    let testList = this.data.testInfo.list
+    let id =this.data.stuInfo.id; 
     wx.navigateTo({
-      url: '/pages/answerInfo/answerInfo',
+      url: '/pages/answerInfo/answerInfo'+'?id='+id,
     })
   },
 
@@ -121,10 +123,20 @@ Page({
       id: this.data.stuInfo.id
     }
     let res = await queryExaminationInfo(pamars);
-    console.log("res===>", res.data)
     if (res.code == 200) {
+      res.data.list.forEach(item=>{
+        let answer = item.answer.split("%&");
+        if(!item.studentAnswer){
+          item.isTrue=false
+        }else{
+          item.isTrue = answer.every(x=>{
+            return item.studentAnswer.indexOf(x)!==-1
+          })
+        }
+        
+      })
       this.setData({
-        testInfo: res.data
+        testInfo: res.data,
       })
     }
 

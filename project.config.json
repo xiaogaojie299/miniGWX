@@ -39,12 +39,6 @@
   "simulatorPluginLibVersion": {},
   "compileType": "miniprogram",
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
-      "list": []
-    },
     "plugin": {
       "list": []
     },
@@ -206,6 +200,12 @@
           "id": -1,
           "name": "pages/changePhone/index",
           "pathName": "pages/changePhone/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/answerInfo/answerInfo",
+          "pathName": "pages/answerInfo/answerInfo",
           "scene": null
         }
       ]

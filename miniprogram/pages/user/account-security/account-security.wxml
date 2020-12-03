@@ -5,14 +5,14 @@
       <view class="h-100 flex-between bor-bottom">
         <!-- 左边性别 -->
         <view class="lable">账号</view>
-        <view class="right-font">133****2362</view>
+        <view class="right-font">{{phone}}</view>
       </view>
       <!-- 修改绑定手机号 -->
       <view bindtap="go_chagePhone" class="h-100 flex-between bor-bottom">
         <!-- 左边性别 -->
         <view class="lable">修改手机绑定号</view>
         <view class="flex-center">
-          <view class="right-font">133****2362</view>
+          <view class="right-font">{{phone}}</view>
           <image class="ml-10" src="/images/right.png"></image>
         </view>
       </view>

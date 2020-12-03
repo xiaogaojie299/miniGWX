@@ -14,7 +14,8 @@ color: #333333;
 }
 textarea{
   height: 80%;
-  width: 100%;
+  width: 90%;
+  border: 1px solid red;
 }
 .limite{
   width: 100%;
@@ -27,7 +28,7 @@ font-weight: 400;
 }
 /* 图片上传 */
 .certificate{
-  height: 398rpx;
+  /* height: 398rpx; */
   margin-top: 44rpx;
 }
 /* .upload-images>image{
@@ -40,7 +41,6 @@ font-weight: 400;
 .upload image{
   width: 224rpx;
   height: 224rpx;
-  background: #FBFBFC;
   border-radius: 8rpx;
 }
 /* .upload-images{

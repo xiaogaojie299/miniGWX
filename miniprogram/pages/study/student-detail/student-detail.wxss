@@ -26,6 +26,7 @@
   flex-direction: column;
   align-items: center;
   padding-top: 110rpx;
+  padding-bottom: 20rpx;
 }
 
 .teach-info-name {
@@ -41,7 +42,7 @@
 
 .teach-info-detail {
   font-size: 28rpx;
-  font-family: PingFangSC-Regular, PingFang SC;
+  font-family: PingFangSC-Regular, PingFang SC; 
   font-weight: 400;
   color: #333333;
 }

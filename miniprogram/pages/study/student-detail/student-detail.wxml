@@ -40,7 +40,7 @@
 
     <view class="h-100 bor-bottom flex-between">
       <view class="left-font">所在年级</view>
-      <view class="right-font">{{studentInfo.courseName}}</view>
+      <view class="right-font">{{studentInfo.gradeName}}</view>
     </view>
 
     <view class="h-100 bor-bottom flex-between">

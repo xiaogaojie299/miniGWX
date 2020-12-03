@@ -1,5 +1,6 @@
 .top{
-  height: calc(100vh - 98rpx);
+  /* height: calc(100vh - 98rpx); */
+  height: calc(100vh - 200rpx);
 }
 .top>image{
   width: 100%;
@@ -7,8 +8,8 @@
 }
 .bottom{
   width: 100%;
-  position: fixed;
-  bottom: 0;
+  /* position: fixed; */
+  /* bottom: 0; */
   display: flex;
   height: 98rpx;
   background: #FFFFFF;
@@ -34,4 +35,15 @@ background: linear-gradient(270deg, #EF753C 0%, #F13232 100%);
 box-shadow: 0px -2px 8px 0px rgba(240,240,240,0.81);
 color: #FFFFFF;
 text-shadow: 0px -2px 8px rgba(240, 240, 240, 0.81);
+}
+
+.haveNum{
+  background: #FFFFFF;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100rpx;
+  font-size:24rpx;
+  color: #36d;
 }

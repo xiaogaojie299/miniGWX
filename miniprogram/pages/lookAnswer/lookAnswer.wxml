@@ -30,7 +30,7 @@
     </view>
     <view class="q-num-box">
       <!-- q-num默认蓝色--正确 , 错误加类名 -->
-      <view wx:for="{{10}}" wx:if="{{btnIndex==0||(btnIndex==1?item.da==item.xsda:item.da!=item.xsda)}}" class="{{ item.da==item.xsda||'q-num-error' }} q-num ">{{btnIndex}}</view>
+      <view wx:for="{{testInfo.list}}" wx:for-index="i" wx:if="{{btnIndex==0||(btnIndex==1?isTrue:!isTrue)}}" class="{{ isTrue||'q-num-error' }} q-num ">{{i+1}}</view>
       <!-- <view class="q-num">2</view> -->
     </view>
 

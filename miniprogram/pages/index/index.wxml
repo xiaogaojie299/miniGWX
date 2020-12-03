@@ -28,9 +28,10 @@
             <curmbs>今日课程</curmbs>
         </view>
         <!-- 今日课程安排 -->
-        <view>
-            <cmps-today-course wx:for="{{2}}" wx:key="item"></cmps-today-course>
+        <view wx:if="{{todayCaurse.length>0}}">
+            <cmps-today-course  wx:for="{{2}}" wx:key="item"></cmps-today-course>
         </view>
+        <view class="noCaurse" wx:else>今日暂无课程安排</view>
 
         <!-- 课程表 -->
         <view>

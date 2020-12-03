@@ -104,7 +104,7 @@
     <!-- btn按钮 -->
     <view class="addbtn mt-20">
       <button data-type="{{2}}" bindtap="chooseimage"> 
-        <image></image>
+        <image src="/images/icon_add.png"></image>
        <text>添加证书图片</text> 
       </button>
     </view>

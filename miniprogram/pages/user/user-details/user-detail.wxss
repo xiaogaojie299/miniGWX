@@ -103,7 +103,6 @@ input{
 .addbtn image{
   width: 26rpx;
   height: 28rpx;
-  border: 1px solid red;
   margin-right: 6rpx;
 }
 .footer{

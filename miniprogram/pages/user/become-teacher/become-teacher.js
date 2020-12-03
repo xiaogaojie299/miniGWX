@@ -274,20 +274,7 @@ Page({
     });
     
   },
-  // 图片本地路径
-  chooseWxImage: function (type) {
-    var that = this;
-    var imgsPaths = that.data.imgs;
-    wx.chooseImage({
-      sizeType: ['original', 'compressed'],
-      sourceType: [type],
-      success: function (res) {
-        console.log(res);
-        console.log(res.tempFilePaths[0]);
-        that.upImgs(res.tempFilePaths[0], 0) //调用上传方法
-      }
-    }) 
-  },
+
   upImgs: function (imgurl, index) {
     var that = this;
     wx.uploadFile({

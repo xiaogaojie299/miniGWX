@@ -28,7 +28,6 @@ input {
   position: absolute;
   z-index: -1;
   top: 0;
-opacity: 0.38;
 }
 /* 主体内容 */
 .main {

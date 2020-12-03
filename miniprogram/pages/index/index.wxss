@@ -72,3 +72,10 @@ swiper image {
   bottom: 38rpx;
   right: 18rpx;
 }
+.noCaurse{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:80rpx;
+}

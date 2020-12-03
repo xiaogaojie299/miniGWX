@@ -1,5 +1,5 @@
 // miniprogram/pages/study/index.js
-import {queryMyAllClassList,queryAllMyStudent,queryDaySchedule} from "../../utils/api"
+import {queryMyAllClassList,queryAllMyStudent,queryDaySchedule,queryTodayCourse} from "../../utils/api"
 import {getTimeType} from "../../utils/getData"
 import {timeType} from "../../utils/filter"
 Page({
@@ -26,7 +26,7 @@ Page({
       url: './teach-class/teach-class',
     })
   },
-
+ 
   //获取我的班级
   get_myClass(){
     let pamars={

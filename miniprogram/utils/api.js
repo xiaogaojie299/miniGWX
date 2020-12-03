@@ -162,3 +162,9 @@ export function optPersonalData(data){
   let url = "/api/web/teacher/optPersonalData"
   return request.post(url,data);
 }
+
+//提交问题反馈
+export function optFeedback(data){
+  let url = "/api/web/teacher/optFeedback";
+  return request.post(url,data);
+}

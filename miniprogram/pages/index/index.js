@@ -1,6 +1,6 @@
 //index.js
 const app = getApp()
-import {queryBannerListByType} from "../../utils/api"
+import {queryBannerListByType,queryTodayCourse,queryClassHourRand} from "../../utils/api"
 Page({
   data: {
     imgUrls: [
@@ -14,7 +14,9 @@ Page({
     duration: 800,
     swiperCurrent: 0,
     isTop:false,
-    nickname:wx.getStorageSync('nickName')
+    nickname:wx.getStorageSync('nickName'),
+    todayCaurse:[],      //今日课程
+    hourRank:[]       //获取课时数排行
   },
   swiperChange(e) {
     let current = e.detail.current;
@@ -40,6 +42,8 @@ Page({
   //初始化页面
   init(){
     this.get_banner()
+    this.get_todarCaurse()
+    this.get_rand()
   },
   //获取首页轮播图数据
   async get_banner(){
@@ -55,6 +59,24 @@ Page({
      app.Toast(res.msg);
    }
   },
+
+  async get_todarCaurse(){  //获取今日课程
+    let res =await queryTodayCourse();
+    if(res.code==200){
+      this.setData({
+        todayCaurse:res.data
+      })
+    }
+},
+async get_rand(){//获取老师课时数排行
+ let res = queryClassHourRand()
+ if(res.code==200){
+  this.setData({
+    hourRank:res.data
+  })
+ }
+
+},
 
 onPageScroll: function(res) {
   if(res.scrollTop>300){

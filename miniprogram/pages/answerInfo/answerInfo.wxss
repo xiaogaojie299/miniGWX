@@ -109,8 +109,10 @@ page {
   font-size: 26rpx;
   font-family: PingFangSC-Regular, PingFang SC;
   color: #F13232;
-  line-height: 58rpx;
   padding-left: 20rpx;
+
+  display: flex;
+  align-items: center;
 }
 
 .answer-info {

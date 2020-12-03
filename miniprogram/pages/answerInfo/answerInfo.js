@@ -1,4 +1,6 @@
-// question/pages/answerInfo/answerInfo.js
+import {
+  queryExaminationInfo
+} from "../../utils/api"
 Page({
 
   /**
@@ -12,20 +14,28 @@ Page({
       {right: 0,name: 'C',info:'答案三'}
   ],
     rightIndex: 0, //单选正确的选项
+    testList:[],     //考试列表
+    id:"",           //考试与关系ID
+    i:0,             //控制下一题的或者上一题的下标
+    player:false     //判断解析是否在播放    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      id:options.id
+    }),
+    this.queryExaminationInfo()
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+      // 使用 wx.createAudioContext 获取 audio 上下文 context
+      this.audioCtx = wx.createAudioContext('myAudio')
   },
 
   /**
@@ -71,5 +81,81 @@ Page({
   },
   rightOption(e){
     console.log(e.currentTarget.dataset.index);
-  }
+  },
+  async queryExaminationInfo() { //查看题目
+    //id: this.data.id
+    let pamars = {
+      id:this.data.id
+    }
+    let res = await queryExaminationInfo(pamars);
+    if (res.code == 200) {
+      let arr =[];  //单选题
+      let pdArr=[]  //判断题
+      res.data.list.forEach(item=>{
+      if(item.type==2){
+        item.options = item.options.split("%&");
+        item.options.forEach(item=>{
+        let obj ={}
+          obj.name= item.split('：')[0];
+          obj.info = item.split('：')[1]
+          arr.push(obj)
+        })
+      item.options=arr
+      } else if(item.type==4){
+        item.options = item.options.split("%&");
+        item.options.forEach((item,index)=>{
+        let obj ={}
+          obj.name=index==0?"A":"B";
+          obj.info = item
+          pdArr.push(obj)
+        })
+      item.options=pdArr
+      }
+      })
+      this.setData({
+        testList: res.data.list,
+        dxAnswer:arr
+      })
+      console.log("testInfo",this.data.testList)
+    }
+
+  },
+  next(){//下一题
+    let {i,testList} = this.data;
+    i<testList.length-1?i++:i;
+    this.setData({
+      i,
+      player:false
+    })
+  },
+  previde(){
+    let {i,testList} = this.data;
+    i<=0?i:i--;
+    this.setData({
+      i,
+      player:false
+    })
+  },
+
+  audioPlay: function () {
+    let player = this.data.player;
+    this.setData({
+      player:!player
+    })
+    console.log(player)
+    if(player){ //暂停
+      this.audioCtx.pause();
+      console.log(player)
+    }else{  //播放
+      this.audioCtx.play()
+    }
+  },
+  end:function(){
+    this.setData({
+      player:false
+    })
+  },
+  audioPause: function () {
+  },
+
 })

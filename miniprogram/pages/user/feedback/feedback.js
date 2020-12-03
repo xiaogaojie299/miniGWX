@@ -1,11 +1,13 @@
-// miniprogram/pages/user/feedback/feedback.js
+import {optFeedback} from "../../../utils/api"
+const app = getApp()
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    tempFilePaths:[]
+    tempFilePaths:[],
+    picList:[],
+    opinionValue:""
   },
 
   /**
@@ -33,9 +35,40 @@ Page({
         _this.setData({
           tempFilePaths: tempFiles
         });
-        console.log(_this.data.tempFilePaths);
+        console.log(app.uploadimg(tempFiles));
+        app.uploadimg(tempFiles).then(res=>{
+          _this.setData({
+            picList:_this.data.picList.concat(res)
+          })
+        })
       }
     });
+  },
+  inputOpinion(event){//留言板输入的数据
+      let {opinionValue} = this.data;
+      this.setData({
+        opinionValue:event.detail.value
+      })
+  },
+  async setFeedback(){//提交问题反馈操作
+    let {picList,opinionValue}=this.data;
+    console.log("picList===>",picList.toString())
+    let pamars = {
+      opinionValue,
+      img:picList.toString()
+    }
+    let res =await optFeedback(pamars);
+    console.log(res);
+    if(res.code==200){
+      console.log("res==>",res);
+      this.setData({
+        tempFilePaths:[],
+        picList:[],
+        opinionValue:""
+      })
+    }else{
+      app.Toast('问题反馈失败')
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
