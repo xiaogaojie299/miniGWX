@@ -19,7 +19,7 @@
       <image src="/images/icon_time_red@2x.png"></image>
       <text>{{stuInfo.completionTime}}</text>
     </view>
-    <view class="ranking">班级排名:<text>12/50</text></view>
+    <view class="ranking">班级排名:<text>{{testInfo.ranking}}</text></view>
   </view>
   </view>
   <view class="q-box">

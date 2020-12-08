@@ -92,25 +92,40 @@ Page({
       let arr =[];  //单选题
       let pdArr=[]  //判断题
       res.data.list.forEach(item=>{
-      if(item.type==2){
-        item.options = item.options.split("%&");
-        item.options.forEach(item=>{
-        let obj ={}
-          obj.name= item.split('：')[0];
-          obj.info = item.split('：')[1]
-          arr.push(obj)
-        })
-      item.options=arr
-      } else if(item.type==4){
-        item.options = item.options.split("%&");
-        item.options.forEach((item,index)=>{
-        let obj ={}
-          obj.name=index==0?"A":"B";
-          obj.info = item
-          pdArr.push(obj)
-        })
-      item.options=pdArr
-      }
+        if(item.options){
+          let arr = [];
+          try{
+            item.options = item.options.split("%&");
+                item.options.forEach((item) => {
+                  let obj = {};
+                  obj.name = item.split("：")[0];
+                  obj.info = item.split("：")[1];
+                  arr.push(obj);
+                });
+                item.options = arr;
+          }catch(e){
+            console.log(e);
+          }
+        }
+      // if(item.type==2){
+      //   item.options = item.options.split("%&");
+      //   item.options.forEach(item=>{
+      //   let obj ={}
+      //     obj.name= item.split('：')[0];
+      //     obj.info = item.split('：')[1]
+      //     arr.push(obj)
+      //   })
+      // item.options=arr
+      // } else if(item.type==4){
+      //   item.options = item.options.split("%&");
+      //   item.options.forEach((item,index)=>{
+      //   let obj ={}
+      //     obj.name=index==0?"A":"B";
+      //     obj.info = item
+      //     pdArr.push(obj)
+      //   })
+      // item.options=pdArr
+      // }
       })
       this.setData({
         testList: res.data.list,
