@@ -300,7 +300,7 @@ Page({
         promiseArr.push(new Promise((reslove,reject)=>{
 
           wx.uploadFile({
-            url: 'http://139.9.154.145/student/base/uploadImg',//
+            url: 'http://139.9.154.145:81/student/base/uploadImg',//
             filePath: data[i],
             name: 'file',
             header: {
@@ -330,6 +330,7 @@ Page({
       let subjectIds=this.data.subjectIds;
       pamars.qualificationImg=this.data.qualificationImg.toString();
       pamars.coursesubjectsIds=subjectIds;
+      console.log("pamars==>",pamars);
       if(!pamars.nickname){
           app.Toast("昵称不能为空")
          return
@@ -365,7 +366,7 @@ Page({
         let subjectName=res.data.coursesubjectsIds.split(",");
         let transition="";
         let subjectId = [];
-        let qualificationImg=res.data.qualificationImg.split(",");
+        let qualificationImg=res.data.qualificationImg.includes(",")?res.data.qualificationImg.split(","):[res.data.qualificationImg];
         this.data.subjectList.forEach(item=>{
           for (var i = 0;i<subjectName.length;i++){
             if(subjectName[i]==item.id){
@@ -374,6 +375,7 @@ Page({
             }
           }
         })
+        console.log("qualificationImg==",qualificationImg);
         console.log("transition=",transition);
         transition=transition.slice(0,-1);
         this.setData({

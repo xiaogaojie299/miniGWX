@@ -65,10 +65,10 @@ Page({
     }
    let res =await queryQuestionSquareList(pamars);
    if(res.code==200){
-     if(res.data.length>0){
+     if(res.data.list.length>0){
         let Array=[];
-        Array=res.data;
-        res.data.forEach((item,idnex)=>{
+        Array=res.data.list;
+        res.data.list.forEach((item,idnex)=>{
         item.imgUrl=item.imgUrl.split(",")
         })
       this.setData({

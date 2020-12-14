@@ -64,7 +64,7 @@ Page({
     console.log("res==>",res);
     if(res.code==200){
       this.setData({
-        answerList:res.data
+        answerList:res.data.list
       })
     }
 

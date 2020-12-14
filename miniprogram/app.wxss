@@ -1,6 +1,9 @@
 view,input{
   box-sizing: border-box;
 }
+.nowrap{
+  white-space: nowrap;
+}
 .input-placeholder{
   color: #AEAEAE;
 font-size: 28rpx;

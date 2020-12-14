@@ -31,14 +31,14 @@
   </view>
   <view class="city" bindtap="showPop">
     <view class="left">
-      所在城市：<text>{{city?city:'请选择您所在的城市'}}</text>
+      所在城市：<text >{{city?city:'请选择您所在的城市'}}</text>
     </view>
     <van-icon name="arrow" />
   </view>
   <view class="address">
     <view class="address-left">联系地址：</view>
     <view class="area-box">
-      <textarea model:value="{{addVal}}" name="address" cols="30" rows="10" class="ipt" placeholder="请输入联系地址"
+      <textarea style="padding:0;margin:0" model:value="{{addVal}}" name="address" cols="30" rows="10" class="ipt" placeholder="请输入联系地址"
         placeholder-class="ipt-placeholder" maxlength="100"></textarea>
     </view>
   </view>

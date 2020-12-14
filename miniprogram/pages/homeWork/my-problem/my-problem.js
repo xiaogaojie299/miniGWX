@@ -84,7 +84,7 @@ Page({
    if(res.code==200){
      if(res.data.length>0){
         let Array=[];
-        Array=res.data;
+        Array=res.data.list;
         res.data.forEach((item,idnex)=>{
         item.imgUrl=item.imgUrl.split(",")
         })

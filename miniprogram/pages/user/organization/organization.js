@@ -86,7 +86,7 @@ Page({
   },
   async getoptMechanismApply(){ //申请操作
     try{
-      let {data} = await ajax.post(optMechanismApply,{
+      let params = {
         address: this.data.addVal,
         city: this.data.cityName,
         cityCode: this.data.cityCode, //市code
@@ -97,14 +97,16 @@ Page({
         province: this.data.provinceName,
         provinceCode: this.data.provinceCode, //省code
         remark: this.data.remarkVal
-      })
-      if(data.code === 200) {
+      }
+      let res = await optMechanismApply(params);
+      console.log(res);
+      if(code === 200) {
         return wx.showToast({
           title: '提交成功',
         })
       }else {
         return wx.showToast({
-          title: data.msg,
+          title: msg,
           icon: 'none'
         })
       }
@@ -191,9 +193,16 @@ Page({
      //params data
      console.log(Object.assign(params,data));
     let result =await optMechanismApply(Object.assign(params,data));
-    console.log(result.data);
-    if(result.code==200){
-        
+    console.log(result);
+    if(result.code === 200) {
+      return wx.showToast({
+        title: '提交成功',
+      })
+    }else {
+      return wx.showToast({
+        title:result.msg,
+        icon: 'none'
+      })
     }
   }
 })

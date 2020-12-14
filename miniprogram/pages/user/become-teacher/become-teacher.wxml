@@ -106,7 +106,7 @@
       <image class="upload-images mr-20"  wx:for="{{picPaths}}" wx:key="index" src="{{item}}"></image>
       <image class="upload-icon mr-20" src="/images/icon_photo_update.png" wx:if="{{picPaths.length<3}}" bindtap="chooseimage" ></image>
     </view>
-  </view>
+  </view> 
   <!-- 选择时间按钮 -->
     <van-popup
     show="{{ isShow }}"

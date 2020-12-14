@@ -262,7 +262,16 @@ Page({
           mask: true,
           duration: 1000
         });
-        _this.upImgs(res.tempFilePaths[0], 0);
+       app.uploadimg(res.tempFilePaths).then(res=>{
+         console.log("res==>",res);
+         _this.setData({
+          picPaths: _this.data.picPaths.concat(res)
+        })
+          // picPaths
+        // _this.setData({
+        //   tempFilePaths: tempFiles
+        // });
+       });
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片  
         // console.log(_this.data.tempFilePaths, 'res=', res.tempFilePaths);
         // var tempFiles = _this.data.tempFilePaths.concat(res.tempFilePaths);

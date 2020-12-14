@@ -7,7 +7,7 @@
 </view> -->
 
 <!-- 单选题 -->
-<view wx:if="{{testList[i].type == 2}}">
+<view wx:if="{{testList[i].type == 2||testList[i].type==3}}">
   <view class="content plr-24">
     <view class="q-box radio-box">
       <view class="q-top">{{i + 1}}/{{testList.length}}</view>
@@ -15,7 +15,8 @@
       <view class="q-main">
         <view class="q-option" wx:for="{{testList[i].options}}" wx:key="id">
           <!-- 1  正确选项 -->
-          <view class="tag {{item.name === testList[i].answer ? 'active': ''}}">{{item.name}}</view>
+          <view class="tag {{item.isCorrect ? 'active': ''}}">{{item.name}}</view>
+          <!-- <text>{{item.info}}</text> -->
           <text>{{item.info}}</text>
           <!-- <view class="tag {{item.right === 1 ? 'active': ''}}">{{item}}</view> -->
           <!-- <text>{{item}}</text> -->

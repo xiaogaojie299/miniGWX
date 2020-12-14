@@ -89,43 +89,52 @@ Page({
     }
     let res = await queryExaminationInfo(pamars);
     if (res.code == 200) {
+      let testObj1 = {
+        //测试数据
+        answer: "A%&C",
+        audio: "",
+        id: 0,
+        img:
+          "https://beixiaorui.obs.cn-southwest-2.myhuaweicloud.com/8b8d0d9e119f4566bc98ca02cc88c7e6.jpg",
+        options: "A：测试多选A%&B：测试多选B%&C：测试多选C%&D：测试多选D",
+        points: 10,
+        prompt: "",
+        studentAnswer: "",
+        studentAnswerUrl: "",
+        studentScore: 0,
+        studentState: 0,
+        teacherAudio: "",
+        teacherImg: "",
+        teacherRemark: "",
+        title: "这是一道多选题",
+        type: 3,
+      };
+      res.data.list.push(testObj1);
       let arr =[];  //单选题
       let pdArr=[]  //判断题
       res.data.list.forEach(item=>{
-        if(item.options){
-          let arr = [];
-          try{
-            item.options = item.options.split("%&");
-                item.options.forEach((item) => {
-                  let obj = {};
-                  obj.name = item.split("：")[0];
-                  obj.info = item.split("：")[1];
-                  arr.push(obj);
-                });
-                item.options = arr;
-          }catch(e){
-            console.log(e);
-          }
-        }
-      // if(item.type==2){
-      //   item.options = item.options.split("%&");
-      //   item.options.forEach(item=>{
-      //   let obj ={}
-      //     obj.name= item.split('：')[0];
-      //     obj.info = item.split('：')[1]
-      //     arr.push(obj)
-      //   })
-      // item.options=arr
-      // } else if(item.type==4){
-      //   item.options = item.options.split("%&");
-      //   item.options.forEach((item,index)=>{
-      //   let obj ={}
-      //     obj.name=index==0?"A":"B";
-      //     obj.info = item
-      //     pdArr.push(obj)
-      //   })
-      // item.options=pdArr
-      // }
+      if(item.type==2||item.type==3){
+        arr = [];
+        item.options = item.options.split("%&");
+        item.options.forEach(x=>{
+        let obj ={}
+          obj.name= x.split('：')[0];
+          obj.info = x.split('：')[1];
+          obj.isCorrect = item.answer.includes(obj.name);
+          arr.push(obj) 
+        })
+      item.options=arr
+      } else if(item.type==4){
+        item.options = item.options.split("%&");
+        item.options.forEach((item,index)=>{
+        let obj ={}
+          obj.name=index==0?"A":"B";
+          obj.info = item
+          pdArr.push(obj)
+        })
+
+      item.options=pdArr
+      }
       })
       this.setData({
         testList: res.data.list,
