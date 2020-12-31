@@ -1,7 +1,7 @@
 const app=getApp()
 import {validatePhoneNumber} from "../../../utils/regular"
 import {
-  queryAllSubjects,optTeacherApply
+  querySubjectList,optTeacherApply
 } from "../../../utils/api"
 Page({
 
@@ -19,7 +19,7 @@ Page({
     sex:1,    //性别
     phone: "", //电话
     address: "", //联系地址
-    resume: "", //个人简历
+    resume: "", //个人简介
     birthday: "", //生日   
     school: "", //毕业院校
     education: "", //最高学历
@@ -227,6 +227,11 @@ Page({
         url: '/pages/login/login',
       })
     },1500) 
+  }else{
+    wx.showToast({
+      title:res.msg,
+      icon:"none"
+    })
   }
   },
 
@@ -287,7 +292,7 @@ Page({
   upImgs: function (imgurl, index) {
     var that = this;
     wx.uploadFile({
-      url: 'http://139.9.154.145/student/base/uploadImg',//
+      url: 'http://1.9.154.145/student/base/uploadImg',//
       filePath: imgurl,
       name: 'file',
       header: {
@@ -308,7 +313,7 @@ Page({
 
   //获取所有课程详情
   async getAllSubjects() {
-    let res = await queryAllSubjects();
+    let res = await querySubjectList();
     if (res.code == 200) {
       res.data.forEach(item => {
         item.checkout = false
@@ -324,11 +329,21 @@ Page({
     }
 
   },
+  // 图片下载
+  delImg(event){
+    console.log("index==>",event.currentTarget.dataset.index);
+    let index = event.currentTarget.dataset.index;
+    let {picPaths} = this.data;
+    picPaths.splice(index,1);
+    console.log("picPaths==",picPaths);
+    this.setData({
+      picPaths
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getAllSubjects()
   },
 
   /**
@@ -342,7 +357,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getAllSubjects()
   },
 
   /**

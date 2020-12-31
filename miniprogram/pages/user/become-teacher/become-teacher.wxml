@@ -40,9 +40,9 @@
 
       <!-- 个人简历 -->
       <view class="h-100 form-list">
-        <view class="lable">个人简历:</view>
+        <view class="lable">个人简介:</view>
         <view class="ipt">
-          <input bindinput="inputResume" value="{{resume}}" type="text" placeholder="请输入您的个人简历" />
+          <input bindinput="inputResume" value="{{resume}}" type="text" placeholder="请输入您的个人简介" />
         </view>
       </view>
 
@@ -103,7 +103,10 @@
     <view class="introduce mt-20">(毕业证书、教师资格证、相关专业考级证书)</view>
     <!-- 下面图片上传 -->
     <view class="upload mt-20">
-      <image class="upload-images mr-20"  wx:for="{{picPaths}}" wx:key="index" src="{{item}}"></image>
+      <view class="upImg-box" wx:for="{{picPaths}}">
+        <image class="upload-images mr-20"  wx:key="index" src="{{item}}"></image>
+        <image class="delImg" data-index="{{index}}" bindtap="delImg" src="/images/close_.png"></image>
+      </view>
       <image class="upload-icon mr-20" src="/images/icon_photo_update.png" wx:if="{{picPaths.length<3}}" bindtap="chooseimage" ></image>
     </view>
   </view> 

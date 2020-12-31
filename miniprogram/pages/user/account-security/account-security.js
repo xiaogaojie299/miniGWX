@@ -1,11 +1,11 @@
 // miniprogram/pages/user/account-security/account-security.js
 Page({
-
+ 
   /**
    * 页面的初始数据
    */
   data: {
-    phone:wx.getStorageSync('userdata').alipayAccount
+    phone:wx.getStorageSync('userdata').phone
   },
 
   /**
@@ -17,7 +17,6 @@ Page({
     })
   },
   go_chagePhone(){
-    console.log(11);
     wx.navigateTo({
       url: '/pages/changePhone/index',
     })

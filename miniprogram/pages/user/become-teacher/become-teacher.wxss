@@ -58,6 +58,18 @@ color: #C6C6C6;
   height: 224rpx;
   border-radius: 8rpx;
 }
+.upImg-box{
+  position: relative;
+  width: 250rpx;
+}
+.upImg-box>.delImg{
+  position: absolute;
+  right: 0;
+  top:0;
+  /* transform:translateY(50%); */
+  width:42rpx;
+  height: 42rpx;
+}
 .foot-btn{
   width: 100%;
 height: 98rpx;

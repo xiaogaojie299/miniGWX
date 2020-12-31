@@ -163,6 +163,14 @@ Page({
 
   audioPlay: function () {
     let player = this.data.player;
+    
+    if(!this.data.testList[this.data.i].audio){
+      wx.showToast({
+        title: '暂无语音解析',
+        icon:'none'
+      })
+      return 
+    }
     this.setData({
       player:!player
     })

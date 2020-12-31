@@ -18,7 +18,7 @@
     <view wx:for="{{classList}}" wx:key="index" class="card mt-20">
       <view class="card-header plr-24 h-80 flex-between bor-bottom">
         <view class="title">{{item.grade}}·{{item.name}}</view>
-        <view class="right-content">
+        <view bindtap="go_student" data-index="{{index}}" class="right-content">
           <image src="/images/people@2x.png" class="mr-10"></image>
           <text>{{item.studentNum}}</text>
         </view>

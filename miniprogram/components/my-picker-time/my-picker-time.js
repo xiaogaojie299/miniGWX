@@ -21,7 +21,7 @@ Component({
     currentDate: new Date().getTime(),
     minDate: new Date().getTime(),
     formatter(type, value) {
-      if (type === 'year') {
+      if (type === 'year') { 
         return `${value}年`;
       } else if (type === 'month') {
         return `${value}月`;

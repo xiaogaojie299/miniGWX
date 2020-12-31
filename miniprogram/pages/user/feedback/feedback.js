@@ -60,7 +60,12 @@ Page({
     let res =await optFeedback(pamars);
     console.log(res);
     if(res.code==200){
-      console.log("res==>",res);
+      app.Toast("提交问题成功");
+      setTimeout(()=>{
+        wx.switchTab({
+          url: '/pages/user/index',
+        })
+      },1000)
       this.setData({
         tempFilePaths:[],
         picList:[],

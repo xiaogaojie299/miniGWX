@@ -42,7 +42,7 @@
       </view>
       
       <view class="row1">
-        <view class="my-font">个人简历</view>
+        <view class="my-font">个人简介</view>
         <view class="flex-center">
           <input bindinput="inputIntroduction" value="{{userdata.introduction}}" class="font-s-26 font-w-400 color-black">编辑个人介绍50字</input>
           <image class="right_icon" src="/images/right.png"></image>

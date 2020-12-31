@@ -48,7 +48,7 @@ Page({
   //获取首页轮播图数据
   async get_banner(){
     let data={
-      type:1
+      type:2
     }
    let res =await queryBannerListByType(data);
    if(res.code==200){
@@ -62,9 +62,10 @@ Page({
 
   async get_todarCaurse(){  //获取今日课程
     let res =await queryTodayCourse();
+    console.log(res.data.list);
     if(res.code==200){
       this.setData({
-        todayCaurse:res.data
+        todayCaurse:res.data.list
       })
     }
 },
@@ -86,8 +87,7 @@ onPageScroll: function(res) {
   }
 },
   onLoad: function() {
-    this.init();
-
+    
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -106,6 +106,7 @@ onPageScroll: function(res) {
     })
   },
   onShow: function(){
+    this.init();
     this.setData({
       nickname:wx.getStorageSync('nickName')
     })

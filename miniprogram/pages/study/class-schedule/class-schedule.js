@@ -33,13 +33,18 @@ Page({
    let res =await queryDaySchedule(pamars);
     console.log(res.data);
     if(res.code==200){
-      if(res.data.length==0&&current==1){
+      if(res.data.list.length==0){
         this.setData({
           classCurse:[],
         })
       }else{
+        let arr=[];
+        res.data.list.forEach(item=>{
+          arr=arr.concat(item.list)
+        })
+        console.log(arr);
         this.setData({
-          classCurse:this.data.classCurse.concat(res.data[0].list),
+          classCurse:arr,
         })
       }
     }else{

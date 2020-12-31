@@ -94,13 +94,20 @@ Page({
     if(oldResult.code==200&&newResult.code==200){
       let data = {
           code:oldCode,
-          newcode:newCode,
+          newCode:newCode,
           phone:oldPhone,
           newPhone:newPhone
         }
         let result = await optChangePhone(data);
-        if (result.code = 200) {
+        console.log("result123==>",result.code);
+        if (result.code == 200) {
           app.Toast("修改成功");
+          setTimeout(()=>{
+            wx.navigateTo({
+              url: '/pages/login/login',
+            })
+          },1000)
+          
         } else {
           app.Toast(result.msg);
         }
@@ -128,7 +135,7 @@ Page({
     // 获取验证码
     let data = {
       phone: phone,
-      type: 2
+      type: 3
     }
     queryCaptcha(data).then(res => {
       console.log("获取验证码成功", res)
@@ -181,7 +188,7 @@ Page({
      // 获取验证码
      let data = {
        phone: phone,
-       type: 2
+       type: 3
      }
      queryCaptcha(data).then(res => {
        console.log("获取验证码成功", res)

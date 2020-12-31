@@ -9,7 +9,7 @@ Page({
     classValue:"",
     current:1,
     size:10,
-    classList:[]
+    classList:[],
   },
   //跳转到班级详情
   go_clsScd(event){
@@ -61,6 +61,15 @@ Page({
       })
     }
   },
+  go_student(event){
+    // 点击跳转到响应班级列表
+    let index =event.currentTarget.dataset.index;
+    let {classList} =this.data;
+    console.log(classList[index]);
+    wx.navigateTo({
+      url: '/pages/study/student/student'+"?className="+classList[index].name+"&&grade="+classList[index].grade,
+    })
+    },
   /**
    * 生命周期函数--监听页面加载
    */

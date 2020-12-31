@@ -35,7 +35,7 @@ App({
     promiseArr.push(new Promise((reslove,reject)=>{
 
       wx.uploadFile({
-        url: 'http://139.9.154.145/student/base/uploadImg',//
+        url: 'https://gengwoxue.com:443/student/base/uploadImg',//
         filePath: data[i],
         name: 'file',
         header: {

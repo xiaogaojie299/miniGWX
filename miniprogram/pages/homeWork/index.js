@@ -18,6 +18,7 @@ Page({
     value1: 0,    //下拉框选中的值
     nickname:wx.getStorageSync('nickName')
   },
+  
   go_myProblem(){
     wx.navigateTo({
       // url: 'pages/homeWork/my-problem/my-problem',
@@ -30,10 +31,11 @@ Page({
     let queryObj=this.data.questionSquareList[index]; //判断当前选择的是不是我的问题  0:全部回答 1:我的回答 2:我的问题
     queryObj.value=this.data.value1;
     queryObj=JSON.stringify(queryObj);
+    queryObj = encodeURIComponent(queryObj);
     wx.navigateTo({
       url: './problem-detail/problem-detail?queryObj='+queryObj,
     }) 
-  },
+  }, 
   //下拉菜单框选中
   changeValue({detail}){
     this.setData({
@@ -69,7 +71,9 @@ Page({
         let Array=[];
         Array=res.data.list;
         res.data.list.forEach((item,idnex)=>{
-        item.imgUrl=item.imgUrl.split(",")
+          if(item.imgUrl.length>0){
+            item.imgUrl=item.imgUrl.indexOf(",")==-1?[item.imgUrl]:item.imgUrl.split(",")
+          }
         })
       this.setData({
         questionSquareList:this.data.questionSquareList.concat(Array)
@@ -92,8 +96,8 @@ Page({
     let res =await queryMeQuestionList(pamars);
     if(res.code==200){
       let Array=[];
-      Array=res.data;
-      res.data.forEach((item,idnex)=>{
+      Array=res.data.list;
+      res.data.list.forEach((item,idnex)=>{
       item.imgUrl=item.imgUrl.split(",")
       })
       this.setData({
@@ -111,8 +115,8 @@ Page({
     let res = await queryMeAnswerList(pamars);
     if(res.code==200){
       let Array=[];
-      Array=res.data;
-      res.data.forEach((item,idnex)=>{
+      Array=res.data.list;
+      res.data.list.forEach((item,idnex)=>{
       item.imgUrl=item.imgUrl.split(",")
       })
       this.setData({
@@ -125,6 +129,21 @@ Page({
     console.log("e",e.detail.value);
     this.setData({
       questionValue:e.detail.value
+    })
+  },
+  // 清空数据
+  clearData(){
+    this.setData({
+      current:1,
+    size:10,
+    questionSquareList:[],
+    questionValue:"",
+    option1: [
+      { text: '全部问答', value: 0 },
+      { text: '我的回答', value: 1 },
+      { text: '我的问题', value: 2 },
+    ],
+    value1: 0,    //下拉框选中的值
     })
   },
   //监听用户点击回车
@@ -141,7 +160,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) { 
-    this.get_questionSquareList();
   },
 
   /**
@@ -155,6 +173,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.clearData()    //清空数据
+    this.get_questionSquareList();
     this.setData({
       nickname:wx.getStorageSync('nickName')
     })
@@ -164,7 +184,18 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    console.log("离开了");
+    // console.log(wx.pageScrollTo);
+      if (wx.pageScrollTo) {
+        wx.pageScrollTo({
+          scrollTop: 0
+        })
+      } else {
+        wx.showModal({
+          title: '提示',
+          content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+        })
+      }
   },
 
   /**

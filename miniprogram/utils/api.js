@@ -23,7 +23,7 @@ export function passwordLogin(data) {
 }
 //  忘记密码操作
 export function forgetPassword(data){
-    let url=base + 'passwordLogin';
+    let url=base + 'forgetPassword';
     return request.post(url,data)
 }
 //更换手机
@@ -132,7 +132,11 @@ export function queryAllSubjects(){
   let url = "/api/officeCenter/queryAllSubjects";
   return request.post(url);
 }
-
+// 获取所有课程
+export function querySubjectList(){
+  let url = "/base/web/agreement/querySubjectList";
+  return request.post(url);
+}
 // 申请成为老师
 export function optTeacherApply(data) {
     let url = "/api/web/user/optTeacherApply";
@@ -167,4 +171,21 @@ export function optPersonalData(data){
 export function optFeedback(data){
   let url = "/api/web/teacher/optFeedback";
   return request.post(url,data);
+}
+
+// 获取平台客服/推广中心/引导页等
+export function querySystemSetByType(data){
+  let url = "/base/web/agreement/querySystemSetByType";
+  return request.post(url,data)
+}
+
+// 获取消息未读列表
+export function queryNoReadNumber(data){
+  let url = "/api/web/message/queryNoReadNumber";
+  return request.post(url,data)
+}
+// 置为已读操作
+export function optSetRead(data){
+  let url = "/api/web/message/optSetRead";
+  return request.post(url,data)
 }

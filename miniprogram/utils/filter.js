@@ -11,7 +11,7 @@ export function timeType(timer){
     let arr = timer.split("-");
     arr[1]=Number(arr[1])-1;
     if(arr[2]){
-      arr[2]=Number(arr[2])-1;
+      arr[2]=Number(arr[2]);
     }
     return arr.join("/");
   }

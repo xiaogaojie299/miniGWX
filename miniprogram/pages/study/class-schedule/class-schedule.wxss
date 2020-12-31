@@ -60,7 +60,6 @@ line-height: 32rpx;
   width: 72rpx;
 height: 72rpx;
 border-radius: 50%;
-border: 1px solid red;
 }
 .card-cont-bottom-right{
   width: 90%;

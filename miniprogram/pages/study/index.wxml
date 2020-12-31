@@ -43,11 +43,14 @@
   </view>
   <!-- calss -->
   <view class="mt-10">
-    <view class="page">
+    <view wx:if="{{curseList.length>0}}" class="page">
         <!-- 今日课程安排 -->
         <view class="">
             <today-course curseItem="{{item}}" wx:for="{{curseList}}" wx:key="item"></today-course>
         </view>
+  </view>
+  <view wx:else>
+    <view class="noCourse">暂无课程安排</view>
   </view>
   </view>
   

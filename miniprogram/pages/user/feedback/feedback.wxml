@@ -8,14 +8,14 @@
     <!-- <textarea class="pt-30 plr-24 mb-20" placeholder="请输入您的宝贵意见" name="" id="" cols="30" rows="20" maxlength="200"></textarea> -->
     <textarea class="pt-30 plr-24" bindinput="inputOpinion" value="{{opinionValue}}" placeholder="请输入您的宝贵意见" name="" id="" cols="30" rows="20" maxlength="200"></textarea>
     <view class="limite">最多200个字符</view>
-  </view>
+  </view> 
   <!-- 图片上传 -->
   <view class="certificate">
     <view class="lable">图片上传（选填）</view>
     <!-- 下面图片上传 -->
     <view class="upload mt-20">
-      <image src="/images/icon_photo_update.png" class="upload-images mr-20" wx:for="{{tempFilePaths}}" wx:key="index" src="{{item}}">{{item}}</image>
-      <image class="upload-icon mr-20" wx:if="{{tempFilePaths.length<3}}" bindtap="chooseimage" src=""></image>
+      <image class="upload-images mr-20" wx:for="{{tempFilePaths}}" wx:key="index" src="{{item}}"></image>
+      <image class="upload-icon mr-20" wx:if="{{tempFilePaths.length<3}}" bindtap="chooseimage" src="/images/icon_photo_update.png"></image>
     </view>
   </view>
   <!-- 提交反馈 -->

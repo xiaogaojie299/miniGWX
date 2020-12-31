@@ -2,10 +2,11 @@
 import {
   forgetPassword,
   queryCaptcha,
-  checkCaptcha
+  checkCaptcha,
 } from "../../utils/api"
 import {
-  validatePhoneNumber
+  validatePhoneNumber,
+  validatePassword
 } from "../../utils/regular"
 const app = getApp()
 Page({
@@ -21,7 +22,7 @@ Page({
         title: "获取验证码"
       },
       {
-        placeholder: "输入新密码 (6-16位任意字符，区分大小写)",
+        placeholder: "输入新密码 (6-20位任意字符，区分大小写)",
       },
       {
         placeholder: "再次输入密码",
@@ -88,6 +89,19 @@ Page({
       app.Toast("请重复输入密码");
       return
     }
+    if(newPwd.length<6){
+      app.Toast("新密码长度不能低于6位");
+      return
+    }
+    if(newPwd.length>16){
+      app.Toast("新密码长度不能大于16位");
+      return
+    }
+    console.log("validatePassword==>",validatePassword(newPwd));
+    if(!validatePassword(newPwd)){
+      app.Toast("新密码包含数字 + 字母");
+      return
+    }
     if (redoPwd !== newPwd) {
       app.Toast("请保证两次输入的密码一致");
       return
@@ -110,8 +124,14 @@ Page({
         password: newPwd,
       }
       let result = await forgetPassword(data);
-      if (result.code = 200) {
+      if (result.code == 200) {
         app.Toast("修改成功");
+        setTimeout(()=>{
+          wx.navigateTo({
+            url: '/pages/login/login',
+          })
+        },1000)
+        
       } else {
         app.Toast(result.msg);
       }

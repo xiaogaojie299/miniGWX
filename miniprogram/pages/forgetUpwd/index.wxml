@@ -20,6 +20,6 @@
   </view>
   <!-- 下面按钮 -->
   <view class="{{phone&&code&&newPwd&&redoPwd?'click':'no-click'}} btn" bindtap="submit{{phone&&code&&newPwd&&redoPwd?'':'1'}}">
-    <view class="test">登 录</view> 
+    <view class="test">确 认 修 改</view> 
   </view>
 </view>

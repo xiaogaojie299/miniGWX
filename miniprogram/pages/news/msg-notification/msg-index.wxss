@@ -31,3 +31,27 @@ font-family: PingFangSC-Medium, PingFang SC;
 font-weight: 500;
 color: #626971;
 }
+.read{
+  height: 200rpx;
+  background: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.swiper-box{
+  width: 100%;
+}
+.van-swipe-cell__left,
+.van-swipe-cell__right {
+  display: inline-block;
+  width: 65px;
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+  background-color: #f44;
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+}

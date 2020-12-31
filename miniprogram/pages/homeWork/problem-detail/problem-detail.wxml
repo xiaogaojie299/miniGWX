@@ -45,7 +45,7 @@
           <!-- 已采纳按钮 -->
           <view class="accept-tag">{{item.isAdopt==1?"未采纳":"已采纳"}}</view>
           <!-- 我的回答按钮i -->
-          <view class="my-answer-tag">
+          <view wx:if="{{item.state==2}}" class="my-answer-tag">
             <view class="my-answer-item-right">我的回答</view>
             <view class="pullDown" data-answerId="{{item.id}}" bindtap="{{item.state==2?'open':'open1'}}">···</view>
           </view>
@@ -59,7 +59,7 @@
   <!-- 底部按钮 -->
   <view class="footer plr-24">
     <!-- input框 -->
-    <input placeholder="我来回答" bindinput="inputAnswer" type="text" />
+    <input placeholder="我来回答" value="{{answerValue}}" bindinput="inputAnswer" type="text" />
     <!-- Icon -->
     <image class="fabu" bindtap="submit" src="/images/fabu.png"></image>
   </view>

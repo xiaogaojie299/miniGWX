@@ -4,6 +4,14 @@ view,input{
 .nowrap{
   white-space: nowrap;
 }
+.noCourse{
+  height: 120rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size:30rpx
+}
 .input-placeholder{
   color: #AEAEAE;
 font-size: 28rpx;

@@ -49,7 +49,7 @@ class Ajax {
 }
 
 const ajax = new Ajax({
-    baseURL:"http://139.9.154.145:80/teacher"
+    baseURL:"https://gengwoxue.com:443/teacher"
 })
 
 /**

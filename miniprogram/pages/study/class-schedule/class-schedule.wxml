@@ -7,7 +7,7 @@
       <calendar bindcheckDay="checkDay" classId="{{classDetail.id}}" id="calendar"></calendar>
     </view>
   </view>
-  <view class="footer plr-24">
+  <view wx:if="{{classCurse.length>0}}" class="footer plr-24">
      <!-- 卡片样式 -->
      <view wx:for="{{classCurse}}" wx:key="index" class="card-sty plr-24">
       <!-- 分割线 -->
@@ -35,5 +35,8 @@
     </view>
       <!-- 分割结束 -->
     </view>
+  </view>
+  <view class="noCourse plr-24" wx:else>
+    <view>今日暂无课程安排</view>
   </view>
 </view>

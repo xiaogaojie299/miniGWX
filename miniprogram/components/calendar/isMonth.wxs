@@ -42,7 +42,6 @@ var filter = {
   },
   // 如果当前有课，则添加下划线
   isMonthHaveCurse:function(array,day){
-
     return array.some(function(item){
       return item.strTime==day
     })

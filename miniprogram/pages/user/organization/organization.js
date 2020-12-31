@@ -178,7 +178,7 @@ Page({
       app.Toast("请输入联系人");
       return 
     }
-    if(!params.contactNumber  ){
+    if(!params.contactNumber){
       app.Toast("请输入联系电话");
       return 
     }
@@ -195,9 +195,14 @@ Page({
     let result =await optMechanismApply(Object.assign(params,data));
     console.log(result);
     if(result.code === 200) {
-      return wx.showToast({
+     wx.showToast({
         title: '提交成功',
       })
+      setTimeout(()=>{
+        wx.navigateTo({
+          url: '../../login/login',
+        })
+      },2000)
     }else {
       return wx.showToast({
         title:result.msg,

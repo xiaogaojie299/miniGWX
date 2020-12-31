@@ -16,6 +16,16 @@ Page({
     curseList:[],  //获取今日课程列表     
     nickname:wx.getStorageSync('nickName')
   },
+  clearData(){
+    this.setData({
+      classNum:"",  //班级总数
+    studentNum:"", //授课学生
+    current:1,   //页码
+    size:10 ,     //分页数据
+    timer:getTimeType(),      //默认的时间
+    curseList:[],  //获取今日课程列表     
+    })
+  },
   go_student(){
     wx.navigateTo({
       url: '../study/student/student',
@@ -24,7 +34,7 @@ Page({
   go_teachClass(){
     wx.navigateTo({
       url: './teach-class/teach-class',
-    })
+    }) 
   },
  
   //获取我的班级
@@ -76,7 +86,7 @@ Page({
     console.log(res.data);
     if(res.code==200){
       this.setData({
-        curseList:res.data
+        curseList:res.data.list
       })
     }
   },
@@ -98,6 +108,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.clearData();
     this.get_myClass();
     this.get_myStudent();
     this.get_TimeCurse();

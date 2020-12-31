@@ -1,4 +1,4 @@
-import {queryMessageList} from "../../utils/api"
+import {queryMessageList,queryNoReadNumber} from "../../utils/api"
 Page({
 
   /**
@@ -8,20 +8,21 @@ Page({
     listOrder:[
       {
         title:"消息通知",
-        imgPath:"/images/activity.png",
-        msgList:5
+        imgPath:"/images/notice.png",
+        msgList:0
       },
       {
         title:"活动",
-        imgPath:"/images/notice.png",
-        msgList:0
-      }
+        imgPath:"/images/activity.png",
+        msgList:5
+      },
+      
     ],
     nickname:wx.getStorageSync('nickName')
   },
   go_msgNot(event){
     let index =Number(event.currentTarget.dataset.index)+1;
-
+    console.log("index==>",index);
     wx.navigateTo({
       url: '/pages/news/msg-notification/msg-index'+"?type="+index,
     })
@@ -37,6 +38,23 @@ Page({
       type
     };
     let res = await queryMessageList(pamars);
+  },
+  // 获取未读消息列表
+  async getNoread(){
+    let {data,code} = await queryNoReadNumber();
+    if(code==200){
+      let {listOrder} = this.data;
+      listOrder[0].msgList=data.activity;
+      listOrder[1].msgList=data.notice;
+      this.setData({
+        listOrder:listOrder
+      })
+    }else{
+      wx.showToast({
+        title: '网络错误',
+        icon: 'none'
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载
@@ -55,8 +73,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.get_msg(1,1);
-    this.get_msg(2,2)
+    // this.get_msg(1,1);
+    // this.get_msg(2,2);
+    this.getNoread()
     this.setData({
       nickname:wx.getStorageSync('nickName')
     })

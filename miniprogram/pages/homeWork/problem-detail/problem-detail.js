@@ -79,6 +79,10 @@ Page({
     }
     let res=await optAddAnswer(pamars);
     if (res.code==200){
+      this.setData({
+        answerValue:"" 
+      })
+      console.log("answerValue==",this.data.answerValue);
       wx.showToast({
         title: '回答问题成功',
         icon:"none"
@@ -147,10 +151,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log("queryInfo===>",options.queryObj);
+    let queryInfo = JSON.parse(decodeURIComponent(options.queryObj));
     this.setData({
-      queryInfo:JSON.parse(options.queryObj)
+      queryInfo:queryInfo
     }),
-    console.log("queryInfo===>",JSON.parse(options.queryObj));
     this.getQuestionAnswerList()
   },
 

@@ -18,6 +18,8 @@ Page({
     classList:[],
     studentName:"",    //学生名称
     studentList:[],    //学生列表
+    isShow:true,         //下拉选择框默认开启
+    grade:""
   },
   go_stuDetail(event){
     let index= event.currentTarget.dataset.index;
@@ -73,12 +75,12 @@ Page({
     
     //点击确定搜索
     confim(){
-      if(!this.data.studentName){
-        wx.showToast({
-          title: '请输入学生姓名',
-        })
-        return
-      }
+      // if(!this.data.studentName){
+      //   wx.showToast({
+      //     title: '请输入学生姓名',
+      //   })
+      //   return
+      // }
       this.setData({
         current:1,
         studentList:[]
@@ -106,6 +108,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log("options==>",options);
+    if(options.className){
+      this.setData({
+        className:options.className,
+        grade:options.grade,
+        isShow:false
+      })
+    }
     this.get_classList();
     this.get_ClassStudent();
   },

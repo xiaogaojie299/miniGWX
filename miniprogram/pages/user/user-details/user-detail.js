@@ -157,6 +157,7 @@ Page({
 
   //获取所有课程详情
   async getAllSubjects() {
+    console.log("获取课程详情");
     let res = await queryAllSubjects();
     if (res.code == 200) {
       res.data.forEach(item => {
@@ -267,7 +268,7 @@ Page({
     upImgs: function (imgurl, index) {
       var that = this;
         wx.uploadFile({
-          url: 'http://139.9.154.145/student/base/uploadImg',//
+          url: 'https://gengwoxue.com:443/student/base/uploadImg',//
           filePath: imgurl,
           name: 'file',
           header: {
@@ -300,7 +301,7 @@ Page({
         promiseArr.push(new Promise((reslove,reject)=>{
 
           wx.uploadFile({
-            url: 'http://139.9.154.145:81/student/base/uploadImg',//
+            url: 'https://gengwoxue.com:443/student/base/uploadImg',//
             filePath: data[i],
             name: 'file',
             header: {
@@ -366,7 +367,13 @@ Page({
         let subjectName=res.data.coursesubjectsIds.split(",");
         let transition="";
         let subjectId = [];
-        let qualificationImg=res.data.qualificationImg.includes(",")?res.data.qualificationImg.split(","):[res.data.qualificationImg];
+        let qualificationImg=[];
+        if(res.data.qualificationImg.length>0){
+          qualificationImg=res.data.qualificationImg.includes(",")?res.data.qualificationImg.split(","):[res.data.qualificationImg];
+        } else{
+          qualificationImg=[]
+        }
+     
         this.data.subjectList.forEach(item=>{
           for (var i = 0;i<subjectName.length;i++){
             if(subjectName[i]==item.id){

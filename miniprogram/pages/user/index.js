@@ -1,4 +1,4 @@
-import {queryPersonalData} from "../../utils/api"
+import {queryPersonalData,querySystemSetByType} from "../../utils/api"
 Page({
 
   /**
@@ -6,11 +6,11 @@ Page({
    */
   data: {
     list:[
-      {title:"账号与安全",urlPath:"account-security/account-security"},
-      {title:"合作招募",urlPath:"recruit/recruit"},
-      {title:"平台客服",urlPath:"/images/right.png"},
-      {title:"问题反馈",urlPath:"feedback/feedback"}
+      {title:"账号与安全",urlPath:"account-security/account-security",isIcon:true},
+      {title:"平台客服",urlPath:"/images/right.png",isIcon:false},
+      {title:"问题反馈",urlPath:"feedback/feedback",isIcon:true}
     ],
+    kfPhone:"",
     userdata:[]
   },
   go_userDetail(){
@@ -43,6 +43,34 @@ Page({
         app.Toast("网络错误")
       }
     },
+
+    async getKf(){  //获取客服电话
+      let params = {
+        type:1
+      }
+    let {code,data} =await querySystemSetByType(params);
+    if(code ==200){
+      this.setData({
+        kfPhone:data.content
+      })
+    }
+    },
+ 
+// 拨打电话
+    callPhone(){
+      let {kfPhone} = this.data;
+      wx.makePhoneCall({
+        phoneNumber: kfPhone, //此号码并非真实电话号码，仅用于测试
+        success: function () {
+          console.log("拨打电话成功！")
+        },
+        fail: function () {
+          console.log("拨打电话失败！")
+        }
+      })
+  
+    },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -62,6 +90,7 @@ Page({
    */
   onShow: function () {
     this.getPersonalData()
+    this.getKf()
   },
 
   /**

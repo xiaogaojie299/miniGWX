@@ -42,6 +42,12 @@ export function validatePhoneNumber(str) {
     const reg = /^[1][3,4,5,6,7,8,9][0-9]{9}$/
     return reg.test(str)
 }
+/* 重置密码 */
+export function validatePassword(str) {
+    const reg = /[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/i;
+    return reg.test(str)
+}
+
 /* 手机号码和固定电话 */
 export function validatePhTelNumber(str) {
     const reg = /^((0\d{2,3}-\d{7,8})|(1[3456789]\d{9}))$/

@@ -11,9 +11,10 @@
     <image src="{{userdata.avatar}}" class="teach-info-img"></image>
   </view>
   <view class="main plr-24">
-    <view bindtap="go_url" class="main-item" data-path="{{item.urlPath}}" wx:for="{{list}}" wx:key="index">
+    <view bindtap="{{index==1?'callPhone':'go_url'}}" class="main-item" data-path="{{item.urlPath}}" wx:for="{{list}}" wx:key="index">
       <view class="my-title">{{item.title}}</view>
-      <image src="/images/right.png"></image>
+      <image wx:if="{{item.isIcon}}" src="/images/right.png"></image>
+      <view style="color:#36d" wx:else>{{kfPhone}}</view>
     </view>
     <!-- 退出登录按钮，cope,代码冗余 -->
     <view class="main-item1"> 

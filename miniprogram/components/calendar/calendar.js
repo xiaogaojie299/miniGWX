@@ -176,9 +176,21 @@ Component({
       item.strTime=timeType(item.strTime);
     })
     console.log(res.data);
-    this.setData({
-      MonthCourse:res.data
+     this.setData({
+        MonthCourse:res.data
+      })
+
+    /*        ------测试数据------
+    let testArr = [{number:1,strTime:"2020-12-20"},{number:2,strTime:"2020-12-28"}];
+    testArr.forEach(item=>{
+      item.strTime=timeType(item.strTime);
     })
+    console.log("testArr==",testArr);
+    this.setData({
+      MonthCourse:testArr
+    })
+      */
+
   },
   async test(){
     let pamars={

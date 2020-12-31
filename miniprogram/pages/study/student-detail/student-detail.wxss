@@ -55,7 +55,7 @@
   left: 50%;
   transform: translateX(-50%);
   border-radius: 50%;
-  background-color: red;
+  object-fit:contain;
 }
 
 .study-time {

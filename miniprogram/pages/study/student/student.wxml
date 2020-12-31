@@ -1,12 +1,18 @@
 <view class="plr-24">
   <!-- header -->
   <view class="header pt-20">
-    <view class="left-cont flex-center">
+    <view wx:if="{{isShow}}" class="left-cont flex-center">
       <text wx:if="{{className}}">{{studentList[0].gradeName}}·</text>
         <van-dropdown-menu>
     <van-dropdown-item bind:change="changeValue" value="{{ value1 }}" options="{{ option1 }}" />
   </van-dropdown-menu>
 
+      <image src="/images/icon_arrow@2x.png"></image>
+    </view>
+    <!-- 从班级跳转过来 -->
+    <view wx:else class="left-cont flex-center">
+      <text>{{grade}}·</text>
+       <text>{{className}}</text>
       <image src="/images/icon_arrow@2x.png"></image>
     </view>
     <!-- 右边内容 -->
@@ -15,7 +21,7 @@
   <!-- input -->
   <view class="left-cont">
     <input type="text"
-    bindconfirm="confim"
+    bindconfirm="search"
     bindinput="inputStudent"
     value="{{studentName}}" 
     placeholder="搜索学生" 
