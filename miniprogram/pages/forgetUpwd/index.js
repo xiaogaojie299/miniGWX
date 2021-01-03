@@ -22,7 +22,7 @@ Page({
         title: "获取验证码"
       },
       {
-        placeholder: "输入新密码 (6-20位任意字符，区分大小写)",
+        placeholder: "输入新密码 (6-20位字母加数字组合，区分大小写)",
       },
       {
         placeholder: "再次输入密码",
@@ -93,8 +93,8 @@ Page({
       app.Toast("新密码长度不能低于6位");
       return
     }
-    if(newPwd.length>16){
-      app.Toast("新密码长度不能大于16位");
+    if(newPwd.length>20){
+      app.Toast("新密码长度不能大于20位");
       return
     }
     console.log("validatePassword==>",validatePassword(newPwd));
@@ -127,7 +127,7 @@ Page({
       if (result.code == 200) {
         app.Toast("修改成功");
         setTimeout(()=>{
-          wx.navigateTo({
+          wx.redirectTo({
             url: '/pages/login/login',
           })
         },1000)
@@ -203,7 +203,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.setNavigationBarTitle({ title: options.name })
   },
 
   /**

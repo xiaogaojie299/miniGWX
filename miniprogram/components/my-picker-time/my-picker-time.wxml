@@ -2,6 +2,7 @@
   <van-datetime-picker
   type="date"
   title="选择年月日"
+  min-date="{{minDate}}"
   value="{{ currentDate }}"
   bind:input="onInput"
   bind:confirm="confirm"

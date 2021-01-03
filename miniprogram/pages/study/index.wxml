@@ -6,7 +6,7 @@
   <view class="page">
     <!-- 头部 -->
     <view class="header mt-30">
-      <view bindtap="go_teachClass" class="header-left">
+      <view bindtap="{{classNum?'go_teachClass':''}}" class="header-left">
         <view class="header-left-item1">
           <view>教学班级</view>
           <view class="color-red font-w-500">{{classNum ||'暂无班级'}}</view>
@@ -16,7 +16,7 @@
           <image src="/images/right.png"></image>
         </view>
       </view>
-      <view class="header-right" bindtap="go_student">
+      <view class="header-right" bindtap="{{studentNum?'go_student':''}}">
         <view class="header-left-item1">
           <view>授课学生</view>
           <view class="color-red font-w-500">{{studentNum}}</view>

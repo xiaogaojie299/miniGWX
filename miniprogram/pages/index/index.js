@@ -16,7 +16,8 @@ Page({
     isTop:false,
     nickname:wx.getStorageSync('nickName'),
     todayCaurse:[],      //今日课程
-    hourRank:[]       //获取课时数排行
+    hourRank:[],       //获取课时数排行
+    jumpUrl:""        // 轮播图跳转的url
   },
   swiperChange(e) {
     let current = e.detail.current;
@@ -59,7 +60,16 @@ Page({
      app.Toast(res.msg);
    }
   },
-
+  jump(event){   //轮播图跳转
+    let jumpUrl =event.currentTarget.dataset.url;
+    console.log("jumpUrl=",jumpUrl);
+    wx.navigateTo({
+      url: '/pages/jumpUrl/index'+"?url="+jumpUrl,
+    })
+    this.setData({
+      jumpUrl:jumpUrl
+    })
+  },
   async get_todarCaurse(){  //获取今日课程
     let res =await queryTodayCourse();
     console.log(res.data.list);

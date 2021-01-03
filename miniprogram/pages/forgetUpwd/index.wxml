@@ -7,6 +7,7 @@
       placeholder="{{item.placeholder}}"
       style="{{item.title?'width:70%':'width:100%'}}" 
       type="{{(index==2||index==3)?'password':'number'}}"
+      maxlength="{{index==1?'4':''}}"
       bindinput="inputValue"
       data-i="{{index}}"
       placeholder-style='font-size: 30rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #B2B2BF;'

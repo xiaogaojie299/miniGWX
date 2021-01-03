@@ -60,6 +60,7 @@
         type="text"
         confirm-type="send"
         bindconfirm="onConfirmSendText"
+        confirm-type="search"
         cursor-spacing="20"
         value="{{textInputValue}}"
       ></input>

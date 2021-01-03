@@ -74,7 +74,8 @@ Page({
       newPhone,
       newCode
     } = this.data;
-    console.log(this.data);
+    let storePhone = wx.getStorageSync('userdata').phone;
+    console.log(storePhone);
     if (!newPhone||!oldPhone) {
       app.Toast("手机号码不能为空");
       return
@@ -85,6 +86,10 @@ Page({
     }
     if (!validatePhoneNumber(newPhone)||!validatePhoneNumber(oldPhone)) {
       app.Toast("请输入正确的手机格式");
+      return
+    }
+    if (storePhone!=oldPhone){
+      app.Toast("原手机号不存在，请重新输入")
       return
     }
     console.log(optChangePhone);
@@ -103,11 +108,10 @@ Page({
         if (result.code == 200) {
           app.Toast("修改成功");
           setTimeout(()=>{
-            wx.navigateTo({
+            wx.redirectTo({
               url: '/pages/login/login',
             })
           },1000)
-          
         } else {
           app.Toast(result.msg);
         }

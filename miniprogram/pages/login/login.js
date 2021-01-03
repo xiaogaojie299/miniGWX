@@ -105,7 +105,7 @@ Page({
   },
   go_forUpwd(){
     wx.navigateTo({
-      url: '../forgetUpwd/index',
+      url: '/pages/forgetUpwd/index'+'?name='+'找回密码',
      })
   },
   
@@ -122,7 +122,7 @@ Page({
     url: '/pages/index/index',
   })
    }else{
-     app.$Toast(res.msg)
+     app.Toast(res.msg)
    }
   },
   // 密码登录
@@ -141,7 +141,7 @@ Page({
       url: '/pages/index/index',
     })
     }else{
-      app.Toast(msg)
+      app.Toast(res.msg)
     }
   },
   submit(){

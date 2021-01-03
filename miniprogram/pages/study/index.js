@@ -46,7 +46,7 @@ Page({
     queryMyAllClassList(pamars).then(res=>{
       if(res.code==200){
         this.setData({
-          classNum:res.data.total
+          classNum:res.data.total,
         })
       }
     })

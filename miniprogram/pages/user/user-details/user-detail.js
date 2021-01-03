@@ -351,7 +351,10 @@ Page({
           title: '修改信息成功',
         })
         setTimeout(()=>{
-          this.getPersonalData()
+          // 跳转到我的页面
+          wx.switchTab({
+            url: '/pages/user/index',
+          })
         },1000)
       }
     },

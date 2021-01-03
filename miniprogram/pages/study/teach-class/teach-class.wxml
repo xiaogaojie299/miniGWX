@@ -6,7 +6,8 @@
     <input type="text"
     bindinput="inputClass"
     value="{{classValue}}"
-    bindconfirm="confirmTap"  
+    bindconfirm="confirmTap"
+    confirm-type="search"  
     placeholder="搜索班级" 
     placeholder-style="font-weight:400;color:#333333;" />
     <image src="/images/search_gray.png"></image>

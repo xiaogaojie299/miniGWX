@@ -22,6 +22,7 @@
   <view class="left-cont">
     <input type="text"
     bindconfirm="search"
+    confirm-type="search"
     bindinput="inputStudent"
     value="{{studentName}}" 
     placeholder="搜索学生" 

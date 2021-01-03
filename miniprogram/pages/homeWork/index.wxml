@@ -16,7 +16,8 @@
           <view class="left-cont">
             <input type="text"
             bindinput="inputQuestion"
-            bindconfirm="confirmTap" 
+            bindconfirm="confirmTap"
+            confirm-type="search" 
             placeholder="搜索问答" 
             placeholder-style="font-weight:400;color:#333333;" />
             <image src="/images/search_gray.png"></image>

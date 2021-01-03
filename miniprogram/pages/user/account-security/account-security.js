@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    phone:wx.getStorageSync('userdata').phone
+    phone:""
   },
 
   /**
@@ -13,7 +13,7 @@ Page({
    */
   go_setUpwd(){
     wx.navigateTo({
-      url: '/pages/forgetUpwd/index',
+      url: '/pages/forgetUpwd/index'+'?name='+'修改登录密码',
     })
   },
   go_chagePhone(){
@@ -22,17 +22,18 @@ Page({
     })
   },
   typePhone(){
-    let phone = this.data.phone.match(/(\d{3})(\d{4})(\d{4})/).slice(1).reduce(function(value, item, index) {
+    let phone = wx.getStorageSync('userdata').phone
+    phone = phone.match(/(\d{3})(\d{4})(\d{4})/).slice(1).reduce(function(value, item, index) {
         //当index===1时，初始元素和当前元素累加并返回，value是初始值186，也是最终累加的返回值，item是当前索引下标是1的元素****。
         return index === 1 ? value + "****" : value + item;
       });
-    
+    console.log("phone=",phone);
     this.setData({
       phone:phone
     })
   },
   onLoad: function (options) {
-    this.typePhone()
+    // this.typePhone()
   },
 
   /**

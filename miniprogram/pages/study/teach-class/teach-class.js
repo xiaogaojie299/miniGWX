@@ -54,10 +54,11 @@ Page({
       name:classValue
     }
     let res =await queryMyAllClassList(pamars)
-    console.log(res);
+    console.log("测试",res);
+    let arr = res.data.list;
     if(res.code==200){
       this.setData({
-        classList:res.data.list
+        classList:this.data.classList.concat(arr)
       })
     }
   },

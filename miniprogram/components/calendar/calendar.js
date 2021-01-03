@@ -122,6 +122,7 @@ Component({
       this.setData({
         time:utils.getYearMonthDay(d)
       })
+      console.log("肖高杰",this.data.time);
       this.visible();
   },
   // 点击选择当前天数
@@ -175,7 +176,7 @@ Component({
     res.data.forEach(item=>{
       item.strTime=timeType(item.strTime);
     })
-    console.log(res.data);
+    console.log("肖高杰二号=",res.data);
      this.setData({
         MonthCourse:res.data
       })
