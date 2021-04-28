@@ -6,22 +6,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    show: false,
-    show1: false,
+    show: false, 
+    show1: false, 
     actions: [
       {
         name: '删除',
       }],
       actions1: [
         {
-          name: '采纳该回答',
+          name: '采纳该回答', 
         }],
       queryInfo:{},  //问题答案详情页面
       current:1, //分页
       size:10,   //分页条数
       answerList:[], //回答列表
+      answerisAdopt:null,// 判断是否被采纳
       answerValue:"",  //input输入框的值;
-      answerId:""     //回答人的id
+      answerId:"",     //回答人的id
+      userInfo:wx.getStorageSync('userInfo')
   },
   open(event){
     console.log(event);
@@ -64,6 +66,7 @@ Page({
     console.log("res==>",res);
     if(res.code==200){
       this.setData({
+        answerisAdopt:res.data.isAdopt,
         answerList:res.data.list
       })
     }
@@ -151,10 +154,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log("queryInfo===>",options.queryObj);
     let queryInfo = JSON.parse(decodeURIComponent(options.queryObj));
+    console.log("queryInfo===>",queryInfo)
+    let userInfo = wx.getStorageSync('userInfo')
     this.setData({
-      queryInfo:queryInfo
+      queryInfo:queryInfo,
+      userInfo:userInfo
     }),
     this.getQuestionAnswerList()
   },

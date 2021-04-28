@@ -19,8 +19,9 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": true,
-    "useMultiFrameRuntime": false,
+    "useMultiFrameRuntime": true,
     "useApiHook": true,
+    "useApiHostProcess": false,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
@@ -37,7 +38,7 @@
     "minifyWXSS": true
   },
   "appid": "wx2696c638d3db9b2e",
-  "projectname": "miniprogram-2",
+  "projectname": "gengwoxue-teacher",
   "libVersion": "2.14.1",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
@@ -240,6 +241,18 @@
         {
           "name": "pages/study/teach-class/teach-class",
           "pathName": "pages/study/teach-class/teach-class",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/study/student/student",
+          "pathName": "pages/study/student/student",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/user/feedback/feedback",
+          "pathName": "pages/user/feedback/feedback",
           "scene": null
         }
       ]

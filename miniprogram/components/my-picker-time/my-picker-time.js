@@ -20,6 +20,7 @@ Component({
   data: {
     currentDate: new Date().getTime(),
     minDate: new Date(1970,1,1).getTime(),
+    maxDate:new Date().getTime(),
     formatter(type, value) {
       if (type === 'year') { 
         return `${value}年`;

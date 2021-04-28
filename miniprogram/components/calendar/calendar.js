@@ -161,11 +161,19 @@ Component({
     console.log("todayIndex=",todayIndex);
 
   },
-  
+  addZero(num){
+    if(num<10){
+      return "0"+num
+    }else{
+      return num
+    }
+  },
   // 按月查询哪天有课（教师/学生/班级）
   async get_TeacherSchedule(){
     let {classId,studentId,time} = this.data;
-    let _time=timeType(time.year+"/"+time.month)   //这是给服务器上传的时间参数（2020-09）
+    
+    // let _time=timeType(time.year+"/"+time.month)   //这是给服务器上传的时间参数（2020-09）
+    let _time=time.year+"-"+this.addZero(time.month+1) 
     console.log("_time==>",_time);
     let pamars={
       classId,

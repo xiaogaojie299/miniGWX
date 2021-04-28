@@ -55,7 +55,7 @@ Page({
           this.getMeQuestionList();
           break;
     }
-  },
+  }, 
 
   //获取问答广场数据
   async get_questionSquareList(){
@@ -70,6 +70,7 @@ Page({
      if(res.data.list.length>0){
         let Array=[];
         Array=res.data.list;
+        console.log("Array==>",Array)
         res.data.list.forEach((item,idnex)=>{
           if(item.imgUrl.length>0){
             item.imgUrl=item.imgUrl.indexOf(",")==-1?[item.imgUrl]:item.imgUrl.split(",")
@@ -78,6 +79,7 @@ Page({
       this.setData({
         questionSquareList:this.data.questionSquareList.concat(Array)
       })
+      console.log("questionSquareList==>",this.data.questionSquareList)
      }else{
        wx.showToast({
          title: '我是有底线的',
@@ -173,7 +175,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.clearData()    //清空数据
+    // this.clearData()    //清空数据
     this.get_questionSquareList();
     this.setData({
       nickname:wx.getStorageSync('nickName')

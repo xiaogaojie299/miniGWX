@@ -30,7 +30,9 @@ var unit = {
       //var reg = new RegExp(",","g"); 
       console.log(arr.toString().replace(",","/"));
       return  arr.toString().replace(",","/");
-    }
+    },
+
+   
 }
 module.exports = unit
 

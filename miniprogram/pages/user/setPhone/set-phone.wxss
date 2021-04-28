@@ -1,0 +1,31 @@
+/* my/pages/set/pages/account/pages/setPhone/setPhone.wxss */
+.phone-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 38rpx 0 28rpx;
+  box-shadow: 0rpx 4rpx 8rpx 0rpx rgba(165, 165, 165, 0.35);
+  border-radius: 4rpx;
+  margin-top: 18rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+  font-family: PingFangSC-Medium, PingFang SC;
+  
+line-height: 34rpx;
+}
+
+.phone-box image {
+  width: 74rpx;
+  height: 140rpx;
+  margin-bottom: 26rpx;
+}
+
+.info {
+  font-size: 24rpx;
+  font-weight: 500;
+  font-family: PingFangSC-Medium, PingFang SC;
+  margin: 34rpx 18rpx;
+}
+.van-cell {
+  padding: 30rpx 26rpx !important;
+}

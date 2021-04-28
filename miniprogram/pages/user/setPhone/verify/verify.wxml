@@ -1,0 +1,29 @@
+<!--my/pages/set/pages/account/pages/verify/verify.wxml-->
+<!-- 验证密码 -->
+<view class="password-box" wx:if="{{!isPhone}}">
+  <view class="content">验证当前登录密码</view>
+  <van-cell-group border="{{ false }}">
+    <van-field model:value="{{ password }}" placeholder="请输入登录密码" border="{{ false }}" label="登录密码" bind:change="changePwdIpt" type="password" maxlength="20"/>
+  </van-cell-group>
+  <navigator class="a" url="/login/pages/forgetPassword/forgetPassword">忘记密码？</navigator>
+  <button class="send-btn {{!pwd? 'miss': ''}}" bindtap="checkPassword">下一步</button>
+</view>
+
+<!-- 验收手机号 -->
+<view class="code-box" wx:else>
+  <view class="content">短信验证码已发送至绑定手机号</view>
+  <van-cell-group>
+    <van-field type="number" bind:change="changeCodeIpt" model:value="{{ sms }}" center clearable label="短信验证码" placeholder="请输入短信验证码" border="{{ false }}"
+      use-button-slot>
+      <van-button slot="button" size="small" bindtap="sendSms" wx:if="{{!isvisib_}}" class="getcode red-color">发送验证码
+      </van-button>
+      <view slot="button" size="small"  class="getcode  color1" wx:else>
+        <!-- <van-count-down time="{{ time }}" format="ss 秒后重新获取" bind:finish="closeTime" /> -->
+        {{codeText}}
+      </view>
+    </van-field>
+  </van-cell-group>
+  <button class="send-btn {{(pwd)? 'miss':''}}" bindtap="setNewPhone">下一步</button>
+</view>
+
+

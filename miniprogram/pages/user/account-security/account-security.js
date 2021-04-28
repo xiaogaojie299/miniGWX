@@ -12,13 +12,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   go_setUpwd(){
+    // wx.navigateTo({
+    //   url: '/pages/forgetUpwd/index'+'?name='+'修改登录密码',
+    // })
+
     wx.navigateTo({
-      url: '/pages/forgetUpwd/index'+'?name='+'修改登录密码',
+      url: '/pages/user/changeUpwd/changeUpwd'+'?name='+'修改登录密码',
     })
   },
   go_chagePhone(){
+    // wx.navigateTo({
+    //   url: '/pages/changePhone/index',
+    // })
     wx.navigateTo({
-      url: '/pages/changePhone/index',
+      url: '/pages/user/setPhone/set-phone',
     })
   },
   typePhone(){

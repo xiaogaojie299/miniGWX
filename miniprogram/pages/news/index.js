@@ -7,7 +7,7 @@ Page({
   data: {
     listOrder:[
       {
-        title:"消息通知",
+        title:"系统通知",
         imgPath:"/images/notice.png",
         msgList:0
       },

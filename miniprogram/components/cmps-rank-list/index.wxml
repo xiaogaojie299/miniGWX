@@ -1,9 +1,9 @@
 <view class="rank-box">
-  <view class="rank-title">老师课时数排行</view>
+  <view class="rank-title">{{title}}</view>
   <view class="rank-name">
     <view class="rank-name-item my-font">排名</view>
     <view class="rank-name-item my-font">老师</view>
-    <view class="rank-name-item my-font">课时数</view>
+    <view class="rank-name-item my-font">{{type==1?'课时数':'人数'}}</view>
   </view>
   <!-- 下面LIST数据 -->
   <view class="rank-list-box">
@@ -15,8 +15,8 @@
         <image class="rank-icon" wx:else src="/images/NO3.png"></image>
       </view>
       <view class="rank-list-item">
-        <image class="teacher-img"></image>
-        <view>{{ item.teacherName	}}</view>
+        <image class="teacher-img" src="{{item.teacherAvater}}"></image>
+        <view class="teacher-name">{{ item.teacherName	}}</view>
       </view>
       <view class="rank-list-item">{{item.classNum}}</view>
     </view>

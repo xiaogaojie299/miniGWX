@@ -4,38 +4,48 @@
   </view>
 
   
-  <view class="main plr-24">
-
-    <view class="main-row h-100 bor-bottom flex-center">
-      <view class="lable color-black mr-10">原手机号</view>
-      <input class="newPhone" type="number" bindinput="inputOldPhone" placeholder="请输入原手机号" />
-    </view>
-    <!-- 获取验证码 -->
-    <view class="h-100 bor-bottom flex-center">
-      <view class="lable color-black mr-10">验证码</view>
-      <input class="codeIpt" type="number" maxlength="4" bindinput="inputOldCode" placeholder="请输入短信验证码" type="text" />
-      <!-- 获取验证码 -->
-      <view class="getcode" bindtap="get_code" wx:if="{{!isvisib}}">获取验证码</view>
-			<view class="getcode" wx:else>{{i}}后重新发送</view>
-    </view>
-
+  <!-- <view class="main plr-24">
     <view class="main-row h-100 bor-bottom flex-center">
       <view class="lable color-black mr-10">新手机号</view>
-      <input class="newPhone" type="number" bindinput="inputNewPhone" placeholder="请输入手机新手机号" />
+      <input class="newPhone" type="number" maxlength="11" bindinput="inputNewPhone" placeholder="请输入手机新手机号" />
     </view>
-    <!-- 获取验证码 -->
     <view class="h-100 bor-bottom flex-center">
       <view class="lable color-black mr-10">验证码</view>
-      <input class="codeIpt" type="number" maxlength="4" placeholder="请输入短信验证码" bindinput="inputNewCode" type="text" />
-     <!-- 获取验证码 -->
-     <view class="getcode" bindtap="get_code_" wx:if="{{!isvisib_}}">获取验证码</view>
+      <input class="codeIpt" type="number" maxlength="4" placeholder="请输入短信验证码" bindinput="inputNewCode" />
+     
+      <view class="getcode" bindtap="get_code_" wx:if="{{!isvisib_}}">获取验证码</view>
 			<view class="getcode" wx:else>{{i_}}后重新发送</view>
     </view>
-  </view>
+  </view> -->
+
+  
+<van-cell-group>
+  <!-- 用户名 -->
+  <van-field
+    model:value="{{ userPhone }}"
+    clearable
+    label="新手机号"
+    placeholder="请输入新手机号"
+    bind:change="inputNewPhone"
+    maxlength="11"
+    type="number"
+  />
+    <!-- 验证码 -->
+    <van-field bind:change="inputNewCode" model:value="{{ sms }}" center clearable label="短信验证码" placeholder="请输入短信验证码" type="number" border="{{ false }}"
+      use-button-slot type="number" maxlength="4">
+      <van-button slot="button" size="small" bindtap="get_code_" wx:if="{{!isvisib_}}" class="getcode">发送验证码
+      </van-button>
+      <van-button slot="button" size="small" class="getcode" wx:else class="getcode">
+        <!-- <van-count-down time="{{ time }}" format="ss 秒后重新获取" bind:finish="closeTime" /> -->
+        {{i_}}后重新发送
+      </van-button>
+    </van-field>
+  </van-cell-group>
+
   <!-- 底部按钮 -->
   <view class="footer">
     <view class="footer-btn">
-      <button class="{{oldPhone&&oldCode&&newPhone&&newCode?'click':'no-click'}} flex-ver-center" bindtap="submit{{oldPhone&&oldCode&&newPhone&&newCode?'':'1'}}">确认修改</button>
+      <button class="{{newPhone&&newCode?'click':'no-click'}} flex-ver-center" bindtap="submit{{newPhone&&newCode?'':'1'}}">确认修改</button>
     </view>
   </view>
 </view>

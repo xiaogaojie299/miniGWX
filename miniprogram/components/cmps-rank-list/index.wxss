@@ -42,6 +42,9 @@ display: flex;
 align-items: center;
 justify-content: center;
 }
+.rank-list-item :nth-child(2){
+  width: 30%;
+  }
 .rank-list-item{
 font-size: 32rpx;
 font-family: PingFangSC-Medium, PingFang SC;
@@ -51,8 +54,10 @@ color: #2F3446;
 .rank-list-item>.teacher-img{
   width: 44rpx;
   height: 44rpx;
-  border: 1px solid black;
   margin-right: 14rpx;
+}
+.rank-list-item>.teacher-name{
+  white-space: nowrap;
 }
 .rank-list-item>.rank-icon{
   width: 48rpx;

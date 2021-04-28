@@ -6,7 +6,7 @@
     <view class="main">
       <!-- 顶部搜索框 -->
       <!-- <view>
-        <top-input>
+        <top-input> 
           <view class="my-problem" bindtap="go_myProblem">我的问答</view> 
         </top-input>
       </view> -->
@@ -40,7 +40,18 @@
         </view>
         <!-- 图片描述 -->
         <view class="pro-img m-10">
-          <image wx:for="{{item.imgUrl}}" wx:for-item="it" wx:key="_+{{index}}" src="{{it}}"></image>
+          <!-- <image wx:for="{{item.imgUrl}}" wx:for-item="it" wx:key="_+{{index}}" src="{{it}}"></image> -->
+          <van-image
+          style="margin-right:30rpx"
+          image-class="mr-20"
+          wx:for="{{item.imgUrl}}" 
+          wx:for-item="it" 
+          wx:key="_+{{index}}" 
+          src="{{it}}"
+          width="110"
+          height="112"
+          fit="cover"
+        />
         </view>
         <!-- 下面回答 -->
         <view class="problem-timer">
@@ -55,7 +66,8 @@
             <text>{{item.golds}}</text>
           </view>
           <!-- 右边按钮 -->
-          <view class="problem-footer-right">{{item.state==1?"未解决":"已解决"}}</view>
+          <!-- <view class="problem-footer-right">{{item.state==1?"未解决":"已解决"}}</view> -->
+          <view wx:if="{{item.state!==1}}" class="problem-footer-right">已解决</view>
         </view>
       </view>
     </view>

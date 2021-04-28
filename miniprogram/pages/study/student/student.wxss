@@ -1,3 +1,6 @@
+.w-200{
+  width: 200rpx;
+}
 .header{
   display: flex;
   justify-content: space-between;
@@ -12,7 +15,10 @@ font-family: PingFangSC-Medium, PingFang SC;
 font-weight: 500;
 color: #333333;
 }
-
+.left-cont .class-name{
+  border: 1px solid red;
+  color: red !important;
+}
 .right-cont{
   width: 68%;
 }

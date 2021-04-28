@@ -48,7 +48,11 @@ export function queryClassHourRand(data){
   let url="/api/web/index/queryClassHourRand"
   return request.post(url,data);
 }
-
+// 获取老师推广人数排行
+export function queryExtensionRand(){
+  let url="/api/web/index/queryExtensionRand"
+  return request.post(url);
+}
 //获取问答广场列表
 export function queryQuestionSquareList(data){
   let url="/api/web/answer/queryQuestionSquareList";
@@ -139,13 +143,13 @@ export function querySubjectList(){
 }
 // 申请成为老师
 export function optTeacherApply(data) {
-    let url = "/api/web/user/optTeacherApply";
+    let url = "/base/web/user/optTeacherApply";
     return request.post(url,data);
 }
 
 //机构合作
 export function optMechanismApply(data){
-  let url = "/api/web/user/optMechanismApply";
+  let url = "/base/web/user/optMechanismApply";
   return request.post(url,data);
 }
 
@@ -188,4 +192,13 @@ export function queryNoReadNumber(data){
 export function optSetRead(data){
   let url = "/api/web/message/optSetRead";
   return request.post(url,data)
+}
+// 验证密码是否正确
+export function passwordAuthentication(data){
+  return request.post('/api/web/teacher/passwordAuthentication',data)
+}
+
+// 绑定验证码
+export function updataPhone(data){
+  return request.post('/api/web/teacher/updatePhone',data)
 }

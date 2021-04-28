@@ -1,4 +1,5 @@
 // miniprogram/pages/forgetUpwd/index.js
+let app = getApp()
 import {
   forgetPassword,
   queryCaptcha,
@@ -8,24 +9,31 @@ import {
   validatePhoneNumber,
   validatePassword
 } from "../../utils/regular"
-const app = getApp()
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     list: [{
-        placeholder: "请输入手机号"
+        placeholder: "请输入手机号",
+        type:"number",
+        maxlength:"11"
       },
       {
         placeholder: "请输入验证码",
-        title: "获取验证码"
+        title: "获取验证码",
+        type:"number",
+        maxlength:"4"
       },
       {
         placeholder: "输入新密码 (6-20位字母加数字组合，区分大小写)",
+        type:"password",
+        maxlength:"30"
       },
       {
+        type:"password",
         placeholder: "再次输入密码",
+        maxlength:"30"
       }
     ],
     phone: "", //输入手机号
@@ -37,6 +45,7 @@ Page({
     isvisib: false,
     i: 60, //计时器
     timer: null, //定时器
+    kfPhone:wx.getStorageSync('kfPhone')
   },
   inputValue(e) {
     console.log(e);
@@ -204,6 +213,8 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({ title: options.name })
+    console.log(app.globalData)
+    wx.getStorageSync('kfPhone')
   },
 
   /**

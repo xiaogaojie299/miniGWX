@@ -29,7 +29,7 @@ font-weight: 400;
 .certificate{
   /* height: 398rpx; */
   margin-top: 44rpx;
-}
+} 
 /* .upload-images>image{
   border: 1px solid red;
   width: 224rpx;
@@ -37,6 +37,10 @@ font-weight: 400;
   background: #FBFBFC;
   border-radius: 8rpx;
 } */
+.upload{
+  display: flex;
+  flex-wrap: nowrap;
+}
 .upload image{
   width: 224rpx;
   height: 224rpx;

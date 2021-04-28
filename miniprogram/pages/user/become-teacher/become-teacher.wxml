@@ -26,7 +26,7 @@
       <view class="h-100 form-list">
         <view class="lable">联系电话:</view>
         <view class="ipt">
-          <input bindinput="inputPhone" value="{{phone}}" type="number" placeholder="联系电话" />
+          <input bindinput="inputPhone" value="{{phone}}" type="number" maxlength="11" placeholder="联系电话" />
         </view>
       </view>
 

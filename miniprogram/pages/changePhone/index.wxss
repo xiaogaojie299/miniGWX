@@ -29,7 +29,7 @@ font-family: PingFangSC-Medium, PingFang SC;
 font-weight: 500;
 }
 .getcode{
-  width: 160rpx;
+  width: 240rpx;
   height: 60rpx;
   font-size: 22rpx;
 color: #EB002A;
@@ -40,6 +40,12 @@ color: #EB002A;
   margin-left:auto;
   padding-left: 14rpx;
   border-left: 1px solid #F2F2F2;
+}
+.van-button--default{
+  border: none !important;
+  color: #EB002A !important;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
 }
 .codeIpt{
   width: 396rpx;
@@ -68,3 +74,5 @@ color: #FFFFFF;
 .no-click{
 opacity: 0.4;
 }
+
+

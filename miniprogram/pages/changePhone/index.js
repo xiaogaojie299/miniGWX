@@ -3,7 +3,8 @@ import {
   forgetPassword,
   queryCaptcha,
   checkCaptcha,
-  optChangePhone
+  optChangePhone,
+  updataPhone
 } from "../../utils/api"
 import {
   validatePhoneNumber
@@ -29,6 +30,7 @@ Page({
     isvisib_: false,
     i_: 60, //计时器
     timer_: null, //定时器
+    methodType:1 // 1= 验证码修改  2 = 密码修改
   },
 
   /**
@@ -50,7 +52,7 @@ Page({
   // 输入新手机
   inputNewPhone(e){
     this.setData({
-      newPhone:e.detail.value
+      newPhone:e.detail
     })
   },
   // 这个获取不了值
@@ -63,7 +65,7 @@ Page({
   inputNewCode(e){
     console.log(e)
     this.setData({
-          newCode:e.detail.value
+          newCode:e.detail
         })
   },
   // 提交操作
@@ -72,38 +74,33 @@ Page({
       oldPhone,
       oldCode,
       newPhone,
-      newCode
+      newCode,
+      methodType
     } = this.data;
     let storePhone = wx.getStorageSync('userdata').phone;
     console.log(storePhone);
-    if (!newPhone||!oldPhone) {
-      app.Toast("手机号码不能为空");
+    if (!newPhone) {
+      app.Toast("新手机号码不能为空");
       return
     }
-    if (!newCode||!oldCode) {
+    if (!newCode) {
       app.Toast("验证码不能为空");
       return
     }
-    if (!validatePhoneNumber(newPhone)||!validatePhoneNumber(oldPhone)) {
+    if (!validatePhoneNumber(newPhone)) {
       app.Toast("请输入正确的手机格式");
-      return
-    }
-    if (storePhone!=oldPhone){
-      app.Toast("原手机号不存在，请重新输入")
       return
     }
     console.log(optChangePhone);
     // 把用户输入验证码发送到后端进行校验
-    let oldResult =await this.verify_code(oldPhone,oldCode);
     let newResult=await this.verify_code(newPhone,newCode);
-    if(oldResult.code==200&&newResult.code==200){
+    if(newResult.code==200){
       let data = {
-          code:oldCode,
-          newCode:newCode,
-          phone:oldPhone,
-          newPhone:newPhone
+        code:newCode,
+        phone :newPhone,
+        type :methodType
         }
-        let result = await optChangePhone(data);
+        let result = await updataPhone(data);
         console.log("result123==>",result.code);
         if (result.code == 200) {
           app.Toast("修改成功");
@@ -231,7 +228,10 @@ Page({
      }, 1000)
    },
   onLoad: function (options) {
-
+    console.log(options)
+    this.setData({
+      methodType:options.type
+    })
   },
 
   /**

@@ -8,15 +8,14 @@
       <!-- 第一行 -->
       <view class="row">
         <view class="course-name">{{it.courseName}}</view>
-        <view class="course-hours">{{it.indexNum}}/{{it.schoolHour}}课时</view>
+        <view class="course-hours"><text style="color:#EF713B"> {{it.indexNum}}/{{it.schoolHour}} </text> 课时</view>
       </view>
       <!-- 第二行 -->
-      <view class="row2">
-        <!-- 标签 -->
+      <!-- <view class="row2">
         <view class="course-tag">{{it.gradeName}}</view>
         <view class="course-tag">{{it.courseNature}}</view>
         <view class="course-tag">{{it.teachWay}}</view>
-      </view>
+      </view> -->
       <!-- 第三行 -->
       <view class="row3">
         <!-- 时间ICON -->

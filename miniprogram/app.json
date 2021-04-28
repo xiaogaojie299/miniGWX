@@ -27,7 +27,12 @@
     "pages/lookAnswer/lookAnswer",
     "pages/question/question",
     "pages/answerInfo/answerInfo",
-    "pages/jumpUrl/index"
+    "pages/jumpUrl/index",
+    "pages/user/changeUpwd/changeUpwd",
+    "pages/user/setPhone/set-phone",
+    "pages/user/setPhone/pwd/verify-pwd",
+    "pages/user/setPhone/phone/verify-phone",
+    "pages/user/setPhone/verify/verify"
   ],
   "tabBar": {
     "selectedColor": "#F13833",
@@ -88,7 +93,9 @@
     "van-icon": "@vant/weapp/icon/index",
     "van-swipe-cell": "@vant/weapp/swipe-cell/index",
     "van-cell": "@vant/weapp/cell/index",
-    "van-cell-group": "@vant/weapp/cell-group/index"
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-image": "@vant/weapp/image/index"
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2"

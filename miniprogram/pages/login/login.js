@@ -1,5 +1,5 @@
 // miniprogram/pages/login/login.js
-import {captchaLogin,queryCaptcha,checkCaptcha,passwordLogin} from "../../utils/api"
+import {captchaLogin,queryCaptcha,checkCaptcha,passwordLogin,querySystemSetByType} from "../../utils/api"
 import {validatePhoneNumber} from "../../utils/regular"
 const app=getApp()
 Page({
@@ -21,7 +21,19 @@ Page({
     code:"",   //用户输入的验证码
     phoneCaptcha:"",//服务端返回来的手机验证码
     pwd:"",    //用户输入的密码
-    pwdPhone:"" //密码登录用户输入的手机
+    pwdPhone:"", //密码登录用户输入的手机
+    kfPhone:""  // 客服电话
+  },
+  async getKfPhone(){
+    let {data} =await querySystemSetByType({type:1})
+    console.log(data)
+      wx.setStorageSync('kfPhone',data.content);
+    console.log(wx.getStorageSync('kfPhone'))
+  },
+  goReg(){
+    wx.navigateTo({
+      url: '/pages/user/recruit/recruit',
+    })
   },
   inputFocus(){
     this.setData({isFouce:true})
@@ -194,7 +206,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getKfPhone()
   },
 
   /**

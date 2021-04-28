@@ -30,7 +30,7 @@
   font-weight: 600;
   color: #2B3540;
   line-height: 44rpx;
-  height: 44rpx;
+  min-height: 44rpx;
 }
 
 .problem-desc {

@@ -4,7 +4,7 @@ Page({
 
   /**
    * 页面的初始数据
-   */
+   */ 
   data: {
     option1: [
       { text: '', value: 0 },
@@ -86,8 +86,14 @@ Page({
         studentList:[]
       })
       this.get_ClassStudent()
+    }, 
+    search(){
+      this.setData({
+        current:1,
+        studentList:[]
+      })
+      this.get_ClassStudent()
     },
-
     //监听输入框
     inputStudent(e){
       this.setData({
@@ -97,6 +103,7 @@ Page({
 
     //下拉菜单框选中
     changeValue({detail}){
+      console.log("点击搜索成功")
       this.setData({
         className:detail,
         current:1,

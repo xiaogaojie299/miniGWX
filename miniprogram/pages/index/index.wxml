@@ -38,9 +38,15 @@
         <view>
             <curmbs>排行榜</curmbs>
             <view>
-                <cmps-rank-list wx:for="{{1}}" wx:key="item" />
-            </view>
+                <cmps-rank-list wx:for="{{1}}" rankList="{{hourRank}}" wx:key="item" />
+            </view> 
+            <!-- 推广人数排行 -->
+            <view>
+                <cmps-rank-list title="推广人数排行" type="2" rankList="{{extensionRand}}" wx:key="item" />
+            </view> 
         </view>
+
+
     </view>
 
     <!-- 返回顶部 -->

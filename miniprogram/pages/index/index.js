@@ -1,6 +1,6 @@
 //index.js
 const app = getApp()
-import {queryBannerListByType,queryTodayCourse,queryClassHourRand} from "../../utils/api"
+import {queryBannerListByType,queryTodayCourse,queryClassHourRand,queryExtensionRand} from "../../utils/api"
 Page({
   data: {
     imgUrls: [
@@ -11,13 +11,14 @@ Page({
     indicatorDots: false,
     autoplay: true,
     interval: 4000,
-    duration: 800,
+    duration: 800, 
     swiperCurrent: 0,
     isTop:false,
     nickname:wx.getStorageSync('nickName'),
     todayCaurse:[],      //今日课程
     hourRank:[],       //获取课时数排行
-    jumpUrl:""        // 轮播图跳转的url
+    extensionRand:[], // 老师推广人数排行榜
+    jumpUrl:"",        // 轮播图跳转的url
   },
   swiperChange(e) {
     let current = e.detail.current;
@@ -45,6 +46,7 @@ Page({
     this.get_banner()
     this.get_todarCaurse()
     this.get_rand()
+    this.get_extensionRand()
   },
   //获取首页轮播图数据
   async get_banner(){
@@ -66,7 +68,7 @@ Page({
     wx.navigateTo({
       url: '/pages/jumpUrl/index'+"?url="+jumpUrl,
     })
-    this.setData({
+    this.setData({ 
       jumpUrl:jumpUrl
     })
   },
@@ -80,13 +82,22 @@ Page({
     }
 },
 async get_rand(){//获取老师课时数排行
- let res = queryClassHourRand()
+ let res =await queryClassHourRand()
  if(res.code==200){
   this.setData({
     hourRank:res.data
   })
  }
+},
 
+async get_extensionRand(){
+  let res = await queryExtensionRand()
+ if(res.code==200){
+  this.setData({
+    extensionRand:res.data
+  })
+  console.log("extensionRand",res.data)
+ }
 },
 
 onPageScroll: function(res) {

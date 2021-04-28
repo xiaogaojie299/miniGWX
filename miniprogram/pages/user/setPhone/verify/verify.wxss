@@ -1,0 +1,97 @@
+/* my/pages/set/pages/account/pages/verify/verify.wxss */
+page {
+  background: #FBFBFC;
+}
+
+.van-cell {
+  background-color: #fff;
+}
+
+.van-field__label {
+  color: #000 !important;
+}
+
+.password-box {
+  position: relative;
+}
+
+.content {
+  /* padding: 40rpx 0 18rpx; */
+  padding:28rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+}
+
+.a {
+  position: absolute;
+  top: 206rpx;
+  right: 12rpx;
+  font-size: 22rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+}
+
+.send-btn {
+  width: 456rpx;
+  height: 88rpx;
+  font-size: 30rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 174rpx;
+  color: #fff;
+  background: linear-gradient(270deg, #EF753C 0%, #F13232 100%);
+}
+
+.miss {
+  opacity: 0.38 !important;
+}
+
+button::after {
+  border: none;
+}
+
+.van-button {
+  border: none !important;
+  border-left: 1rpx solid #f6f6f6 !important;
+}
+
+.send-sms-btn {
+  font-size: 22rpx !important;
+  font-weight: 500 !important;
+}
+
+.van-count-down {
+  font-size: 22rpx !important;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500 !important;
+  color: #ccc !important;
+}
+
+.getcode{
+  width: 220rpx;
+  height: 60rpx;
+  font-size: 22rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  margin-left:auto;
+  padding-left: 14rpx;
+  border-left: 1px solid #F2F2F2;
+}
+.red-color{
+  color:#EB002A !important;
+}
+.color1{
+  color:#CBD9ED !important;
+  
+}
+.van-button--default{
+  border: none !important;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color:#EB002A !important;
+}

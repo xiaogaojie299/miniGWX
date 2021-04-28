@@ -8,7 +8,7 @@ Page({
   data: {
     lableList:[],
     studentInfo:{},
-    current :1,
+    current :1, 
     size:10,
     growUp:[]     //成长记录
   },

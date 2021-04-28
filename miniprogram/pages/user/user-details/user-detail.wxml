@@ -136,7 +136,7 @@
     <van-popup
     show="{{ isShow }}"
     round
-    position="bottom"
+    position="bottom" 
     custom-style="height: 40%"
     bind:close="onClose"
   >  <my-picker-time bindselectTime="selectTime" bindtimeCancel="timeCancel"></my-picker-time>

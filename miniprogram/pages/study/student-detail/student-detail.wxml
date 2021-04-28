@@ -9,11 +9,11 @@
       </view>
      <view class="study-time flex-between">
           <view class="study-time-left">
-            <view class="color2 mt-10 mb-10"><text class="color1">62</text>分钟</view>
+            <view class="color2 mt-10 mb-10"><text class="color1">{{studentInfo.todayMinute}}</text>分钟</view>
             <view style="font-size:20rpx;color:#6C6C6C">今日学习</view>
           </view>
           <view class="study-time-right">
-            <view class="color2 mt-10 mb-10"><text class="color1">62</text>天</view>
+            <view class="color2 mt-10 mb-10"><text class="color1">{{studentInfo.cumulativeDay}}</text>天</view>
             <view style="font-size:20rpx;color:#6C6C6C">累计学习</view>
           </view>
           <!-- 中间横线 -->

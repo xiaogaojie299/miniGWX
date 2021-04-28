@@ -134,3 +134,9 @@ input {
   font-weight: 500;
   color: #FFFFFF;
 }
+.no-id{
+  display: flex;
+  justify-content: center;
+  margin:20rpx 0;
+  font-size:28rpx;
+}

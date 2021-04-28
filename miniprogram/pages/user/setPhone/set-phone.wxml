@@ -1,0 +1,15 @@
+
+<view class="content">
+  <view class="phone-box">
+    <image src="/images/phone@2x.png"></image>
+    <text>当前绑定手机号</text>
+    <text>{{regPhone}}</text>
+  </view>
+
+  <view class="info">如需修改绑定手机号，请选择身份校验方式</view>
+</view>
+
+<van-cell title="验证当前手机号" is-link link-type="navigateTo"
+  url="/pages/user/setPhone/verify/verify?type=phone&phone={{phone}}"/>
+  <van-cell title="验证登录密码" is-link  link-type="navigateTo"
+  url="/pages/user/setPhone/verify/verify?type=password"/>

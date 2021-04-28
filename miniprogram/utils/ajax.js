@@ -31,7 +31,16 @@ class Ajax {
               dataType: 'json',
               responseType: 'text',
               success: res => {
+                  console.log(res);
                   resolve(res.data)
+                //   if(res.data.code!==200){
+                //     wx.showToast({
+                //         title: res.data.msg,
+                //         icon:"none"
+                //       })
+                //   }else{
+                //     resolve(res.data)
+                //   }
               },
               fail: err => {
                   wx.showToast({
@@ -49,7 +58,8 @@ class Ajax {
 }
 
 const ajax = new Ajax({
-    baseURL:"https://gengwoxue.com:443/teacher"
+    baseURL:"https://gengwoxue.com:443/teacher",
+    type:""
 })
 
 /**

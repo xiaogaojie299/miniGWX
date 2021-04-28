@@ -4,7 +4,18 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    rankList:{
+      type:Object
+    },
+    title:{
+      type:String,
+      value:"老师课时数排行榜"
+    },
+    type:{  // 1老师课时排行榜  2.推广人数排行榜
+      type:String/Number,
+      value:1 
+    },
+    
   },
 
   /**

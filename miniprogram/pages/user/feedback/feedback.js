@@ -35,14 +35,14 @@ Page({
         _this.setData({
           tempFilePaths: tempFiles
         });
-        console.log(app.uploadimg(tempFiles));
-        app.uploadimg(tempFiles).then(res=>{
+        console.log("上传的图片",_this.data.tempFilePaths)
+        app.uploadimg(res.tempFilePaths).then(res=>{
           _this.setData({
             picList:_this.data.picList.concat(res)
           })
         })
       }
-    });
+    }); 
   },
   inputOpinion(event){//留言板输入的数据
       let {opinionValue} = this.data;
@@ -53,8 +53,16 @@ Page({
   async setFeedback(){//提交问题反馈操作
     let {picList,opinionValue}=this.data;
     console.log("picList===>",picList.toString())
+    console.log("opinionValue",opinionValue)
+    if(opinionValue.trim().length==0){
+      return wx.showToast({
+        title: "请提出您的宝贵意见",
+        duration: 2000,
+        icon:'none'
+       });
+    }
     let pamars = {
-      opinionValue,
+      content:opinionValue,
       img:picList.toString()
     }
     let res =await optFeedback(pamars);

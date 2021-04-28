@@ -1,0 +1,27 @@
+<!--miniprogram/pages/forgetUpwd/index.wxml-->
+<view>
+  <!-- input框 -->
+  <view wx:if="{{isvisib}}" style="padding:0 40rpx;margin-top:26rpx" >短信验证码已发送至绑定手机号{{encPhone}}</view>
+  <view class="input-box">
+    <view class="input-item" wx:for="{{list}}" wx:key="index">
+      <input 
+      placeholder="{{item.placeholder}}"
+      style="{{item.title?'width:70%':'width:100%'}}" 
+      type="{{item.type}}"
+      maxlength="{{item.maxlength}}"
+      bindinput="inputValue"
+      data-i="{{index+1}}"
+      placeholder-style='font-size: 30rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #B2B2BF;'
+      />
+      <view bindtap="get_code" class="right-title">{{!isvisib?item.title: item.title?i+"后重新发送":""}}</view>
+    </view> 
+  </view>
+  <!-- 您也可以拨打服务电话 -->
+  <view class="title-bar">
+    您也可以拨打服务电话联系平台重置密码：{{kfPhone}}
+  </view>
+  <!-- 下面按钮 -->
+  <view class="{{phone&&code&&newPwd&&redoPwd?'click':'no-click'}} btn" bindtap="submit{{phone&&code&&newPwd&&redoPwd?'':'1'}}">
+    <view class="test">确定</view> 
+  </view>
+</view>

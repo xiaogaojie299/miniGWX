@@ -3,7 +3,7 @@ import {validatePhoneNumber} from "../../../utils/regular"
 import {
   querySubjectList,optTeacherApply
 } from "../../../utils/api"
-Page({
+Page({ 
 
   /**
    * 页面的初始数据
@@ -160,6 +160,7 @@ Page({
   //提交
   async submit(){
     let {name,sex,phone,address,resume,birthday,school,education,major,subjectIds,picPaths}=this.data;
+    console.log("picPaths",picPaths.length==0);
     if(!name){
       app.Toast("姓名不能为空")
       return 
@@ -189,18 +190,21 @@ Page({
       app.Toast("请输入您的最高学历")
       return 
     }
-
+    if(!subjectIds){
+      app.Toast("请选择您的擅长课程")
+      return 
+    }
     if(!major){
       app.Toast("请输入您所学专业")
       return 
     }
-
-    if(picPaths.length==0){
-      app.Toast("请输入您擅长课程")
+    if(!picPaths){
+      app.Toast("请上传您的资质证书")
       return 
     }
     if(picPaths.length==0){
-      app.Toast("请上传宁的资质证书")
+      app.Toast("请上传您的资质证书")
+      return 
     }
     
     let pamars = {
